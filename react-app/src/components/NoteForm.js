@@ -29,6 +29,7 @@ const NoteForm = () => {
 
     return (
         <form className="noteForm" onSubmit={handleSubmit}>
+            <h1>Notes</h1>
             <div>
                 <label>Title</label>
                 <input
