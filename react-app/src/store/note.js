@@ -47,6 +47,14 @@ export const createNoteThunk = (note) => async (dispatch) => {
     });
 }
 
+export const addNoteThunk = (note) => async (dispatch) => {
+    const res = await fetch("/api/notes/", {
+        method: "POST",
+        body: JSON.stringify(note),
+        headers: {"Content-Type": "application/json"}
+    })
+}
+
 const initialState = {};
 export default function notesReducer(state = initialState, action) {
     const newState = {...state};

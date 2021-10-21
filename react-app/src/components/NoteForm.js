@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import { getNotesThunk } from "../store/note";
+import { getNotesThunk, addNoteThunk } from "../store/note";
+import Creatable from "react-select/creatable";
 
 const NoteForm = () => {
     const [title, setTitle] = useState("");
@@ -11,10 +12,17 @@ const NoteForm = () => {
     // const notebooks = useSelector(store => store.notebooks)
     const dispatch = useDispatch();
     const history = useHistory();
+    const notebooks = [
+        {value: 'notebookId', label: 'Notebook'}
+    ]
 
     useEffect(() => {
         dispatch(getNotesThunk())
     }, [dispatch])
+
+    // useEffect(() => {
+    //     dispatch(addNoteThunk())
+    // }, [dispatch])
 
     const handleSubmit = async (e) => {
         const newNote = {
@@ -23,6 +31,8 @@ const NoteForm = () => {
             user_id: user.id,
             notebook_id: notebookId
         }
+        const addNote = await dispatch(addNoteThunk(newNote));
+        history.push(`/notes/${addNote.id}`)
         e.preventDefault();
     }
 
@@ -48,7 +58,8 @@ const NoteForm = () => {
                     value={content}
                 ></input>
             </div>
-            <button type="submit">Create Note</button>
+            <Creatable options={notebooks} />
+            <button type="submit">Save Note</button>
         </form>
     )
 }
