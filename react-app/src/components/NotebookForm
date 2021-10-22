@@ -1,0 +1,41 @@
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router";
+import { getNotebooksThunk, addNotebookThunk } from "../store/notebook";
+import Creatable from "react-select/creatable";
+
+const NotebookForm = () => {
+    const [title, setTitle] = useState("");
+    const [noteId, setNoteId] = useState("");
+    const user = useSelector((state) => state.session.user);
+    // const notes = useSelector(store => store.notes)
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const notes = [
+        {value: 'noteId', label: 'Note'}
+    ]
+
+    useEffect(() => {
+        dispatch(getNotebooksThunk())
+    }, [dispatch])
+
+    // useEffect(() => {
+    //     dispatch(addNoteThunk())
+    // }, [dispatch])
+
+    const handleSubmit = async (e) => {
+        const newNotebook = {
+            title,
+            note_id: noteId
+        }
+        const addNotebook = await dispatch(addNotebookThunk(newNotebook));
+        history.push(`/notebooks/${addNotebook}`)
+        e.preventDefault();
+    }
+
+    return (
+
+    )
+}
+
+export default NotebookForm;

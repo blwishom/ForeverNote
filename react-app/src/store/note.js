@@ -20,17 +20,17 @@ const createNoteAction = (note) => ({
 })
 
 console.log("Hello")
-export const getNotesThunk = () => async (dispatch) => {
-    const res = await fetch("/api/notes/");
-    console.log("Hello 2")
-    if (res.ok) {
-        console.log("Hello 3")
-        const notes = await res.json();
-        dispatch(getNotesAction(notes));
-    }
-    console.log("Hello 4")
-    return res;
-};
+// export const getNotesThunk = () => async (dispatch) => {
+//     const res = await fetch("/api/notes/");
+//     console.log("Hello 2")
+//     if (res.ok) {
+//         console.log("Hello 3")
+//         const notes = await res.json();
+//         dispatch(getNotesAction(notes));
+//     }
+//     console.log("Hello 4")
+//     return res;
+// };
 
 export const getOneNoteThunk = (id) => async (dispatch) => {
     console.log("Get one note thunk 1")

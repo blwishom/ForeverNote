@@ -2,7 +2,7 @@ from app.models import db, User, Note, Notebook
 
 def seed_notebooks():
     demo = Notebook(
-        user_id=1, note_id='1', title='The Notebook 1')
+        user_id=1, title='The Notebook 1')
     marnie = Notebook(
         user_id=2, title='The Notebook 2')
     bobbie = Notebook(

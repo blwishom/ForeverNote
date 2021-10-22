@@ -6,7 +6,8 @@ import Creatable from "react-select/creatable";
 
 const NoteForm = () => {
     const [title, setTitle] = useState("");
-    const [content, setContent] = useState("")
+    const [content, setContent] = useState("");
+    const [notes, setNotes] = useState([]);
     const [notebookId, setNotebookId] = useState("");
     const user = useSelector((state) => state.session.user);
     // const notebooks = useSelector(store => store.notebooks)
@@ -17,9 +18,26 @@ const NoteForm = () => {
     ]
 
     useEffect(() => {
-        dispatch(getNotesThunk())
-    }, [dispatch])
+        (async function notesFetch() {
+        const res = await fetch("/api/notes/");
+        if (res.ok) {
+            const notes = await res.json();
+            setNotes(notes.notes)
+        }
+    })()
+}, [dispatch])
 
+useEffect(() => {
+    (async function notesFetch() {
+    const res = await fetch("/api/notes/");
+    if (res.ok) {
+        const notes = await res.json();
+        setNotes(notes.notes)
+    }
+})()
+}, [dispatch])
+
+console.log(notes)
     // useEffect(() => {
     //     dispatch(addNoteThunk())
     // }, [dispatch])
@@ -32,12 +50,12 @@ const NoteForm = () => {
             notebook_id: notebookId
         }
         const addNote = await dispatch(addNoteThunk(newNote));
-        history.push(`/notes/${addNote.id}`)
         e.preventDefault();
     }
 
 
     return (
+        <>
         <form className="noteForm" onSubmit={handleSubmit}>
             <h1>Notes</h1>
             <div>
@@ -56,11 +74,16 @@ const NoteForm = () => {
                     name="content"
                     onChange={(e) => {setContent(e.target.value)}}
                     value={content}
-                ></input>
+                    ></input>
             </div>
             <Creatable options={notebooks} />
             <button type="submit">Save Note</button>
         </form>
+        <br/>
+                    {notes.map((note) => {
+                        return (<div>{note.title}<br/>{note.content}</div>)
+                    })}
+        </>
     )
 }
 
