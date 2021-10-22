@@ -21,7 +21,7 @@ const createNoteAction = (note) => ({
 
 console.log("Hello")
 export const getNotesThunk = () => async (dispatch) => {
-    const res = await fetch("/api/notes");
+    const res = await fetch("/api/notes/");
     console.log("Hello 2")
     if (res.ok) {
         console.log("Hello 3")
