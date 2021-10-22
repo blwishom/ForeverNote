@@ -7,3 +7,5 @@ class Notebook(db.model):
     title = db.Column(db.String(50), nullable=False, unique=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     note_id = db.Column(db.Integer, db.ForeignKey("notes.id"), nullable=False)
+
+    note = db.relationship("Note", back_populates="notebooks")
