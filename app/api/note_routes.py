@@ -9,9 +9,9 @@ note_routes = Blueprint('notes', __name__)
 @note_routes.route('/', methods=["GET"])
 @login_required
 def get_notes():
-    print('Hello from /')
-    notes = Note.query.all()
-    return {'note': [note.to_dict() for note in notes]}
+    user_id = current_user.id
+    notes = Note.query.filter(Note.user_id == user_id)
+    return {'note': note.to_dict() for note in notes}
 
 @note_routes.route('/<int:note_id>', methods=["GET"])
 @login_required
@@ -32,7 +32,6 @@ def get_one_note(note_id):
 @note_routes.route('/', methods=["POST"])
 @login_required
 def new_note():
-    print('Hello from /')
     form = NoteForm()
     form['csrf_token'].data = request.cookie['csrf_token']
     if form.validate_on_submit():

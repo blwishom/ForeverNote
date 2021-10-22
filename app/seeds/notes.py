@@ -1,12 +1,12 @@
-from app.models import db, User, Notes
+from app.models import db, User, Note
 
 def seed_notes():
     demo = Note(
-        user_id=1, notebook_id=1, title='The Note', content='This is a reminder that I am writing my first note')
+        user_id=1, title='The Note 1', content='This is a reminder that I am writing my first note')
     marnie = Note(
-        user_id=2, notebook_id=2, title='The Note', content='This is a reminder that I am writing my second note'))
+        user_id=2, title='The Note 2', content='This is a reminder that I am writing my second note')
     bobbie = Note(
-        user_id=3, notebook_id=3, title='The Note', content='This is a reminder that I am writing my third note')
+        user_id=3, title='The Note 3', content='This is a reminder that I am writing my third note')
 
     db.session.add(demo)
     db.session.add(marnie)
