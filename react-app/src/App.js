@@ -12,6 +12,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import NotePage from './components/NotePage/NotePage';
 import EditForm from './components/EditForm';
+import './index.css';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
