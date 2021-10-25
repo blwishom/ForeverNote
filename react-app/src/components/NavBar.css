@@ -2,8 +2,11 @@
     background-color: chartreuse;
     float: left;
     width: 250px;
-    height: 100%;
-    margin-right: 200px;
+    height: 100vh;
+    margin-right: 1px;
+    /* position: absolute;
+    top: 0px;
+    left: 0px; */
 }
 
 .navbar-ul {

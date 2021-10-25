@@ -34,7 +34,7 @@ async function editNote(noteId) {
         notebookId: notebookId
         }
 
-    const res = await fetch(`/api/notes/${noteId}`, {
+    const res = await fetch(`/api/notes/${noteId}/`, {
         method: "POST",
         body: JSON.stringify({...newNote}),
         headers: {"Content-Type": "application/json"}
