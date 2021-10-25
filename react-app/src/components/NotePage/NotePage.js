@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import Creatable from "react-select/creatable";
+import './NotePage.css'
 
 const NotePage = () => {
     const [notes, setNotes] = useState([]);
@@ -64,13 +65,13 @@ async function deleteNote(noteId) {
     return (
         <>
         <h1>Notes Page</h1>
-                    {notes.map((note) => {
-                        return (<div>
-                            {note.title}<br/>{note.content}
-                            <button onClick={() => history.push(`/notes/${note.id}/edit`)}>Edit</button>
-                            <button onClick={() => deleteNote(note.id)}>Delete</button>
-                            </div>)
-                    })}
+        {notes.map((note) => {
+            return (<div>
+                <div className="note-div">{note.title}<br/>{note.content}</div>
+                <button onClick={() => history.push(`/notes/${note.id}/edit`)}>Edit</button>
+                <button onClick={() => deleteNote(note.id)}>Delete</button>
+                </div>)
+        })}
         </>
     )
 }
