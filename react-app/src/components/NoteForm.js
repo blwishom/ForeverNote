@@ -48,7 +48,7 @@ async function createNote(e) {
         content,
         user_id: user.id
         }
-        const res = await fetch("/api/notes/new/", {
+        const res = await fetch("/api/notes/new", {
             method: "POST",
             body: JSON.stringify({...newNote}),
             headers: {"Content-Type": "application/json"}
