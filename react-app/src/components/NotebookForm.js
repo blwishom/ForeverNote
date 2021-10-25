@@ -24,17 +24,33 @@ const NotebookForm = () => {
     // }, [dispatch])
 
     const handleSubmit = async (e) => {
-        const newNotebook = {
+        const newNote = {
             title,
-            note_id: noteId
+            // content,
+            // user_id: user.id,
+            // notebook_id: notebookId
         }
-        const addNotebook = await dispatch(addNotebookThunk(newNotebook));
-        history.push(`/notebooks/${addNotebook}`)
+        const addNotebook = await dispatch(addNotebookThunk(newNote));
+        history.push(`/notes/${addNotebook.id}`)
         e.preventDefault();
     }
 
-    return (
 
+    return (
+        <form className="noteForm" onSubmit={handleSubmit}>
+            <h1>Notebooks</h1>
+            <div>
+                <label>Title</label>
+                <input
+                    type="text"
+                    name="title"
+                    onChange={(e) => {setTitle(e.target.value)}}
+                    value={title}
+                ></input>
+            </div>
+            <Creatable options={notes} />
+            <button type="submit">Save Note</button>
+        </form>
     )
 }
 

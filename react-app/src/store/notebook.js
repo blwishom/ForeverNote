@@ -4,19 +4,19 @@ const GET_NOTEBOOKS = "notes/GET_NOTEBOOKS";
 const GET_ONENOTEBOOK = "notes/GETONE_NOTEBOOK";
 const CREATE_NOTEBOOK = "notes/CREATE_NOTEBOOK";
 
-const getNotesAction = (notebookbooks) => ({
+const getNotebooksAction = (notebooks) => ({
     type: GET_NOTEBOOKS,
-    payload: notes
+    payload: notebooks
 });
 
-const getOneNoteAction = (notebookbook) => ({
+const getOneNotebookAction = (notebook) => ({
     type: GET_ONENOTEBOOK,
-    payload: notebookbook
+    payload: notebook
 });
 
-const createNoteAction = (notebookbook) => ({
+const createNotebookAction = (notebook) => ({
     type: CREATE_NOTEBOOK,
-    payload: notebookbook
+    payload: notebook
 })
 
 console.log("Hello")
@@ -26,7 +26,7 @@ export const getNotebooksThunk = () => async (dispatch) => {
     if (res.ok) {
         console.log("Hello 3")
         const notebooks = await res.json();
-        dispatch(getNotebooksAction(notes));
+        dispatch(getNotebooksAction(notebooks));
     }
     console.log("Hello 4")
     return res;

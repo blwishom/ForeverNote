@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import Creatable from "react-select/creatable";
 
-const NoteForm = () => {
+const EditForm = () => {
+    const { noteId } = useParams();
+    console.log(noteId, '<---------ID')
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [notes, setNotes] = useState([]);
@@ -38,8 +40,8 @@ async function oneNoteFetch(noteId) {
             }
         }
 
-    // Create note thunk
-async function createNote(e) {
+    // Edit note thunk
+async function editNote(e) {
     e.preventDefault();
     console.log(user.id, 'USER ID <================')
     const newNote = {
@@ -47,8 +49,8 @@ async function createNote(e) {
         content,
         user_id: user.id
         }
-        const res = await fetch("/api/notes/new", {
-            method: "POST",
+        const res = await fetch(`/api/notes/${noteId}/edit`, {
+            method: "PUT",
             body: JSON.stringify({...newNote}),
             headers: {"Content-Type": "application/json"}
         });
@@ -64,8 +66,8 @@ async function createNote(e) {
 
     return (
         <>
-        <form className="noteForm" onSubmit={createNote}>
-            <h1>Create Note</h1>
+        <form className="noteForm" onSubmit={editNote}>
+            <h1>Edit Note</h1>
             <div>
                 <label>Title</label>
                 <input
@@ -85,10 +87,10 @@ async function createNote(e) {
                     ></input>
             </div>
             <Creatable options={notebooks} />
-            <button type="submit">Save Note</button>
+            <button type="submit">Edit Note</button>
         </form>
         </>
     )
 }
 
-export default NoteForm;
+export default EditForm;
