@@ -66,8 +66,8 @@ async function createNote(e) {
             <div className="note-form-div">
             <h1>Create Note</h1>
             <div>
-                <label></label>
                 <input
+                    className="title-div"
                     type="text"
                     name="title"
                     placeholder="Title"
@@ -81,7 +81,7 @@ async function createNote(e) {
                     onChange={(e) => {setContent(e.target.value)}}
                     value={content}
                 ></textarea>
-                <Creatable options={notebooks} />
+                <Creatable className="notebook-select" options={notebooks.title} />
                 <button type="submit">Save Note</button>
             </div>
             </div>

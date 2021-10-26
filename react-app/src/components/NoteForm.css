@@ -4,7 +4,11 @@
     height: 80%;
 }
 
-.note-textarea {
-    width: 80%;
-    height: 80%;
+.note-textarea, .title-div {
+    width: 50%;
+}
+
+.notebook-select {
+    width: 30%;
+    height: 50%;
 }

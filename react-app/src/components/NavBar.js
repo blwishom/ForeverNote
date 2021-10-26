@@ -3,12 +3,16 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import NoteForm from './NoteForm';
+import SearchNotes from './SearchBar'
 import './NavBar.css'
 
 const NavBar = () => {
   return (
     <nav className="navbar">
       <ul className="navbar-ul">
+        <div>
+          <SearchNotes />
+        </div>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
