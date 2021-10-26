@@ -5,7 +5,7 @@ import { useHistory } from "react-router";
 
 const SearchNotes = () => {
     const [notes, setNotes] = useState([]);
-    // const user = useSelector((state) => state.session.user);
+    const user = useSelector((state) => state.session.user);
     const noteSearch = useSelector(state => state.search?.notes)
     const history = useHistory();
 
@@ -26,7 +26,7 @@ const SearchNotes = () => {
             setNotes(notes.notes)
         }
     })()
-})
+}, [noteSearch])
 
 const result = filteredNotes(notes, noteSearch)
 

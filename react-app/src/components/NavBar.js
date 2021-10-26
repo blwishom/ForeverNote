@@ -13,49 +13,49 @@ const NavBar = () => {
         <div>
           <SearchNotes />
         </div>
-        <li>
+        <ul>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
-        </li>
-        <li>
+        </ul>
+        <ul>
           <NavLink to='/notes' exact={true} activeClassName='active'>
             Notes
           </NavLink>
-        </li>
-        <li>
+        </ul>
+        <ul>
           <NavLink to='/notes/new' exact={true} activeClassName='active'>
             Create Notes
           </NavLink>
-        </li>
-        <li>
+        </ul>
+        <ul>
           <NavLink to='/notebooks' exact={true} activeClassName='active'>
             Notebooks
           </NavLink>
-        </li>
-        <li>
+        </ul>
+        <ul>
           <NavLink to='/notebooks/new' exact={true} activeClassName='active'>
             Create Notebooks
           </NavLink>
-        </li>
-        <li>
+        </ul>
+        <ul>
           <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink>
-        </li>
-        <li>
+        </ul>
+        <ul>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>
-        </li>
-        <li>
+        </ul>
+        <ul>
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
-        </li>
-        <li>
+        </ul>
+        <ul>
           <LogoutButton />
-        </li>
+        </ul>
       </ul>
     </nav>
   );
