@@ -4,6 +4,7 @@
     padding-left: 2px;
 }
 
+<<<<<<< HEAD
 .note-textarea, .title-input {
     width: 70%;
     display: flex;
@@ -27,4 +28,13 @@
     height: 100vh;
     padding: 5px;
     /* position: relative; */
+=======
+.note-textarea, .title-div {
+    width: 50%;
+}
+
+.notebook-select {
+    width: 30%;
+    height: 50%;
+>>>>>>> 73e39dcd8fc58a9efb6ba0ba5e8db2ee4ce9f5e3
 }
