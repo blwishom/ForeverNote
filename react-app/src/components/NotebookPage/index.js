@@ -62,13 +62,13 @@ async function deleteNotebook(notebookId) {
     return (
         <>
         <h1>Notebooks Page</h1>
-        {/* {notebooks.map((notebook) => {
+        {notebooks?.notebooks?.id.map((notebook) => {
             return (<div>
                 <div className="notebook-div">{notebook.title}<br/>{notebook.content}</div>
                 <button onClick={() => history.push(`/notebooks/${notebook.id}/edit`)}>Edit</button>
                 <button onClick={() => deleteNotebook(notebook.id)}>Delete</button>
                 </div>)
-        })} */}
+        })}
         </>
     )
 }
