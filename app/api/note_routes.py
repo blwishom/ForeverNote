@@ -15,7 +15,7 @@ def get_notes():
     notes = Note.query.filter(Note.user_id == user_id)
     return {'notes': [note.to_dict() for note in notes]}
 
-#Get one note
+# Get one note
 @note_routes.route('/<int:note_id>', methods=["GET"])
 @login_required
 def get_one_note(note_id):
@@ -23,6 +23,7 @@ def get_one_note(note_id):
     note = Note.query.get(note_id)
     return note.to_dict()
 
+# Delete note
 @note_routes.route('/<int:note_id>', methods=["DELETE"])
 @login_required
 def delete_one_note(note_id):
@@ -32,6 +33,7 @@ def delete_one_note(note_id):
     db.session.commit()
     return {'message': 'Note deleted'}
 
+# Create note
 @note_routes.route('/new', methods=["POST"])
 @login_required
 def new_note():
@@ -51,6 +53,7 @@ def new_note():
     else:
         return { 'errors': validation_errors_to_error_messages(form.errors)}, 400
 
+# Edit note
 @note_routes.route('/<int:note_id>/edit', methods=["PUT"])
 @login_required
 def edit_note(note_id):
