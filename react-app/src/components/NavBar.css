@@ -1,9 +1,10 @@
 .navbar {
-    background-color: chartreuse;
+    background-color: rgb(142, 128, 128);
     float: left;
     width: 250px;
     height: 100vh;
     margin-right: 1px;
+    text-decoration: none;
     /* position: absolute;
     top: 0px;
     left: 0px; */

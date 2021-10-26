@@ -1,0 +1,13 @@
+.note-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(218, 211, 211);
+}
+
+.note-page-div {
+    font-size: 25px;
+    margin-bottom: 30px;
+    padding: 10px;
+}

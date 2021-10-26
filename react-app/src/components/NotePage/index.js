@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import Creatable from "react-select/creatable";
-import './NotePage.css'
+import './index.css'
 
 const NotePage = () => {
     const [notes, setNotes] = useState([]);
@@ -25,7 +25,7 @@ const NotePage = () => {
         })()
     }, [noteCreated, noteDeleted])
 
-        // Edit note 
+        // Edit note
 async function editNote(noteId) {
     const newNote = {
         title,
@@ -67,9 +67,10 @@ async function deleteNote(noteId) {
         <h1>Notes Page</h1>
         {notes.map((note) => {
             return (<div>
-                <div className="note-div">{note.title}<br/>{note.content}</div>
+                <div className="note-page-div">Title: {note.title}<br/> Content: {note.content}
                 <button onClick={() => history.push(`/notes/${note.id}/edit`)}>Edit</button>
                 <button onClick={() => deleteNote(note.id)}>Delete</button>
+                </div>
                 </div>)
         })}
         </>

@@ -62,12 +62,23 @@ async function createNote(e) {
 
     return (
         <>
+        <div className="displayed-notes-div">
+            {notes.map((note) => {
+                return (
+                <div>
+                    <div className="note-div">{note.title}<br/>{note.content}</div>
+                </div>
+                )
+             })}
+        </div>
+
         <form className="note-form-form" onSubmit={createNote}>
             <div className="note-form-div">
             <h1>Create Note</h1>
             <div>
-                <label></label>
+                {/* <div role="toolbar"></div> */}
                 <input
+                    className="title-input"
                     type="text"
                     name="title"
                     placeholder="Title"
@@ -81,7 +92,7 @@ async function createNote(e) {
                     onChange={(e) => {setContent(e.target.value)}}
                     value={content}
                 ></textarea>
-                <Creatable options={notebooks} />
+                <Creatable className="notebook-select" options={notebooks} />
                 <button type="submit">Save Note</button>
             </div>
             </div>

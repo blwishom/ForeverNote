@@ -64,7 +64,7 @@ async function deleteNotebook(notebookId) {
         <h1>Notebooks Page</h1>
         {notebooks?.notebooks?.id.map((notebook) => {
             return (<div>
-                <div className="notebook-div">{notebook.title}<br/>{notebook.content}</div>
+                <div className="notebook-div">'{notebook.id}<br/>{notebook.title}'</div>
                 <button onClick={() => history.push(`/notebooks/${notebook.id}/edit`)}>Edit</button>
                 <button onClick={() => deleteNotebook(notebook.id)}>Delete</button>
                 </div>)
