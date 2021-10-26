@@ -11,12 +11,9 @@ const NoteForm = () => {
     const [notebookId, setNotebookId] = useState(-1);
     const [noteCreated, setNoteCreated] = useState(false);
     const user = useSelector((state) => state.session.user);
-    // const notebooks = useSelector(store => store.notebooks)
+    const notebooks = [{value: 'notebookId', label: 'Notebook'}]
     const dispatch = useDispatch();
     const history = useHistory();
-    const notebooks = [
-        {value: 'notebookId', label: 'Notebook'}
-    ]
 
     // Get all notes
     useEffect(() => {
@@ -42,7 +39,7 @@ async function oneNoteFetch(noteId) {
     // Create note
 async function createNote(e) {
     e.preventDefault();
-    console.log(user.id, 'USER ID <================')
+    console.log(user.id, '<================USER ID')
     const newNote = {
         title,
         content,

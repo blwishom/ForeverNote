@@ -14,7 +14,7 @@ const NotePage = () => {
     const [noteDeleted, setNoteDeleted] = useState(false);
     const history = useHistory();
 
-    // Get all notes thunk
+    // Get all notes
     useEffect(() => {
         (async function notesFetch() {
         const res = await fetch("/api/notes/");
@@ -25,7 +25,7 @@ const NotePage = () => {
         })()
     }, [noteCreated, noteDeleted])
 
-        // Edit note thunk
+        // Edit note 
 async function editNote(noteId) {
     const newNote = {
         title,
@@ -47,7 +47,7 @@ async function editNote(noteId) {
     return res;
 }
 
-// Delete note thunk
+// Delete note
 async function deleteNote(noteId) {
     const res = await fetch(`/api/notes/${noteId}`, {
         method: "DELETE",
