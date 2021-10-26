@@ -4,37 +4,18 @@
     padding-left: 2px;
 }
 
-<<<<<<< HEAD
-.note-textarea, .title-input {
-    width: 70%;
-    display: flex;
-    align-content: space-around;
-    font-size: 25px;
-    outline: none;
-    border: none;
-    padding: 10px;
-    resize: none;
-    overflow: hidden;
-}
-
-.notebook-select {
-    width: 20%;
-    position: absolute;
-}
-
-.note-div {
-    float: left;
-    width: 50px;
-    height: 100vh;
-    padding: 5px;
-    /* position: relative; */
-=======
 .note-textarea, .title-div {
     width: 50%;
+    font-size: 25px;
+    overflow: hidden;
+    text-decoration: none;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 10px;
 }
 
 .notebook-select {
     width: 30%;
     height: 50%;
->>>>>>> 73e39dcd8fc58a9efb6ba0ba5e8db2ee4ce9f5e3
 }
