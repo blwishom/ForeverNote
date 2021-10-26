@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import Creatable from "react-select/creatable";
+import './NoteForm.css'
 
 const NoteForm = () => {
     const [title, setTitle] = useState("");
@@ -10,14 +11,11 @@ const NoteForm = () => {
     const [notebookId, setNotebookId] = useState(-1);
     const [noteCreated, setNoteCreated] = useState(false);
     const user = useSelector((state) => state.session.user);
-    // const notebooks = useSelector(store => store.notebooks)
+    const notebooks = [{value: 'notebookId', label: 'Notebook'}]
     const dispatch = useDispatch();
     const history = useHistory();
-    const notebooks = [
-        {value: 'notebookId', label: 'Notebook'}
-    ]
 
-    // Get all notes thunk
+    // Get all notes
     useEffect(() => {
         (async function notesFetch() {
         const res = await fetch("/api/notes/");
@@ -29,7 +27,7 @@ const NoteForm = () => {
     }, [noteCreated])
 
 
-    // Get one note thunk
+    // Get one note
 async function oneNoteFetch(noteId) {
         const res = await fetch(`/api/notes/${noteId}`);
         if (res.ok) {
@@ -38,10 +36,10 @@ async function oneNoteFetch(noteId) {
             }
         }
 
-    // Create note thunk
+    // Create note
 async function createNote(e) {
     e.preventDefault();
-    console.log(user.id, 'USER ID <================')
+    console.log(user.id, '<================USER ID')
     const newNote = {
         title,
         content,
@@ -64,28 +62,29 @@ async function createNote(e) {
 
     return (
         <>
-        <form className="noteForm" onSubmit={createNote}>
+        <form className="note-form-form" onSubmit={createNote}>
+            <div className="note-form-div">
             <h1>Create Note</h1>
             <div>
-                <label>Title</label>
+                <label></label>
                 <input
                     type="text"
                     name="title"
+                    placeholder="Title"
                     onChange={(e) => {setTitle(e.target.value)}}
                     value={title}
                 ></input>
-            </div>
-            <div>
-                <label>Content</label>
-                <input
-                    type="textarea"
+                <textarea
+                    className="note-textarea"
                     name="content"
+                    placeholder="Write a new note here"
                     onChange={(e) => {setContent(e.target.value)}}
                     value={content}
-                    ></input>
+                ></textarea>
+                <Creatable options={notebooks} />
+                <button type="submit">Save Note</button>
             </div>
-            <Creatable options={notebooks} />
-            <button type="submit">Save Note</button>
+            </div>
         </form>
         </>
     )

@@ -11,7 +11,9 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import NotePage from './components/NotePage/NotePage';
+import NotebookPage from './components/NotebookPage';
 import EditForm from './components/EditForm';
+import './index.css';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -41,8 +43,11 @@ function App() {
         <Route path='/notes' exact={true}>
           <NotePage />
         </Route>
-        <Route path='/notebooks' exact={true}>
+        <Route path='/notebooks/new' exact={true}>
           <NotebookForm />
+        </Route>
+        <Route path='/notebooks' exact={true}>
+          <NotebookPage />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />

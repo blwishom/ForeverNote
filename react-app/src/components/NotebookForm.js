@@ -1,43 +1,65 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import { getNotebooksThunk, addNotebookThunk } from "../store/notebook";
 import Creatable from "react-select/creatable";
 
 const NotebookForm = () => {
     const [title, setTitle] = useState("");
-    const [noteId, setNoteId] = useState("");
+    const [notebookId, setNotebookId] = useState("");
+    const [notebooks, setNotebooks] = useState([]);
     const user = useSelector((state) => state.session.user);
-    // const notes = useSelector(store => store.notes)
+    const [notebookCreated, setNotebookCreated] = useState(false);
+    const notes = [{value: 'noteId', label: 'Note'}]
     const dispatch = useDispatch();
     const history = useHistory();
-    const notes = [
-        {value: 'noteId', label: 'Note'}
-    ]
 
+    // Get all notebooks
     useEffect(() => {
-        dispatch(getNotebooksThunk())
-    }, [dispatch])
+        (async function notebooksFetch() {
+        const res = await fetch("/api/notebooks/");
+        if (res.ok) {
+            const notebooks = await res.json();
+            setNotebooks(notebooks.notebooks)
+            }
+        })()
+    }, [notebookCreated])
 
-    // useEffect(() => {
-    //     dispatch(addNoteThunk())
-    // }, [dispatch])
 
-    const handleSubmit = async (e) => {
-        const newNote = {
-            title,
-            // content,
-            // user_id: user.id,
-            // notebook_id: notebookId
+    // Get one note
+async function oneNotebookFetch(notebookId) {
+        const res = await fetch(`/api/notebooks/${notebookId}`);
+        if (res.ok) {
+            const notebooks = await res.json();
+            setNotebooks(notebooks.notebooks)
+            }
         }
-        const addNotebook = await dispatch(addNotebookThunk(newNote));
-        history.push(`/notes/${addNotebook.id}`)
-        e.preventDefault();
+
+    // Create notebook
+async function createNotebook(e) {
+    e.preventDefault();
+    console.log(user.id, '<================USER ID')
+    const newNotebook = {
+        title,
+        user_id: user.id
+        }
+        const res = await fetch("/api/notebooks/new", {
+            method: "POST",
+            body: JSON.stringify({...newNotebook}),
+            headers: {"Content-Type": "application/json"}
+        });
+        if (res.ok) {
+            const notebook = await res.json();
+            setNotebookCreated(!notebookCreated)
+            history.push("/notebooks")
+            return notebook;
+        } else {
+            return "No notebook has been retrieved"
+        }
     }
 
 
     return (
-        <form className="noteForm" onSubmit={handleSubmit}>
+        <form className="noteForm" onSubmit={createNotebook}>
             <h1>Notebooks</h1>
             <div>
                 <label>Title</label>
@@ -48,8 +70,7 @@ const NotebookForm = () => {
                     value={title}
                 ></input>
             </div>
-            <Creatable options={notes} />
-            <button type="submit">Save Note</button>
+            <button type="submit">Save Notebook</button>
         </form>
     )
 }

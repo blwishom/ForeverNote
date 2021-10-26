@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import Creatable from "react-select/creatable";
+import './NotePage.css'
 
 const NotePage = () => {
     const [notes, setNotes] = useState([]);
@@ -13,7 +14,7 @@ const NotePage = () => {
     const [noteDeleted, setNoteDeleted] = useState(false);
     const history = useHistory();
 
-    // Get all notes thunk
+    // Get all notes
     useEffect(() => {
         (async function notesFetch() {
         const res = await fetch("/api/notes/");
@@ -24,7 +25,7 @@ const NotePage = () => {
         })()
     }, [noteCreated, noteDeleted])
 
-        // Edit note thunk
+        // Edit note 
 async function editNote(noteId) {
     const newNote = {
         title,
@@ -33,7 +34,7 @@ async function editNote(noteId) {
         notebookId: notebookId
         }
 
-    const res = await fetch(`/api/notes/${noteId}`, {
+    const res = await fetch(`/api/notes/${noteId}/`, {
         method: "POST",
         body: JSON.stringify({...newNote}),
         headers: {"Content-Type": "application/json"}
@@ -46,7 +47,7 @@ async function editNote(noteId) {
     return res;
 }
 
-// Delete note thunk
+// Delete note
 async function deleteNote(noteId) {
     const res = await fetch(`/api/notes/${noteId}`, {
         method: "DELETE",
@@ -64,13 +65,13 @@ async function deleteNote(noteId) {
     return (
         <>
         <h1>Notes Page</h1>
-                    {notes.map((note) => {
-                        return (<div>
-                            {note.title}<br/>{note.content}
-                            <button onClick={() => history.push(`/notes/${note.id}/edit`)}>Edit</button>
-                            <button onClick={() => deleteNote(note.id)}>Delete</button>
-                            </div>)
-                    })}
+        {notes.map((note) => {
+            return (<div>
+                <div className="note-div">{note.title}<br/>{note.content}</div>
+                <button onClick={() => history.push(`/notes/${note.id}/edit`)}>Edit</button>
+                <button onClick={() => deleteNote(note.id)}>Delete</button>
+                </div>)
+        })}
         </>
     )
 }

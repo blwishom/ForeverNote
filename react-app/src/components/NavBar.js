@@ -3,11 +3,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import NoteForm from './NoteForm';
+import './NavBar.css'
 
 const NavBar = () => {
   return (
-    <nav>
-      <ul>
+    <nav className="navbar">
+      <ul className="navbar-ul">
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
@@ -26,6 +27,11 @@ const NavBar = () => {
         <li>
           <NavLink to='/notebooks' exact={true} activeClassName='active'>
             Notebooks
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/notebooks/new' exact={true} activeClassName='active'>
+            Create Notebooks
           </NavLink>
         </li>
         <li>
