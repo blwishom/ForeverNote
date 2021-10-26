@@ -12,13 +12,17 @@ const NotebookPage = () => {
     const [notebookDeleted, setNotebookDeleted] = useState(false);
     const history = useHistory();
 
+    console.log(notebooks)
+
     // Get all notebooks
     useEffect(() => {
         (async function notebooksFetch() {
         const res = await fetch("/api/notebooks/");
         if (res.ok) {
+            console.log('RES<=============')
             const notebooks = await res.json();
-            setNotebooks(notebooks.notebooks)
+            console.log(notebooks, '<==========Inside res.ok')
+            setNotebooks(notebooks.notebook)
             }
         })()
     }, [notebookCreated, notebookDeleted])
@@ -62,7 +66,7 @@ async function deleteNotebook(notebookId) {
     return (
         <>
         <h1>Notebooks Page</h1>
-        {notebooks?.notebooks?.id.map((notebook) => {
+        {notebooks.map((notebook) => {
             return (<div>
                 <div className="notebook-div">'{notebook.id}<br/>{notebook.title}'</div>
                 <button onClick={() => history.push(`/notebooks/${notebook.id}/edit`)}>Edit</button>

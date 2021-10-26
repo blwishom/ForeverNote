@@ -18,4 +18,5 @@
 .notebook-select {
     width: 30%;
     height: 50%;
+    position: fixed;
 }
