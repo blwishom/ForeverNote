@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import Creatable from "react-select/creatable";
-// import './NotePage.css'
+import './index.css'
 
 const NotebookPage = () => {
     const [notebooks, setNotebooks] = useState([]);
@@ -68,9 +68,10 @@ async function deleteNotebook(notebookId) {
         <h1>Notebooks Page</h1>
         {notebooks.map((notebook) => {
             return (<div>
-                <div className="notebook-div">'{notebook.title}'</div>
+                <div className="notebook-page-div">Title: {notebook.title}
                 <button onClick={() => history.push(`/notebooks/${notebook.id}/edit`)}>Edit</button>
                 <button onClick={() => deleteNotebook(notebook.id)}>Delete</button>
+                </div>
                 </div>)
         })}
         </>

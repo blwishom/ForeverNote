@@ -59,7 +59,7 @@ async function createNotebook(e) {
 
 
     return (
-        <form className="noteForm" onSubmit={createNotebook}>
+        <form className="notebook-form" onSubmit={createNotebook}>
             <h1>Notebooks</h1>
             <div>
                 <label>Title</label>

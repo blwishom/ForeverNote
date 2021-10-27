@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import Creatable from "react-select/creatable";
+import './index.css'
 
 const EditNotebookForm = () => {
     const { notebookId } = useParams();
