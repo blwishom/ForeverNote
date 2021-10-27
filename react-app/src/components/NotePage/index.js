@@ -9,9 +9,9 @@ const NotePage = () => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [notebookId, setNotebookId] = useState(-1);
-    const user = useSelector((state) => state.session.user);
     const [noteCreated, setNoteCreated] = useState(false);
     const [noteDeleted, setNoteDeleted] = useState(false);
+    const user = useSelector((state) => state.session.user);
     const history = useHistory();
 
     // Get all notes

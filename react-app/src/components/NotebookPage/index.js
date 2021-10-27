@@ -7,9 +7,9 @@ import Creatable from "react-select/creatable";
 const NotebookPage = () => {
     const [notebooks, setNotebooks] = useState([]);
     const [title, setTitle] = useState("");
-    const user = useSelector((state) => state.session.user);
     const [notebookCreated, setNotebookCreated] = useState(false);
     const [notebookDeleted, setNotebookDeleted] = useState(false);
+    const user = useSelector((state) => state.session.user);
     const history = useHistory();
 
     console.log(notebooks)
@@ -19,9 +19,9 @@ const NotebookPage = () => {
         (async function notebooksFetch() {
         const res = await fetch("/api/notebooks/");
         if (res.ok) {
-            console.log('RES<=============')
+            // console.log('RES<=============')
             const notebooks = await res.json();
-            console.log(notebooks, '<==========Inside res.ok')
+            // console.log(notebooks, '<==========Inside res.ok')
             setNotebooks(notebooks.notebook)
             }
         })()
@@ -31,8 +31,8 @@ const NotebookPage = () => {
 async function editNotebook(notebookId) {
     const newNotebook = {
         title,
-        userId: user.id,
-        notebookId: notebookId
+        // userId: user.id,
+        // notebookId: notebookId
         }
 
     const res = await fetch(`/api/notebooks/${notebookId}/`, {
@@ -68,7 +68,7 @@ async function deleteNotebook(notebookId) {
         <h1>Notebooks Page</h1>
         {notebooks.map((notebook) => {
             return (<div>
-                <div className="notebook-div">'{notebook.id}<br/>{notebook.title}'</div>
+                <div className="notebook-div">'{notebook.title}'</div>
                 <button onClick={() => history.push(`/notebooks/${notebook.id}/edit`)}>Edit</button>
                 <button onClick={() => deleteNotebook(notebook.id)}>Delete</button>
                 </div>)

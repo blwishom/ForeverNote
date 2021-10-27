@@ -13,6 +13,7 @@ import { authenticate } from './store/session';
 import NotePage from './components/NotePage';
 import NotebookPage from './components/NotebookPage';
 import EditForm from './components/EditForm';
+import EditNotebookForm from './components/NotebookPage/edit_notebook_form';
 import './index.css';
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route path='/notes/:noteId/edit' exact={true}>
           <EditForm />
+        </Route>
+        <Route path='/notebooks/:notebookId/edit' exact={true}>
+          <EditNotebookForm />
         </Route>
         <Route path='/notes' exact={true}>
           <NotePage />
