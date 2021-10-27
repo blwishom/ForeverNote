@@ -1,4 +1,5 @@
 .note-form-div {
+    /* background-color: tomato; */
     width: 100%;
     height: 80%;
     padding-left: 2px;
@@ -19,4 +20,41 @@
     width: 30%;
     height: 50%;
     position: fixed;
+}
+
+
+/* CREATE NOTES PAGE */
+.note-div {
+    background-color: springgreen;
+    overflow: scroll;
+    min-height: 200px;
+    min-width: 200px;
+    max-width: 100px;
+}
+
+/* NOTE PAGE */
+.note-page-div {
+    font-size: 25px;
+    margin-bottom: 30px;
+    padding: 10px;
+    /* position: relative; */
+}
+
+
+/* CREATE NOTE PAGE */
+.note-textarea {
+    min-height: 500px;
+    min-width: 400px;
+    background-color: tomato;
+}
+
+.notebook-select {
+    min-width: 300px;
+}
+
+/* CREATE NOTES PAGE */
+.displayed-notes-div div {
+    padding: 10px;
+    display: inline-block;
+    max-height: 200px;
 }

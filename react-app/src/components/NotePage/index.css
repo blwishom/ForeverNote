@@ -1,13 +1,18 @@
-.note-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(218, 211, 211);
-}
+
 
 .note-page-div {
-    font-size: 25px;
-    margin-bottom: 30px;
+    background-color: orange;
+    display: inline-block;
+    margin: 15px;
+    overflow: scroll;
+    min-height: 200px;
+    min-width: 400px;
+    max-width: 100px;
+    max-height: 200px;
     padding: 10px;
+    overflow: auto;
+}
+
+.note-page-btns {
+
 }
