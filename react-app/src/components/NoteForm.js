@@ -61,7 +61,7 @@ async function createNote(e) {
     }
 
     return (
-        <>
+        <div className="create-note-page-div">
         <form className="note-form-form" onSubmit={createNote}>
             <div className="note-form-div">
             <h1>Create Note</h1>
@@ -96,7 +96,7 @@ async function createNote(e) {
                 )
              })}
         </div>
-        </>
+        </div>
     )
 }
 

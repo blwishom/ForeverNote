@@ -19,7 +19,7 @@
 .notebook-select {
     width: 30%;
     height: 50%;
-    position: fixed;
+    position: static;
 }
 
 
@@ -30,6 +30,10 @@
     min-height: 200px;
     min-width: 200px;
     max-width: 100px;
+}
+
+.create-note-page-div {
+    margin-left: 1px;
 }
 
 /* NOTE PAGE */
@@ -43,9 +47,9 @@
 
 /* CREATE NOTE PAGE */
 .note-textarea {
-    min-height: 500px;
+    min-height: 400px;
     min-width: 400px;
-    background-color: tomato;
+    /* background-color: tomato; */
 }
 
 .notebook-select {

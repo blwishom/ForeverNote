@@ -5,6 +5,7 @@
     height: 100vh;
     margin-right: 1px;
     text-decoration: none;
+    position: sticky;
     /* position: absolute;
     top: 0px;
     left: 0px; */
