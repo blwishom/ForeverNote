@@ -12,7 +12,8 @@ note_routes = Blueprint('notes', __name__)
 @login_required
 def get_notes():
     user_id = current_user.id
-    notes = Note.query.filter(Note.user_id == user_id)
+    notes = Note.query.filter(Note.user_id == user_id).all()
+    print(notes, '<-----------------------------------------------NOTES')
     return {'notes': [note.to_dict() for note in notes]}
 
 # Get one note

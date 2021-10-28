@@ -68,7 +68,7 @@ async function deleteNote(noteId) {
         {notes.map((note) => {
             return (
             <div className="note-page-div">
-                Title: {note.title}<br/> Content: {note.content}
+                Title:{note.title}<br/> Content:{note.content}
                 <button className="note-page-btns" onClick={() => history.push(`/notes/${note.id}/edit`)}>Edit</button>
                 <button className="note-page-btns" onClick={() => deleteNote(note.id)}>Delete</button>
             </div>)
