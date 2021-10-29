@@ -3,6 +3,7 @@
     border-color: #00FFD1;
     border-radius: 10px;
     text-decoration: none;
+    padding-left: 5px;
 }
 
 .text-decoration {
@@ -35,6 +36,7 @@
     display: flex;
     flex-direction: column;
     align-content: space-around;
+    font-size: 32px;
 }
 
 .add-link {
@@ -45,4 +47,12 @@
     height: 40px;
     font-weight: bold;
     font-size: 20px;
+}
+
+.login-signup-div {
+    display: flex;
+    align-content: center;
+    padding: 15px;
+    margin-left: 45%;
+    margin-right: 45%;
 }

@@ -1,0 +1,26 @@
+
+
+.note-textarea {
+    min-height: 300px;
+    min-width: 400px;
+}
+
+.note-title-div {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.note-btn {
+    margin-top: 5px;
+    border: solid;
+    border-radius: 5px;
+    background-color: #00FFD1;
+    height: 40px;
+    width: 150px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.notebook-select {
+    min-width: 300px;
+}

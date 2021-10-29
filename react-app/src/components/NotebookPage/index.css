@@ -22,3 +22,36 @@
     font-weight: bold;
     font-size: 20px;
 }
+
+.edit-delete-btn {
+    margin-top: 5px;
+    border: solid;
+    border-radius: 5px;
+    background-color: #00FFD1;
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.notebook-title {
+    width: 50%;
+    font-size: 25px;
+    overflow: hidden;
+    text-decoration: none;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 10px;
+}
+
+.notebook-btn {
+    margin-top: 10px;
+    border: solid;
+    border-radius: 5px;
+    background-color: #00FFD1;
+    height: 30px;
+    width: 130px;
+    font-weight: bold;
+    font-size: 15px;
+}

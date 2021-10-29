@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import Creatable from "react-select/creatable";
+import './index.css';
 
 const EditForm = () => {
     const { noteId } = useParams();
@@ -11,6 +12,7 @@ const EditForm = () => {
     const [notes, setNotes] = useState([]);
     const [notebookId, setNotebookId] = useState(-1);
     const [noteCreated, setNoteCreated] = useState(false);
+    const [errors, setErrors] = useState([]);
     const user = useSelector((state) => state.session.user);
     // const notebooks = useSelector(store => store.notebooks)
     const dispatch = useDispatch();
@@ -54,25 +56,28 @@ async function editNote(e) {
             body: JSON.stringify({...newNote}),
             headers: {"Content-Type": "application/json"}
         });
+
+        const note = await res.json();
         if (res.ok) {
-            const note = await res.json();
             setNoteCreated(!noteCreated)
             history.push("/notes")
             return note;
-        } else {
-            return "No note has been retrieved"
+        } else if (note.errors) {
+            setErrors(note.errors)
         }
     }
 
     return (
         <>
-        <form className="noteForm" onSubmit={editNote}>
+        <form className="edit-note-form" onSubmit={editNote}>
             <h1>Edit Note</h1>
             <div>
                 <label>Title</label>
                 <input
+                    className="title-div"
                     type="text"
                     name="title"
+                    placeholder=""
                     onChange={(e) => {setTitle(e.target.value)}}
                     value={title}
                 ></input>
@@ -80,14 +85,19 @@ async function editNote(e) {
             <div>
                 <label>Content</label>
                 <input
+                    className="note-textarea"
                     type="textarea"
                     name="content"
+                    placeholder=""
                     onChange={(e) => {setContent(e.target.value)}}
                     value={content}
                     ></input>
             </div>
-            <Creatable options={notebooks} />
-            <button type="submit">Edit Note</button>
+            <Creatable className="notebook-select" options={notebooks} />
+            <button className="note-btn" type="submit">Edit Note</button>
+            <div>
+            {errors.map((error, ind) => (<li key={ind}>{error}</li>))}
+            </div>
         </form>
         </>
     )
