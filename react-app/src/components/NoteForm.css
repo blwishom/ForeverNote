@@ -17,9 +17,19 @@
 }
 
 .notebook-select {
-    width: 30%;
+    min-width: 50px;
+    max-width: 30%;
     height: 50%;
-    position: static;
+    position: static
+}
+
+.note-btn {
+    margin-top: 5px;
+    border: solid;
+    border-radius: 5px;
+    background-color: #00FFD1;
+    height: 30px;
+    font-weight: bold;
 }
 
 
@@ -48,7 +58,7 @@
 
 /* CREATE NOTE PAGE */
 .note-textarea {
-    min-height: 400px;
+    min-height: 300px;
     min-width: 400px;
     /* background-color: tomato; */
 }

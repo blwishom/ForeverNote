@@ -13,46 +13,49 @@ const NavBar = () => {
         <div>
           <SearchNotes />
         </div>
-          <NavLink to='/notes/new' exact={true} activeClassName='active'>
-           + New
-          </NavLink>
-          <div>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
+        
+        <div>
+        <NavLink className="text-decoration" to='/' exact={true} activeClassName='active'>
+          Home
+        </NavLink>
+
+        <div>
+        <NavLink className="text-decoration" to='/notes/new' exact={true} activeClassName='active'>
+          + Note
+        </NavLink>
+        </div>
+
+        <div>
+        <NavLink className="text-decoration" to='/notebooks/new' exact={true} activeClassName='active'>
+          + New Notebook
+        </NavLink>
+        </div>
+
           </div>
 
           <div>
-          <NavLink to='/notes' exact={true} activeClassName='active'>
+          <NavLink className="text-decoration" to='/notes' exact={true} activeClassName='active'>
             Notes
           </NavLink>
           </div>
 
 
-
-
-
-          <NavLink to='/notebooks' exact={true} activeClassName='active'>
+          <NavLink className="text-decoration" to='/notebooks' exact={true} activeClassName='active'>
             Notebooks
           </NavLink>
 
 
-          <NavLink to='/notebooks/new' exact={true} activeClassName='active'>
-            Create Notebooks
-          </NavLink>
-
-
-          <NavLink to='/login' exact={true} activeClassName='active'>
+          <NavLink className="text-decoration" to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink>
 
 
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
+          <NavLink className="text-decoration" to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>
 
 
-          <NavLink to='/users' exact={true} activeClassName='active'>
+          <NavLink className="text-decoration" to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
 
