@@ -9,6 +9,7 @@ const EditNotebookForm = () => {
     console.log(notebookId, '<---------ID')
     const [title, setTitle] = useState("");
     const [notebooks, setNotebooks] = useState([]);
+    const [errors, setErrors] = useState([]);
     const [notebookCreated, setNotebookCreated] = useState(false);
     const user = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
@@ -48,13 +49,14 @@ async function editNotebook(e) {
             body: JSON.stringify({...newNotebook}),
             headers: {"Content-Type": "application/json"}
         });
+        
+        const notebook = await res.json();
         if (res.ok) {
-            const notebook = await res.json();
             setNotebookCreated(!notebookCreated)
             history.push("/notebooks")
             return notebook;
-        } else {
-            return "No notebook has been retrieved"
+        } else if (notebook.errors) {
+            setErrors(notebook.errors)
         }
     }
 
@@ -65,6 +67,7 @@ async function editNotebook(e) {
             <div>
                 <label>Title</label>
                 <input
+                    className="notebook-title"
                     type="text"
                     name="title"
                     // placeholder={notebook?.title}
@@ -72,7 +75,10 @@ async function editNotebook(e) {
                     value={title}
                 ></input>
             </div>
-            <button type="submit">Edit Notebook</button>
+            <button className="notebook-btn" type="submit">Edit Notebook</button>
+            <div>
+            {errors.map((error, ind) => (<li key={ind}>{error}</li>))}
+            </div>
         </form>
         </>
     )

@@ -48,3 +48,11 @@
     font-weight: bold;
     font-size: 20px;
 }
+
+.login-signup-div {
+    display: flex;
+    align-content: center;
+    padding: 15px;
+    margin-left: 45%;
+    margin-right: 45%;
+}

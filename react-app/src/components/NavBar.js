@@ -14,8 +14,8 @@ const NavBar = () => {
   if (!user) {
     return (
       <>
+      <div className="login-signup-div">
         <div>
-          <h1>NO USER</h1>
           <NavLink to='/login' exact={true}>
           Login
           </NavLink>
@@ -25,6 +25,7 @@ const NavBar = () => {
             Sign Up
           </NavLink>
         </div>
+      </div>
       </>
     )
   } else {
@@ -53,18 +54,18 @@ const NavBar = () => {
           </NavLink>
           </div>
 
-            </div>
-
             <div>
             <NavLink className="text-decoration" to='/notes' exact={true} activeClassName='active'>
               Notes
             </NavLink>
             </div>
 
-
+            <div>
             <NavLink className="text-decoration" to='/notebooks' exact={true} activeClassName='active'>
               Notebooks
             </NavLink>
+            </div>
+          </div>
 
 
             <LogoutButton />
