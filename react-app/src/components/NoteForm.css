@@ -3,6 +3,7 @@
     width: 100%;
     height: 80%;
     padding-left: 2px;
+    margin: -21px;
 }
 
 .note-textarea, .title-div {
@@ -25,11 +26,12 @@
 
 /* CREATE NOTES PAGE */
 .note-div {
-    background-color: springgreen;
-    overflow: scroll;
+    overflow: auto;
     min-height: 200px;
     min-width: 200px;
     max-width: 100px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgb(223, 216, 216);
 }
 
 .create-note-page-div {
@@ -61,4 +63,16 @@
     padding: 10px;
     display: inline-block;
     max-height: 200px;
+    margin: 15px;
+    /* border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgb(223, 216, 216); */
+}
+
+.note-title-div {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.note-page-backgound-img {
+    background-image: url('https://www.carid.com/images/inspiration/chevy/camaro/72/1.jpg')
 }

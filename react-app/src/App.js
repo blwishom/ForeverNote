@@ -15,6 +15,8 @@ import NotebookPage from './components/NotebookPage';
 import EditForm from './components/EditForm';
 import EditNotebookForm from './components/NotebookPage/edit_notebook_form';
 import './index.css';
+import image from './components/images/notes-taking-img.jpg';
+import { NavLink } from 'react-router-dom';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -66,7 +68,18 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <div className="home-img" style={{backgroundImage: `url(${image})`}}>
+          </div>
+          <div className="home-text">
+            <h1>WELCOME TO FOREVER NOTE!</h1>
+            <h2></h2>
+            <NavLink to='/notes/new' exact={true} activeClassName='active'>
+            create a new note
+          </NavLink>
+          <NavLink to='/notebooks/new' exact={true} activeClassName='active'>
+            create a new notebook
+          </NavLink>
+          </div>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

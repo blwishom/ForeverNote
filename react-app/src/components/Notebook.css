@@ -1,0 +1,10 @@
+.notebook-title {
+    width: 50%;
+    font-size: 25px;
+    overflow: hidden;
+    text-decoration: none;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 10px;
+}

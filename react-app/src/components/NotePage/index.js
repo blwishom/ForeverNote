@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import Creatable from "react-select/creatable";
-import './index.css'
+import './index.css';
+import '../images/old-school-maro.jpg';
 
 const NotePage = () => {
     const [notes, setNotes] = useState([]);
@@ -68,7 +69,9 @@ async function deleteNote(noteId) {
         {notes.map((note) => {
             return (
             <div className="note-page-div">
-                Title:{note.title}<br/> Content:{note.content}
+                <div className="note-page-title-div">{note.title}</div>
+                <br/>
+                {note.content}
                 <button className="note-page-btns" onClick={() => history.push(`/notes/${note.id}/edit`)}>Edit</button>
                 <button className="note-page-btns" onClick={() => deleteNote(note.id)}>Delete</button>
             </div>)

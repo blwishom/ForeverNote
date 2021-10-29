@@ -13,20 +13,23 @@ const NavBar = () => {
         <div>
           <SearchNotes />
         </div>
-
+          <NavLink to='/notes/new' exact={true} activeClassName='active'>
+           + New
+          </NavLink>
+          <div>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
+          </div>
 
-
+          <div>
           <NavLink to='/notes' exact={true} activeClassName='active'>
             Notes
           </NavLink>
+          </div>
 
 
-          <NavLink to='/notes/new' exact={true} activeClassName='active'>
-            Create Notes
-          </NavLink>
+
 
 
           <NavLink to='/notebooks' exact={true} activeClassName='active'>

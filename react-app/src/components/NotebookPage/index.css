@@ -1,11 +1,24 @@
 .notebook-page-div {
-    font-size: 25px;
-    margin-bottom: 30px;
+    display: inline-block;
+    margin: 15px;
+    overflow: scroll;
+    min-height: 200px;
+    min-width: 400px;
+    max-width: 100px;
+    max-height: 200px;
     padding: 10px;
+    overflow: auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgb(223, 216, 216);
 }
 
 .notebook-form {
     font-size: 25px;
     margin-bottom: 30px;
     padding: 10px;
+}
+
+.notebook-title-div {
+    font-weight: bold;
+    font-size: 20px;
 }

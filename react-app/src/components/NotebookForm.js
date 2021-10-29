@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import Creatable from "react-select/creatable";
+import './Notebook.css'
 
 const NotebookForm = () => {
     const [title, setTitle] = useState("");
     const [notebookId, setNotebookId] = useState("");
     const [notebooks, setNotebooks] = useState([]);
+    const [errors, setErrors] = useState([]);
     const user = useSelector((state) => state.session.user);
     const [notebookCreated, setNotebookCreated] = useState(false);
     const notes = [{value: 'noteId', label: 'Note'}]
@@ -37,7 +39,6 @@ async function oneNotebookFetch(notebookId) {
     // Create notebook
 async function createNotebook(e) {
     e.preventDefault();
-    console.log(user.id, '<================USER ID')
     const newNotebook = {
         title,
         user_id: user.id
@@ -47,13 +48,13 @@ async function createNotebook(e) {
             body: JSON.stringify({...newNotebook}),
             headers: {"Content-Type": "application/json"}
         });
+        const notebook = await res.json();
         if (res.ok) {
-            const notebook = await res.json();
             setNotebookCreated(!notebookCreated)
             history.push("/notebooks")
             return notebook;
-        } else {
-            return "No notebook has been retrieved"
+        } else if (notebook.errors) {
+            setErrors(notebook.errors)
         }
     }
 
@@ -62,15 +63,19 @@ async function createNotebook(e) {
         <form className="notebook-form" onSubmit={createNotebook}>
             <h1>Create Notebook</h1>
             <div>
-                <label>Title</label>
                 <input
+                    className="notebook-title"
                     type="text"
                     name="title"
+                    placeholder="Notebook Title"
                     onChange={(e) => {setTitle(e.target.value)}}
                     value={title}
                 ></input>
             </div>
             <button type="submit">Save Notebook</button>
+            <div>
+            {errors.map((error, ind) => (<li key={ind}>{error}</li>))}
+            </div>
         </form>
     )
 }

@@ -11,8 +11,9 @@ const SearchNotes = (props) => {
     const noteSearch = useSelector(state => state.search?.notes)
     const history = useHistory();
 
-    console.log(notes, '<=====NOTES')
-    console.log('OUTSIDE OF USE EFFECT')
+    // console.log(notes, '<=====NOTES')
+    // console.log('TOP OF USE EFFECT')
+
     // Get all notes
     useEffect(() => {
         (async function notesFetch() {
@@ -27,14 +28,14 @@ const SearchNotes = (props) => {
 }, [setUserNotes])
 
     const filteredNotes = (search, notes) => {
-        console.log(notes, 'note search')
+        // console.log(notes, 'note search')
         if (!search) {
-            console.log('no search')
+            // console.log('no search')
             return []
         }
         const searchResult = notes?.notes?.filter((note) => note.title.toLowerCase().includes(search.toLowerCase()))
-        console.log(notes, 'notes')
-        console.log(searchResult, '<----search result')
+        // console.log(notes, 'notes')
+        // console.log(searchResult, '<----search result')
         return searchResult
     }
 

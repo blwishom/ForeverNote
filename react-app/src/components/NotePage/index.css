@@ -1,7 +1,6 @@
 
 
 .note-page-div {
-    background-color: orange;
     display: inline-block;
     margin: 15px;
     overflow: scroll;
@@ -11,8 +10,15 @@
     max-height: 200px;
     padding: 10px;
     overflow: auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgb(223, 216, 216);
 }
 
 .note-page-btns {
 
+}
+
+.note-page-title-div {
+    font-weight: bold;
+    font-size: 30px;
 }

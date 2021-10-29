@@ -67,6 +67,7 @@ async function editNotebook(e) {
                 <input
                     type="text"
                     name="title"
+                    // placeholder={notebook?.title}
                     onChange={(e) => {setTitle(e.target.value)}}
                     value={title}
                 ></input>

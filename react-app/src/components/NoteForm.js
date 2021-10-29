@@ -10,6 +10,7 @@ const NoteForm = () => {
     const [notes, setNotes] = useState([]);
     const [notebookId, setNotebookId] = useState(-1);
     const [noteCreated, setNoteCreated] = useState(false);
+    const [errors, setErrors] = useState([]);
     const user = useSelector((state) => state.session.user);
     const notebooks = [{value: 'notebookId', label: 'Notebook'}]
     const dispatch = useDispatch();
@@ -36,36 +37,41 @@ async function oneNoteFetch(noteId) {
             }
         }
 
-    // Create note
-async function createNote(e) {
-    e.preventDefault();
-    console.log(user.id, '<================USER ID')
-    const newNote = {
-        title,
-        content,
-        user_id: user.id
-        }
-        const res = await fetch("/api/notes/new", {
-            method: "POST",
-            body: JSON.stringify({...newNote}),
-            headers: {"Content-Type": "application/json"}
-        });
-        if (res.ok) {
+        // Create note
+        async function createNote(e) {
+            e.preventDefault();
+
+            const newNote = {
+                title,
+                content,
+                user_id: user.id
+            }
+            const res = await fetch("/api/notes/new", {
+                method: "POST",
+                body: JSON.stringify({...newNote}),
+                headers: {"Content-Type": "application/json"}
+            });
             const note = await res.json();
-            setNoteCreated(!noteCreated)
-            history.push("/notes")
-            return note;
-        } else {
-            return "No note has been retrieved"
-        }
+                if (res.ok) {
+                setNoteCreated(!noteCreated)
+                history.push("/notes")
+                }
+                else if (note.errors) {
+                    setErrors(note.errors)
+                }
+
     }
+
 
     return (
         <div className="create-note-page-div">
+        <div className="note-page-backgound-img">
+
+        </div>
         <form className="note-form-form" onSubmit={createNote}>
             <div className="note-form-div">
-            <h1>Create Note</h1>
             <div>
+                <h1>New Note</h1>
                 <input
                     className="title-div"
                     type="text"
@@ -86,12 +92,18 @@ async function createNote(e) {
             </div>
             </div>
         </form>
-
+        <div>
+            {errors.map((error, ind) => (<li key={ind}>{error}</li>))}
+        </div>
         <div className="displayed-notes-div">
             {notes.map((note) => {
                 return (
                 <div>
-                    <div className="note-div">{note.title}<br/>{note.content}</div>
+                    <div className="note-div">
+                        <div className="note-title-div">{note.title}</div>
+                        <br/>
+                        {note.content}
+                    </div>
                 </div>
                 )
              })}
