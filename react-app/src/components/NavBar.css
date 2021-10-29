@@ -1,11 +1,29 @@
+.active {
+    border-style: solid;
+    border-color: #00FFD1;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.text-decoration {
+    display: flex;
+    align-content: space-between;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
 .navbar {
-    background-color: rgb(142, 128, 128);
+    background-color: black;
     float: left;
     width: 250px;
     height: 100vh;
     margin-right: 1px;
     text-decoration: none;
     position: sticky;
+    padding-right: 25px;
     /* position: absolute;
     top: 0px;
     left: 0px; */
@@ -17,4 +35,14 @@
     display: flex;
     flex-direction: column;
     align-content: space-around;
+}
+
+.add-link {
+    margin-top: 20px;
+    border: solid;
+    border-radius: 5px;
+    border-color: #00FFD1;
+    height: 40px;
+    font-weight: bold;
+    font-size: 20px;
 }

@@ -61,7 +61,7 @@ async function createNotebook(e) {
 
     return (
         <form className="notebook-form" onSubmit={createNotebook}>
-            <h1>Create Notebook</h1>
+            <h1>CREATE NEW NOTEBOOK</h1>
             <div>
                 <input
                     className="notebook-title"
@@ -72,7 +72,7 @@ async function createNotebook(e) {
                     value={title}
                 ></input>
             </div>
-            <button type="submit">Save Notebook</button>
+            <button className="notebook-btn" type="submit">Save Notebook</button>
             <div>
             {errors.map((error, ind) => (<li key={ind}>{error}</li>))}
             </div>

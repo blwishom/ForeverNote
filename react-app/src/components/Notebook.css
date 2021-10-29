@@ -8,3 +8,12 @@
     outline: none;
     padding: 10px;
 }
+
+.notebook-btn {
+    text-decoration: none;
+    border: solid;
+    border-radius: 5px;
+    background-color: #00FFD1;
+    height: 30px;
+    font-weight: bold;
+}

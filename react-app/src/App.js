@@ -73,12 +73,16 @@ function App() {
           <div className="home-text">
             <h1>WELCOME TO FOREVER NOTE!</h1>
             <h2></h2>
-            <NavLink to='/notes/new' exact={true} activeClassName='active'>
+          <div className="home-text-links1">
+          <NavLink className="home-text-links1" to='/notes/new' exact={true} activeClassName='active'>
             create a new note
           </NavLink>
-          <NavLink to='/notebooks/new' exact={true} activeClassName='active'>
+          </div>
+          <div className="home-text-links2">
+          <NavLink className="home-text-links2" to='/notebooks/new' exact={true} activeClassName='active'>
             create a new notebook
           </NavLink>
+          </div>
           </div>
         </ProtectedRoute>
       </Switch>

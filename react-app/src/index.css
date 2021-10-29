@@ -19,3 +19,22 @@ body {
     align-items: center;
     font-size: 25px;
 }
+
+.home-text-links1 {
+    background-color: black;
+    text-decoration: none;
+    border-style: solid;
+    border-color: #00FFD1;
+    border-radius: 10px;
+    color: white;
+}
+
+.home-text-links2 {
+    margin-top: 20px;
+    background-color: black;
+    text-decoration: none;
+    border-style: solid;
+    border-color: #00FFD1;
+    border-radius: 10px;
+    color: white;
+}
