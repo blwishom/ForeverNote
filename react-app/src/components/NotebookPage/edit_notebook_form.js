@@ -4,10 +4,9 @@ import { useHistory, useParams } from "react-router";
 import Creatable from "react-select/creatable";
 import './index.css'
 
-const EditNotebookForm = () => {
-    const { notebookId } = useParams();
+const EditNotebookForm = ({ title, setEditing, setEditedTitle, setTitle, notebookId, setNotebookId }) => {
+    console.log(title, '<-------NB Title')
     console.log(notebookId, '<---------ID')
-    const [title, setTitle] = useState("");
     const [notebooks, setNotebooks] = useState([]);
     const [errors, setErrors] = useState([]);
     const [notebookCreated, setNotebookCreated] = useState(false);
@@ -15,7 +14,7 @@ const EditNotebookForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    // Get all notebooks thunk
+    // Get all notebooks
     useEffect(() => {
         (async function notesFetch() {
         const res = await fetch("/api/notebooks/");
@@ -27,7 +26,7 @@ const EditNotebookForm = () => {
     }, [notebookCreated])
 
 
-    // Get one notebook thunk
+    // Get one notebook
 async function oneNoteFetch(notebookId) {
         const res = await fetch(`/api/notebooks/${notebookId}`);
         if (res.ok) {
@@ -36,7 +35,7 @@ async function oneNoteFetch(notebookId) {
             }
         }
 
-    // Edit notebook thunk
+    // Edit notebook
 async function editNotebook(e) {
     e.preventDefault();
     console.log(user.id, 'USER ID <================')
@@ -49,11 +48,12 @@ async function editNotebook(e) {
             body: JSON.stringify({...newNotebook}),
             headers: {"Content-Type": "application/json"}
         });
-        
+
         const notebook = await res.json();
         if (res.ok) {
+            setEditing(false)
+            setEditedTitle(-1)
             setNotebookCreated(!notebookCreated)
-            history.push("/notebooks")
             return notebook;
         } else if (notebook.errors) {
             setErrors(notebook.errors)

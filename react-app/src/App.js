@@ -43,9 +43,6 @@ function App() {
         <Route path='/notes/:noteId/edit' exact={true}>
           <EditForm />
         </Route>
-        <Route path='/notebooks/:notebookId/edit' exact={true}>
-          <EditNotebookForm />
-        </Route>
         <Route path='/notes' exact={true}>
           <NotePage />
         </Route>

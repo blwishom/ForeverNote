@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import Creatable from "react-select/creatable";
+import EditNotebookForm from "./edit_notebook_form";
 import './index.css'
 
 const NotebookPage = () => {
     const [notebooks, setNotebooks] = useState([]);
+    const [notebookId, setNotebookId] = useState(-1)
     const [title, setTitle] = useState("");
+    const [editing, setEditing] = useState(false);
+    const [editedTitle, setEditedTitle] = useState(false);
     const [notebookCreated, setNotebookCreated] = useState(false);
     const [notebookDeleted, setNotebookDeleted] = useState(false);
     const user = useSelector((state) => state.session.user);
@@ -25,7 +29,7 @@ const NotebookPage = () => {
             setNotebooks(notebooks.notebook)
             }
         })()
-    }, [notebookCreated, notebookDeleted])
+    }, [notebookCreated, notebookDeleted, editing, title, notebookId])
 
         // Edit notebook
 async function editNotebook(notebookId) {
@@ -62,6 +66,12 @@ async function deleteNotebook(notebookId) {
     return res;
 }
 
+function editing_Title(notebookNumber, notebookTitle) {
+    setEditing(!editing);
+    setTitle(notebookTitle);
+    setNotebookId(notebookNumber)
+}
+
 
     return (
         <>
@@ -69,16 +79,18 @@ async function deleteNotebook(notebookId) {
         <h1>NOTEBOOKS</h1>
         {notebooks.map((notebook) => {
             return (<div>
+                {/* {const notebookTitle = notebook.title} line 87 and 68 */}
                 <div className="notebook-page-div">
                     <div className="notebook-title-div">
                         {notebook.title}
                     </div>
                     <div>
                     <div>
-                        <button className="edit-delete-btn" onClick={() => history.push(`/notebooks/${notebook.id}/edit`)}>Edit</button>
+                        {(!editing) && <button className="edit-delete-btn" onClick={() => editing_Title(notebook.id, notebook.title)}>Edit</button>}
                     </div>
+                    {(editing && notebookId===notebook.id) && <EditNotebookForm title={title} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setTitle={setTitle} notebookId={notebookId} setNotebookId={setNotebookId} />}
                     <div>
-                        <button className="edit-delete-btn" onClick={() => deleteNotebook(notebook.id)}>Delete</button>
+                        {(!editing) && <button className="edit-delete-btn" onClick={() => deleteNotebook(notebook.id)}>Delete</button>}
                     </div>
                     </div>
                 </div>
