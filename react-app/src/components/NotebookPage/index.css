@@ -22,3 +22,14 @@
     font-weight: bold;
     font-size: 20px;
 }
+
+.edit-delete-btn {
+    margin-top: 5px;
+    border: solid;
+    border-radius: 5px;
+    background-color: #00FFD1;
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+    font-size: 15px;
+}

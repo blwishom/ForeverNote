@@ -10,10 +10,16 @@
 }
 
 .notebook-btn {
-    text-decoration: none;
+    margin-top: 10px;
     border: solid;
     border-radius: 5px;
     background-color: #00FFD1;
     height: 30px;
+    width: 130px;
     font-weight: bold;
+    font-size: 15px;
+}
+
+.header {
+    font-size: 34px;
 }

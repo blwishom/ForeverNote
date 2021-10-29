@@ -8,3 +8,51 @@
     font-weight: bold;
     font-size: 20px;
 }
+
+.login-form {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    font-size: 20px;
+    border-style: solid;
+    border-radius: 20px;
+}
+
+.login-btn {
+    margin-top: 20px;
+    border: solid;
+    border-radius: 5px;
+    border-color: black;
+    height: 40px;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #00FFD1;
+}
+
+.signup-form {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    background-color: white;
+    font-size: 20px;
+    border-style: solid;
+    border-radius: 20px;
+}
+
+.signup-btn {
+    margin-top: 20px;
+    border: solid;
+    border-radius: 5px;
+    border-color: black;
+    height: 40px;
+    font-weight: bold;
+    font-size: 20px;
+}
