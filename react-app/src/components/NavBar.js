@@ -15,12 +15,12 @@ const NavBar = () => {
     return (
       <>
       <div className="login-signup-div">
-        <div>
-          <NavLink to='/login' exact={true}>
+        <div className="login-div">
+          <NavLink  to='/login' exact={true}>
           Login
           </NavLink>
         </div>
-        <div>
+        <div className="signup-div">
           <NavLink to='/sign-up' exact={true}>
             Sign Up
           </NavLink>

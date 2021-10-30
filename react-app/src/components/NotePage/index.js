@@ -2,13 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import Creatable from "react-select/creatable";
+import EditForm from "../EditForm";
 import './index.css';
 import '../images/old-school-maro.jpg';
 
 const NotePage = () => {
     const [notes, setNotes] = useState([]);
     const [title, setTitle] = useState("");
+    const [noteId, setNoteId] = useState(-1)
     const [content, setContent] = useState("");
+    const [editing, setEditing] = useState(false);
+    const [editedTitle, setEditedTitle] = useState(false);
+    const [editedContent, setEditedContent] = useState(false);
     const [notebookId, setNotebookId] = useState(-1);
     const [noteCreated, setNoteCreated] = useState(false);
     const [noteDeleted, setNoteDeleted] = useState(false);
@@ -62,24 +67,48 @@ async function deleteNote(noteId) {
     return res;
 }
 
+function editing_Note(noteNumber, noteTitle, editedContent) {
+    setEditing(!editing);
+    setTitle(noteTitle);
+    setNoteId(noteNumber);
+    setEditedContent(editedContent)
+}
 
     return (
         <>
+        <div>
         <h1>NOTES</h1>
         {notes.map((note) => {
             return (
             <div className="note-page-div">
-                <div className="note-page-title-div">{note.title}</div>
-                <br/>
-                {note.content}
-                <div>
-                <button className="note-page-btns" onClick={() => history.push(`/notes/${note.id}/edit`)}>Edit</button>
+                <div className="note-page-title-div">
+                    {note.title}
+                    <br/>
+                    {note.content}
                 </div>
+
+                {/* <div>
+                    {(!editing) && <button className="edit-delete-btn" onClick={() => editing_Note(note.id, note.title)}>Edit</button>}
+                </div> */}
+
                 <div>
-                <button className="note-page-btns" onClick={() => deleteNote(note.id)}>Delete</button>
+                    {(!editing) && <button className="edit-delete-btn" onClick={() => editing_Note(note.id, note.title)}>Edit</button>}
+                </div>
+
+                {(editing && noteId===note.id) && <EditForm title={title} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setTitle={setTitle} noteId={noteId} setNoteId={setNoteId}/>}
+
+
+                {/* <div>
+                <button className="note-page-btns" onClick={() => history.push(`/notes/${note.id}/edit`)}>Edit</button>
+                </div> */}
+
+
+                <div>
+                {(!editing) && <button className="edit-delete-btn" onClick={() => deleteNote(note.id)}>Delete</button>}
                 </div>
             </div>)
         })}
+        </div>
         </>
     )
 }

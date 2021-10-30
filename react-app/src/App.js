@@ -15,7 +15,7 @@ import NotebookPage from './components/NotebookPage';
 import EditForm from './components/EditForm';
 import EditNotebookForm from './components/NotebookPage/edit_notebook_form';
 import './index.css';
-import image from './components/images/notes-taking-img.jpg';
+import image from './components/images/coffee-and-notes.jpg';
 import { NavLink } from 'react-router-dom';
 
 function App() {
@@ -52,11 +52,17 @@ function App() {
         <Route path='/notebooks' exact={true}>
           <NotebookPage />
         </Route>
-        <Route path='/login' exact={true}>
+        <Route path='/login' className="login" exact={true}>
+          <h1 className="h1-div">Login Below To Write Notes</h1>
           <LoginForm />
+        <div className="logged-out-img" style={{backgroundImage: `url(${image})`}}>
+        </div>
         </Route>
-        <Route path='/sign-up' exact={true}>
+        <Route path='/sign-up' className="sign-up" exact={true}>
+        <h1 className="h1-div">Sign Up Below To Write Notes</h1>
           <SignUpForm />
+        <div className="logged-out-img" style={{backgroundImage: `url(${image})`}}>
+        </div>
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
@@ -68,7 +74,7 @@ function App() {
           <div className="home-img" style={{backgroundImage: `url(${image})`}}>
           </div>
           <div className="home-text">
-            <h1>WELCOME TO FOREVER NOTE!</h1>
+            <h1 className="welcome-div">WELCOME TO FOREVER NOTE!</h1>
 
           <NavLink className="home-text-links1" to='/notes/new' exact={true} activeClassName='active'>
             create a new note

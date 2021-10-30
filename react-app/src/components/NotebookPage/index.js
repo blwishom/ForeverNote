@@ -7,7 +7,7 @@ import './index.css'
 
 const NotebookPage = () => {
     const [notebooks, setNotebooks] = useState([]);
-    const [notebookId, setNotebookId] = useState(-1)
+    const [notebookId, setNotebookId] = useState(-1);
     const [title, setTitle] = useState("");
     const [editing, setEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(false);
