@@ -60,6 +60,7 @@ def edit_notebook(notebook_id):
     form['csrf_token'].data = request.cookies['csrf_token']
     data = form.data
     notebook = Notebook.query.get(notebook_id)
+    print(notebook, '<====NoteBook')
     if form.validate_on_submit():
             user_id = current_user.id
             notebook.title=data['title'],
