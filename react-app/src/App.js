@@ -17,6 +17,7 @@ import EditNotebookForm from './components/NotebookPage/edit_notebook_form';
 import './index.css';
 import image from './components/images/coffee-and-notes.jpg';
 import { NavLink } from 'react-router-dom';
+import Footer from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -87,6 +88,7 @@ function App() {
           </div>
         </ProtectedRoute>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

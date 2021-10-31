@@ -1,0 +1,15 @@
+.footer-div {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+}
+
+.text-decoration {
+    text-decoration: none;
+    color: white;
+}
