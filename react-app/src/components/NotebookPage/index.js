@@ -78,8 +78,8 @@ function editing_Title(notebookNumber, notebookTitle) {
         <div>
         <h1>NOTEBOOKS</h1>
         {notebooks.map((notebook) => {
-            return (<div>
-                {/* {const notebookTitle = notebook.title} line 87 and 68 */}
+            return (
+            <div>
                 <div className="notebook-page-div">
                     <div className="notebook-title-div">
                         {notebook.title}

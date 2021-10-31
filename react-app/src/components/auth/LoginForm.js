@@ -19,6 +19,13 @@ const LoginForm = () => {
     }
   };
 
+  const demoUser = (e) => {
+    setEmail("demo@aa.io");
+    setPassword("password");
+    e.preventDefault();
+
+    return dispatch(login(email, password))
+  }
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -59,6 +66,7 @@ const LoginForm = () => {
         />
       </div>
         <button className="login-btn" type='submit'>Login</button>
+        <button type="submit" onClick={demoUser}>Demo User</button>
     </form>
   );
 };

@@ -8,7 +8,7 @@
 .note-textarea, .title-div {
     width: 50%;
     font-size: 25px;
-    overflow: hidden;
+    overflow: auto;
     text-decoration: none;
     resize: none;
     border: none;

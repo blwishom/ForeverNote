@@ -5,8 +5,6 @@ import Creatable from "react-select/creatable";
 import './index.css'
 
 const EditNotebookForm = ({ title, setEditing, setEditedTitle, setTitle, notebookId, setNotebookId }) => {
-    console.log(title, '<-------NB Title')
-    console.log(notebookId, '<---------ID')
     const [notebooks, setNotebooks] = useState([]);
     const [errors, setErrors] = useState([]);
     const [notebookCreated, setNotebookCreated] = useState(false);
@@ -38,7 +36,6 @@ async function oneNoteFetch(notebookId) {
     // Edit notebook
 async function editNotebook(e) {
     e.preventDefault();
-    console.log(user.id, 'USER ID <================')
     const newNotebook = {
         title,
         user_id: user.id
@@ -63,7 +60,6 @@ async function editNotebook(e) {
     return (
         <>
         <form className="notebookForm" onSubmit={editNotebook}>
-            <h1>Edit Notebook</h1>
             <div>
                 <label>Title</label>
                 <input

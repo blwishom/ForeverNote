@@ -4,24 +4,20 @@ import { useHistory, useParams } from "react-router";
 import Creatable from "react-select/creatable";
 import './index.css';
 
-const EditForm = () => {
-    const { noteId } = useParams();
-    console.log(noteId, '<---------ID')
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
+const EditForm = ({ title, noteContent, setEditing, setEditedTitle, setEditedContent, setTitle, noteId, setNoteId }) => {
     const [notes, setNotes] = useState([]);
-    const [notebookId, setNotebookId] = useState(-1);
-    const [noteCreated, setNoteCreated] = useState(false);
     const [errors, setErrors] = useState([]);
+    const [noteCreated, setNoteCreated] = useState(false);
+    const [content, setContent] = useState("");
     const user = useSelector((state) => state.session.user);
-    // const notebooks = useSelector(store => store.notebooks)
+    const [notebookId, setNotebookId] = useState(-1);
     const dispatch = useDispatch();
     const history = useHistory();
     const notebooks = [
         {value: 'notebookId', label: 'Notebook'}
     ]
 
-    // Get all notes thunk
+    // Get all notes
     useEffect(() => {
         (async function notesFetch() {
         const res = await fetch("/api/notes/");
@@ -33,7 +29,7 @@ const EditForm = () => {
     }, [noteCreated])
 
 
-    // Get one note thunk
+    // Get one note
 async function oneNoteFetch(noteId) {
         const res = await fetch(`/api/notes/${noteId}`);
         if (res.ok) {
@@ -42,10 +38,9 @@ async function oneNoteFetch(noteId) {
             }
         }
 
-    // Edit note thunk
+    // Edit note
 async function editNote(e) {
     e.preventDefault();
-    console.log(user.id, 'USER ID <================')
     const newNote = {
         title,
         content,
@@ -59,8 +54,10 @@ async function editNote(e) {
 
         const note = await res.json();
         if (res.ok) {
+            setEditing(false)
+            setEditedTitle(-1)
+            setEditedContent(-1)
             setNoteCreated(!noteCreated)
-            history.push("/notes")
             return note;
         } else if (note.errors) {
             setErrors(note.errors)
@@ -70,7 +67,6 @@ async function editNote(e) {
     return (
         <>
         <form className="edit-note-form" onSubmit={editNote}>
-            <h1>Edit Note</h1>
             <div>
                 <label>Title</label>
                 <input
@@ -90,10 +86,10 @@ async function editNote(e) {
                     name="content"
                     placeholder=""
                     onChange={(e) => {setContent(e.target.value)}}
-                    value={content}
+                    value={noteContent}
                     ></input>
             </div>
-            <Creatable className="notebook-select" options={notebooks} />
+            {/* <Creatable className="notebook-select" options={notebooks} /> */}
             <button className="note-btn" type="submit">Edit Note</button>
             <div>
             {errors.map((error, ind) => (<li key={ind}>{error}</li>))}

@@ -8,17 +8,25 @@ import '../images/old-school-maro.jpg';
 
 const NotePage = () => {
     const [notes, setNotes] = useState([]);
+    const [noteId, setNoteId] = useState(-1);
     const [title, setTitle] = useState("");
-    const [noteId, setNoteId] = useState(-1)
     const [content, setContent] = useState("");
     const [editing, setEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(false);
     const [editedContent, setEditedContent] = useState(false);
-    const [notebookId, setNotebookId] = useState(-1);
     const [noteCreated, setNoteCreated] = useState(false);
     const [noteDeleted, setNoteDeleted] = useState(false);
     const user = useSelector((state) => state.session.user);
     const history = useHistory();
+
+
+
+
+    // const [editedNoteTitle,  setEditedNoteTitle] = useState(false);
+    // const [editedTitle, setEditedTitle] = useState(false);
+    // const [editedContent, setEditedContent] = useState(false);
+    // const [editedNoteContent, setEditedNoteContent] = useState(false);
+    // const [notebookId, setNotebookId] = useState(-1);
 
     // Get all notes
     useEffect(() => {
@@ -37,7 +45,6 @@ async function editNote(noteId) {
         title,
         content,
         userId: user.id,
-        notebookId: notebookId
         }
 
     const res = await fetch(`/api/notes/${noteId}/`, {
@@ -67,11 +74,12 @@ async function deleteNote(noteId) {
     return res;
 }
 
-function editing_Note(noteNumber, noteTitle, editedContent) {
+function editing_Note(noteNumber, noteTitle, noteContent, editedContent) {
     setEditing(!editing);
     setTitle(noteTitle);
+    setContent(noteContent)
     setNoteId(noteNumber);
-    setEditedContent(editedContent)
+    // setEditedContent(editedContent)
 }
 
     return (
@@ -80,32 +88,25 @@ function editing_Note(noteNumber, noteTitle, editedContent) {
         <h1>NOTES</h1>
         {notes.map((note) => {
             return (
+            <div>
             <div className="note-page-div">
                 <div className="note-page-title-div">
+                    <div className="note-content-div">
                     {note.title}
+                    </div>
                     <br/>
                     {note.content}
                 </div>
-
-                {/* <div>
-                    {(!editing) && <button className="edit-delete-btn" onClick={() => editing_Note(note.id, note.title)}>Edit</button>}
-                </div> */}
-
                 <div>
-                    {(!editing) && <button className="edit-delete-btn" onClick={() => editing_Note(note.id, note.title)}>Edit</button>}
+                <div>
+                    {(!editing) && <button className="edit-delete-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</button>}
                 </div>
-
-                {(editing && noteId===note.id) && <EditForm title={title} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setTitle={setTitle} noteId={noteId} setNoteId={setNoteId}/>}
-
-
-                {/* <div>
-                <button className="note-page-btns" onClick={() => history.push(`/notes/${note.id}/edit`)}>Edit</button>
-                </div> */}
-
-
+                {(editing && noteId===note.id) && <EditForm title={title} setEditing={setEditing} editing={editing} editedTitle={editedTitle} editedContent={editedContent} setEditedContent={setEditedContent} setTitle={setTitle} setEditedTitle={setEditedTitle} setTitle={setTitle} setContent={setContent} noteId={noteId} setNoteId={setNoteId}/>}
                 <div>
                 {(!editing) && <button className="edit-delete-btn" onClick={() => deleteNote(note.id)}>Delete</button>}
                 </div>
+                </div>
+            </div>
             </div>)
         })}
         </div>

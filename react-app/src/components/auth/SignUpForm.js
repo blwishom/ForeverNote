@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import { login } from '../../store/session';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -24,6 +25,14 @@ const SignUpForm = () => {
       setErrors(['*PASSWORDS DO NOT MATCH*'])
     }
   };
+
+  const demoUser = (e) => {
+    setEmail("demo@aa.io");
+    setPassword("password");
+    e.preventDefault();
+
+    return dispatch(login(email, password))
+  }
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -86,6 +95,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <button className="signup-btn" type='submit'>Sign Up</button>
+      <button type="submit" onClick={demoUser}>Demo User</button>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
