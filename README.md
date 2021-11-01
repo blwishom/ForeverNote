@@ -6,7 +6,7 @@
 ## About Forever Note
 * Forever Note is a clone of Evernote. Forever Note allows a user to create notes (5-1000 characters) and notebooks to store the notes in. Forever Note utilizes the languages of React (front-end and UI) as well as Python, Flask, and PostgreSQL (back-end).
 
-## In Action
+# In Action
 
 ## How to run Forever Note through heroku
 * Navigate to https://forevernoteapp.herokuapp.com/ in your web browser
