@@ -15,12 +15,12 @@ const Footer = () => {
     return (
         <>
         <div className="footer-div">
-          <div className="login-div">
+          <div className="github-div">
             <a className="text-decoration"  href='https://github.com/blwishom' exact={true}>
             GitHub
             </a>
           </div>
-          <div className="signup-div">
+          <div className="linkedin-div">
             <a className="text-decoration" href='https://www.linkedin.com/in/blair-wishom-10a204b3/' exact={true}>
               LinkedIn
             </a>

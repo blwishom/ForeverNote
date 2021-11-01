@@ -3,7 +3,7 @@
     border-color: #00FFD1;
     border-radius: 10px;
     text-decoration: none;
-    padding-left: 5px;
+    padding-left: 7px;
 }
 
 
@@ -12,7 +12,7 @@
     display: flex;
     align-content: space-between;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
     margin-top: 25px;
     margin-bottom: 10px;
@@ -21,12 +21,13 @@
 .navbar {
     background-color: black;
     float: left;
-    width: 250px;
+    width: 200px;
     height: 100vh;
     margin-right: 1px;
     text-decoration: none;
     position: sticky;
     padding-right: 25px;
+    margin-bottom: 0px;
     /* position: absolute;
     top: 0px;
     left: 0px; */

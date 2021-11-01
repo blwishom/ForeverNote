@@ -95,7 +95,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <button className="signup-btn" type='submit'>Sign Up</button>
-      <button type="submit" onClick={demoUser}>Demo User</button>
+      <button className="signup-btn" type="submit" onClick={demoUser}>Demo User</button>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>

@@ -76,7 +76,7 @@ function editing_Title(notebookNumber, notebookTitle) {
     return (
         <>
         <div>
-        <h1>NOTEBOOKS</h1>
+        <h1 className="h1">NOTEBOOKS</h1>
         {notebooks.map((notebook) => {
             return (
             <div>

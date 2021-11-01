@@ -71,7 +71,7 @@ async function oneNoteFetch(noteId) {
         <form className="note-form-form" onSubmit={createNote}>
             <div className="note-form-div">
             <div>
-                <h1>CREATE NEW NOTE</h1>
+                <h1 className="h1">CREATE NEW NOTE</h1>
                 <input
                     className="title-div"
                     type="text"
@@ -87,10 +87,12 @@ async function oneNoteFetch(noteId) {
                     onChange={(e) => {setContent(e.target.value)}}
                     value={content}
                 ></textarea>
-                <div>
+                {/* <div>
                     <Creatable className="notebook-select" options={notebooks.title} />
+                </div> */}
+                <div>
+                    <button className="note-btn" type="submit">Save Note</button>
                 </div>
-                <button className="note-btn" type="submit">Save Note</button>
             </div>
             </div>
         </form>

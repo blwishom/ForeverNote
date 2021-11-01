@@ -1,12 +1,33 @@
-.footer-div {
+.github-div {
+    background-color: black;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    align-content: center;
+    width: 50%;
+    text-decoration: none;
+    color: white;
+    padding-right: 25px;
+}
+
+.linkedin-div {
     background-color: black;
     display: flex;
     flex-direction: row;
     align-items: center;
     align-content: center;
-    width: 100%;
+    width: 50%;
     text-decoration: none;
     color: white;
+    float: right;
+    padding-left: 25px;
+}
+
+.footer-div {
+    display: flex;
+    bottom: 0px;
+    position: absolute;
+    height: 60px;
 }
 
 .text-decoration {

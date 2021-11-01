@@ -87,7 +87,7 @@ console.log(editing, '<-------EDITING')
     return (
         <>
         <div>
-        <h1>NOTES</h1>
+        <h1 className="h1">NOTES</h1>
         {notes.map((note) => {
             return (
             <div>
