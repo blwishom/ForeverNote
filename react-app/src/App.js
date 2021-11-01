@@ -54,7 +54,7 @@ function App() {
           <NotebookPage />
         </Route>
         <Route path='/login' className="login" exact={true}>
-          <h1 className="h1-div">Login Below To Write Notes</h1>
+          <h1 className="h1-div">Login Below To Write More Notes!</h1>
           <LoginForm />
         {/* <div className="logged-out-img" style={{backgroundImage: `url(${image})`}}>
         </div> */}
