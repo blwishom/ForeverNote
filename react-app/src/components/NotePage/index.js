@@ -37,7 +37,7 @@ const NotePage = () => {
             setNotes(notes.notes)
             }
         })()
-    }, [noteCreated, noteDeleted])
+    }, [noteCreated, noteDeleted, editing])
 
         // Edit note
 async function editNote(noteId) {
@@ -81,6 +81,8 @@ function editing_Note(noteNumber, noteTitle, noteContent, editedContent) {
     setNoteId(noteNumber);
     // setEditedContent(editedContent)
 }
+
+console.log(editing, '<-------EDITING')
 
     return (
         <>

@@ -62,7 +62,9 @@ async function editNote(e) {
         } else if (note.errors) {
             setErrors(note.errors)
         }
+        return note
     }
+    // console.log(editing, '<-----EDITING')
 
     return (
         <>
@@ -90,7 +92,7 @@ async function editNote(e) {
                     ></input>
             </div>
             {/* <Creatable className="notebook-select" options={notebooks} /> */}
-            <button className="note-btn" type="submit">Edit Note</button>
+            <button className="note-btn">Edit Note</button>
             <div>
             {errors.map((error, ind) => (<li key={ind}>{error}</li>))}
             </div>
