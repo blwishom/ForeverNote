@@ -20,16 +20,16 @@
 * Once servers are running in the terminals you can log in as the demo user by clicking "demo user" then "login".
 
 ## Sign Up
-* ![Screenshot (74)](https://user-images.githubusercontent.com/79879124/139753004-aaea0124-8843-43b6-ae67-1e926240387d.png)
+![Screenshot (74)](https://user-images.githubusercontent.com/79879124/139753004-aaea0124-8843-43b6-ae67-1e926240387d.png)
 
 ## Home Page
-*![Screenshot (75)](https://user-images.githubusercontent.com/79879124/139753158-e1bd7402-82dc-4948-98ec-026288deca30.png)
+![Screenshot (75)](https://user-images.githubusercontent.com/79879124/139753158-e1bd7402-82dc-4948-98ec-026288deca30.png)
 
 ## Create a note
-*![Screenshot (78)](https://user-images.githubusercontent.com/79879124/139753218-51b7eca1-4f31-4985-a660-b88f37a4c722.png)
+![Screenshot (78)](https://user-images.githubusercontent.com/79879124/139753218-51b7eca1-4f31-4985-a660-b88f37a4c722.png)
 
 ## View a note on the notes page
-* ![Screenshot (79)](https://user-images.githubusercontent.com/79879124/139753304-e8bd746b-abc0-4030-8048-0cce9948c3bc.png)
+![Screenshot (79)](https://user-images.githubusercontent.com/79879124/139753304-e8bd746b-abc0-4030-8048-0cce9948c3bc.png)
 
 
 # Features of Forever Note
