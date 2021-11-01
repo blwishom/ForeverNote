@@ -8,7 +8,7 @@ body {
 
 .home-img {
     /* border-style: solid; */
-    height: 500px;
+    height: 405px;
     width: 100%;
     /* margin: 10px; */
     /* opacity: 0.5; */
@@ -19,13 +19,17 @@ body {
 }
 
 .logged-out-img {
-    height: 500px;
+    height: 405px;
     width: 100%;
-    /* margin: 10px; */
+    bottom: 0px;
 }
 
 .h1-div {
     margin-left: 42%;
+}
+
+.h2-div {
+    margin-left: 44.5%;
 }
 
 .home-text {

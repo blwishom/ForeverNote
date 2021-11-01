@@ -11,7 +11,7 @@ const Footer = () => {
 
   const user = useSelector((state) => state.session.user);
 
-
+  if (user) {
     return (
         <>
         <div className="footer-div">
@@ -28,6 +28,8 @@ const Footer = () => {
         </div>
         </>
       )
+  }
+  return ''
   }
 
 
