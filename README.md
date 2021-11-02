@@ -8,16 +8,16 @@
 
 # In Action
 
-## How to run Forever Note through heroku
-* Navigate to https://forevernoteapp.herokuapp.com/ in your web browser
-* Click the Sign Up link to create an account and sign up
-* Once signed up you can began writing notes!
-
 ## How to run Forever Note locally
 * clone the github repo
 * In one terminal cd into react then run command "npm start"
 * In a different terminal cd into python-project-starter then run command "flask run"
 * Once servers are running in the terminals you can log in as the demo user by clicking "demo user" then "login".
+
+## How to run Forever Note through heroku
+* Navigate to https://forevernoteapp.herokuapp.com/ in your web browser
+* Click the Sign Up link to create an account and sign up
+* Once signed up you can began writing notes!
 
 ## Sign Up
 ![Screenshot (74)](https://user-images.githubusercontent.com/79879124/139753004-aaea0124-8843-43b6-ae67-1e926240387d.png)
