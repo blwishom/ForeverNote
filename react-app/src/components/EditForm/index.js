@@ -91,7 +91,7 @@ async function editNote(e) {
                     type="textarea"
                     name="content"
                     placeholder="New Content"
-                    onChange={(e) => {setNoteContent(e.target.value)}}
+                    onChange={(e) => {setContent(e.target.value)}}
                     value={content}
                     ></input>
             </div>
