@@ -4,11 +4,11 @@ import { useHistory, useParams } from "react-router";
 import Creatable from "react-select/creatable";
 import './index.css';
 
-const EditForm = ({ title, noteContent, setEditing, setEditedTitle, setEditedContent, setTitle, noteId, setNoteId }) => {
+const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent, setTitle, setContent, noteId, setNoteId }) => {
     const [notes, setNotes] = useState([]);
     const [errors, setErrors] = useState([]);
     const [noteCreated, setNoteCreated] = useState(false);
-    const [content, setContent] = useState("");
+    const [noteContent, setNoteContent] = useState("");
     const user = useSelector((state) => state.session.user);
     const [notebookId, setNotebookId] = useState(-1);
     const dispatch = useDispatch();
@@ -16,6 +16,10 @@ const EditForm = ({ title, noteContent, setEditing, setEditedTitle, setEditedCon
     const notebooks = [
         {value: 'notebookId', label: 'Notebook'}
     ]
+
+    console.log(title, '<-----EditForm Title')
+    console.log(noteContent, '<-----EditForm New Content')
+    console.log(content, '<-----EditForm Original Content')
 
     // Get all notes
     useEffect(() => {
@@ -28,15 +32,15 @@ const EditForm = ({ title, noteContent, setEditing, setEditedTitle, setEditedCon
         })()
     }, [noteCreated])
 
-
     // Get one note
 async function oneNoteFetch(noteId) {
-        const res = await fetch(`/api/notes/${noteId}`);
-        if (res.ok) {
+    const res = await fetch(`/api/notes/${noteId}`);
+    if (res.ok) {
             const notes = await res.json();
             setNotes(notes.notes)
             }
         }
+
 
     // Edit note
 async function editNote(e) {
@@ -64,7 +68,7 @@ async function editNote(e) {
         }
         return note
     }
-    // console.log(editing, '<-----EDITING')
+
 
     return (
         <>
@@ -75,7 +79,7 @@ async function editNote(e) {
                     className="title-div"
                     type="text"
                     name="title"
-                    placeholder=""
+                    placeholder="New Title"
                     onChange={(e) => {setTitle(e.target.value)}}
                     value={title}
                 ></input>
@@ -86,9 +90,9 @@ async function editNote(e) {
                     className="note-textarea"
                     type="textarea"
                     name="content"
-                    placeholder=""
-                    onChange={(e) => {setContent(e.target.value)}}
-                    value={noteContent}
+                    placeholder="New Content"
+                    onChange={(e) => {setNoteContent(e.target.value)}}
+                    value={content}
                     ></input>
             </div>
             {/* <Creatable className="notebook-select" options={notebooks} /> */}

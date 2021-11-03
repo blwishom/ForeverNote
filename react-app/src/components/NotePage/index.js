@@ -19,14 +19,8 @@ const NotePage = () => {
     const user = useSelector((state) => state.session.user);
     const history = useHistory();
 
-
-
-
-    // const [editedNoteTitle,  setEditedNoteTitle] = useState(false);
-    // const [editedTitle, setEditedTitle] = useState(false);
-    // const [editedContent, setEditedContent] = useState(false);
-    // const [editedNoteContent, setEditedNoteContent] = useState(false);
-    // const [notebookId, setNotebookId] = useState(-1);
+    console.log(title, '<======NotePage Title')
+    console.log(content, '<======NotePage Content')
 
     // Get all notes
     useEffect(() => {
@@ -37,28 +31,31 @@ const NotePage = () => {
             setNotes(notes.notes)
             }
         })()
-    }, [noteCreated, noteDeleted, editing])
+    }, [noteCreated, noteDeleted, editing, title, content, noteId])
 
-        // Edit note
-async function editNote(noteId) {
-    const newNote = {
-        title,
-        content,
-        userId: user.id,
+    // Edit note
+    async function editNote(noteId) {
+        const newNote = {
+            title,
+            content,
+            // userId: user.id,
         }
+        console.log(title, '<======NotePage Title 2')
 
-    const res = await fetch(`/api/notes/${noteId}/`, {
+        const res = await fetch(`/api/notes/${noteId}/`, {
         method: "POST",
         body: JSON.stringify({...newNote}),
         headers: {"Content-Type": "application/json"}
     });
     if (res.ok) {
         const note = await res.json();
+        console.log(note, '<=========res.ok Note')
     } else {
         return "No note has been retrieved"
     }
     return res;
 }
+
 
 // Delete note
 async function deleteNote(noteId) {
@@ -82,7 +79,6 @@ function editing_Note(noteNumber, noteTitle, noteContent, editedContent) {
     // setEditedContent(editedContent)
 }
 
-console.log(editing, '<-------EDITING')
 
     return (
         <>
@@ -103,7 +99,7 @@ console.log(editing, '<-------EDITING')
                 <div>
                     {(!editing) && <button className="edit-delete-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</button>}
                 </div>
-                {(editing && noteId===note.id) && <EditForm title={title} setEditing={setEditing} editing={editing} editedTitle={editedTitle} editedContent={editedContent} setEditedContent={setEditedContent} setTitle={setTitle} setEditedTitle={setEditedTitle} setTitle={setTitle} setContent={setContent} noteId={noteId} setNoteId={setNoteId}/>}
+                {(editing && noteId===note.id) && <EditForm title={title} setEditing={setEditing} editing={editing} editedTitle={editedTitle} content={content} editedContent={editedContent} setEditedContent={setEditedContent} setTitle={setTitle} setEditedTitle={setEditedTitle} setContent={setContent} noteId={noteId} setNoteId={setNoteId}/>}
                 <div>
                 {(!editing) && <button className="edit-delete-btn" onClick={() => deleteNote(note.id)}>Delete</button>}
                 </div>
