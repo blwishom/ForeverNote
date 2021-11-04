@@ -11,7 +11,7 @@ const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent
     const [errors, setErrors] = useState([]);
     const [noteCreated, setNoteCreated] = useState(false);
     const [noteContent, setNoteContent] = useState("");
-    const [newTitle, setNewTitle] = useState("");
+    const [noteTitle, setNoteTitle] = useState("");
     const [newContent, setNewContent] = useState("");
     const user = useSelector((state) => state.session.user);
     const [notebookId, setNotebookId] = useState(-1);
@@ -22,6 +22,7 @@ const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent
     ]
 
     console.log(title, '<-----EditForm Title')
+    console.log(noteTitle, '<-----EditForm New Title')
     console.log(noteContent, '<-----EditForm New Content')
     console.log(content, '<-----EditForm Original Content')
 
@@ -73,6 +74,7 @@ async function editNote(e, noteId) {
         return note
     }
 
+    console.log(setEditing, '<----Editing')
 
     return (
         <>
@@ -83,7 +85,7 @@ async function editNote(e, noteId) {
                     type="text"
                     name="title"
                     placeholder="New Title"
-                    onChange={(e) => {setNewTitle(e.target.value)}}
+                    onChange={(e) => {setNoteTitle(e.target.value)}}
                     value={title}
                 ></input>
             </div>
@@ -93,13 +95,13 @@ async function editNote(e, noteId) {
                     type="text"
                     name="content"
                     placeholder="New Content"
-                    onChange={(e) => {setNewContent(e.target.value)}}
+                    onChange={(e) => {setNoteContent(e.target.value)}}
                     value={content}
                     ></textarea>
             </div>
             {/* <Creatable className="notebook-select" options={notebooks} /> */}
-            <Link to="/notes" className="note-btn">Edit Note</Link>
             <div>
+            <Link to="/notes" type='submit' className="note-btn">Edit Note</Link>
             {errors.map((error, ind) => (<li key={ind}>{error}</li>))}
             </div>
         </form>
