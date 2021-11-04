@@ -57,6 +57,8 @@ async function editNotebook(e) {
         }
     }
 
+    console.log(setEditing, '<----Editing')
+
     return (
         <>
         <form className="notebookForm" onSubmit={editNotebook}>
@@ -66,7 +68,7 @@ async function editNotebook(e) {
                     className="notebook-title"
                     type="text"
                     name="title"
-                    // placeholder={notebook?.title}
+                    placeholder="New Title"
                     onChange={(e) => {setTitle(e.target.value)}}
                     value={title}
                 ></input>

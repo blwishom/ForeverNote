@@ -25,6 +25,7 @@ const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent
     console.log(noteTitle, '<-----EditForm New Title')
     console.log(noteContent, '<-----EditForm New Content')
     console.log(content, '<-----EditForm Original Content')
+    console.log(errors, '<-----Errors')
 
     // Get all notes
     useEffect(() => {
@@ -55,7 +56,7 @@ async function editNote(e, noteId) {
         content,
         user_id: user.id
         }
-        const res = await fetch(`/api/notes/${noteId}/edit/`, {
+        const res = await fetch(`/api/notes/${noteId}/edit`, {
             method: "PUT",
             body: JSON.stringify({...newNote}),
             headers: {"Content-Type": "application/json"}
@@ -75,6 +76,7 @@ async function editNote(e, noteId) {
     }
 
     console.log(setEditing, '<----Editing')
+    console.log(setEditedTitle, '<----Edited Title')
 
     return (
         <>
