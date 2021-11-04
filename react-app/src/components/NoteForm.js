@@ -87,9 +87,9 @@ async function oneNoteFetch(noteId) {
                     onChange={(e) => {setContent(e.target.value)}}
                     value={content}
                 ></textarea>
-                {/* <div>
+                <div>
                     <Creatable className="notebook-select" options={notebooks.title} />
-                </div> */}
+                </div>
                 <div>
                     <button className="note-btn" type="submit">Save Note</button>
                 </div>

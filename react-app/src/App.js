@@ -56,8 +56,6 @@ function App() {
         <Route path='/login' className="login" exact={true}>
           <h1 className="h1-div">Login Below To Write More Notes!</h1>
           <LoginForm />
-        {/* <div className="logged-out-img" style={{backgroundImage: `url(${image})`}}>
-        </div> */}
         </Route>
         <Route path='/sign-up' className="sign-up" exact={true}>
         <h1 className="h1-div">Sign Up Below To Write Notes</h1>
@@ -66,9 +64,6 @@ function App() {
           <h3 className="h2-div">- remember important tasks/information!</h3>
           <h3 className="h2-div">- keep information organized!</h3>
           <h3 className="h2-div">- release your thoughts!</h3>
-
-        {/* <div className="logged-out-img" style={{backgroundImage: `url(${image})`}}>
-        </div> */}
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
