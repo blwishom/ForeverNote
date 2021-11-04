@@ -31,7 +31,6 @@
 ## View a note on the notes page
 ![Screenshot (79)](https://user-images.githubusercontent.com/79879124/139753304-e8bd746b-abc0-4030-8048-0cce9948c3bc.png)
 
-<<<<<<< HEAD
 # Features of Forever Note
 * A user can create, read, update, and delete a note and/or notebook
 * A user can view a note and/or notebook at any point and time once created as long as they have not deleted the note
@@ -40,16 +39,3 @@
 ### To-dos
 * Add search feature to search notes.
 * Add feature to allow notes to be added/stored within a notebook.
-=======
-
-# Features of Forever Note
-* A user can create, read, update, and delete a note and/or notebook
-* A user can view a note and/or notebook at any point and time once created as long as they have not deleted the note
-* A user can update and delete a note and/or notebook at any time.
-
-
-### To-dos
-* Add search feature to search notes.
-* Add feature to allow notes to be added/stored within a notebook.
-
->>>>>>> 3a0cb6f30e6dacb1d2b435d515cdf42490e6f72c
