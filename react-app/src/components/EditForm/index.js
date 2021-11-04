@@ -97,7 +97,7 @@ async function editNote(e, noteId) {
                     value={content}
                     ></textarea>
             </div>
-            {/* <Creatable className="notebook-select" options={notebooks} /> */}
+            <Creatable className="notebook-select" options={notebooks} />
             <Link to="/notes" className="note-btn">Edit Note</Link>
             <div>
             {errors.map((error, ind) => (<li key={ind}>{error}</li>))}
