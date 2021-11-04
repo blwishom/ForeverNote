@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import Creatable from "react-select/creatable";
 import EditForm from "../EditForm";
+import { Link } from "react-router-dom";
 import './index.css';
 import '../images/old-school-maro.jpg';
 
@@ -97,11 +98,11 @@ function editing_Note(noteNumber, noteTitle, noteContent, editedContent) {
                 </div>
                 <div>
                 <div>
-                    {(!editing) && <button className="edit-delete-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</button>}
+                    {(!editing) && <Link to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</Link>}
+                    {(!editing) && <button className="note-page-delete-btn" onClick={() => deleteNote(note.id)}>Delete</button>}
                 </div>
                 {(editing && noteId===note.id) && <EditForm title={title} setEditing={setEditing} editing={editing} editedTitle={editedTitle} content={content} editedContent={editedContent} setEditedContent={setEditedContent} setTitle={setTitle} setEditedTitle={setEditedTitle} setContent={setContent} noteId={noteId} setNoteId={setNoteId}/>}
                 <div>
-                {(!editing) && <button className="edit-delete-btn" onClick={() => deleteNote(note.id)}>Delete</button>}
                 </div>
                 </div>
             </div>

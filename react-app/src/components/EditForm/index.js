@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Creatable from "react-select/creatable";
 import './index.css';
 
@@ -9,6 +11,8 @@ const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent
     const [errors, setErrors] = useState([]);
     const [noteCreated, setNoteCreated] = useState(false);
     const [noteContent, setNoteContent] = useState("");
+    const [newTitle, setNewTitle] = useState("");
+    const [newContent, setNewContent] = useState("");
     const user = useSelector((state) => state.session.user);
     const [notebookId, setNotebookId] = useState(-1);
     const dispatch = useDispatch();
@@ -43,14 +47,14 @@ async function oneNoteFetch(noteId) {
 
 
     // Edit note
-async function editNote(e) {
+async function editNote(e, noteId) {
     e.preventDefault();
     const newNote = {
         title,
         content,
         user_id: user.id
         }
-        const res = await fetch(`/api/notes/${noteId}/edit`, {
+        const res = await fetch(`/api/notes/${noteId}/edit/`, {
             method: "PUT",
             body: JSON.stringify({...newNote}),
             headers: {"Content-Type": "application/json"}
@@ -74,29 +78,27 @@ async function editNote(e) {
         <>
         <form className="edit-note-form" onSubmit={editNote}>
             <div>
-                <label>Title</label>
                 <input
                     className="title-div"
                     type="text"
                     name="title"
                     placeholder="New Title"
-                    onChange={(e) => {setTitle(e.target.value)}}
+                    onChange={(e) => {setNewTitle(e.target.value)}}
                     value={title}
                 ></input>
             </div>
             <div>
-                <label>Content</label>
-                <input
-                    className="note-textarea"
-                    type="textarea"
+                <textarea
+                    className="note-text-area"
+                    type="text"
                     name="content"
                     placeholder="New Content"
-                    onChange={(e) => {setContent(e.target.value)}}
+                    onChange={(e) => {setNewContent(e.target.value)}}
                     value={content}
-                    ></input>
+                    ></textarea>
             </div>
             {/* <Creatable className="notebook-select" options={notebooks} /> */}
-            <button className="note-btn">Edit Note</button>
+            <Link to="/notes" className="note-btn">Edit Note</Link>
             <div>
             {errors.map((error, ind) => (<li key={ind}>{error}</li>))}
             </div>

@@ -1,13 +1,28 @@
 
 
-.note-textarea {
-    min-height: 300px;
+.note-text-area {
+    width: 50%;
+    font-size: 25px;
+    overflow: auto;
+    text-decoration: none;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 10px;
+    min-height: 400px;
     min-width: 400px;
+    margin-bottom: 15px;
 }
 
 .note-title-div {
+    margin-bottom: 3px;
     font-weight: bold;
     font-size: 20px;
+}
+
+.title-div {
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 .note-btn {
@@ -19,6 +34,9 @@
     width: 150px;
     font-weight: bold;
     font-size: 18px;
+    text-decoration: none;
+    color: black;
+    padding: 3px 10px;
 }
 
 .notebook-select {
