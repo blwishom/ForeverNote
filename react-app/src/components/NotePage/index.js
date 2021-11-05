@@ -88,13 +88,13 @@ console.log(notes)
             return (
             <div>
             {(!editing) && <div className="note-page-div">
-                <div className="note-page-title-div">
+                <span className="note-page-title-div">
                     <div className="note-content-div">
                     {note.title}
                     </div>
                     <br/>
                     {note.content}
-                </div>
+                </span>
                 <div>
                 <div>
                     <button to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</button>

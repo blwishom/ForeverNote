@@ -1,5 +1,6 @@
 .note-page-div {
-    display: inline-block;
+    display: block;
+    float: left;
     margin: 15px;
     overflow: scroll;
     min-height: 200px;
