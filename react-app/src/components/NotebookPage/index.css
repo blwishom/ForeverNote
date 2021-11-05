@@ -23,7 +23,7 @@
     font-size: 20px;
 }
 
-.edit-delete-btn {
+.edit-btn {
     margin-top: 5px;
     border: solid;
     border-radius: 5px;
@@ -32,6 +32,18 @@
     width: 100px;
     font-weight: bold;
     font-size: 15px;
+}
+
+.delete-btn {
+    margin-top: 5px;
+    border: solid;
+    border-radius: 5px;
+    background-color: red;
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 5px;
 }
 
 .notebook-title {
