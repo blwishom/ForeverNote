@@ -2,19 +2,36 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import Creatable from "react-select/creatable";
+import { notebooksFetch } from "./NotebookForm";
 import './NoteForm.css'
 
 const NoteForm = () => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [notes, setNotes] = useState([]);
-    const [notebookId, setNotebookId] = useState(-1);
+    const [notebooks2, setNotebooks2] = useState([]);
+    const [notebookId, setNotebookId] = useState(notebooks2?.[0]?.id);
     const [noteCreated, setNoteCreated] = useState(false);
     const [errors, setErrors] = useState([]);
     const user = useSelector((state) => state.session.user);
-    const notebooks = [{value: 'notebookId', label: 'Notebook'}]
+    const notebooks = [{value: 'notebookId', label: 'Notebook'}];
+    // const notebookSelector = useSelector((state) => state.notebooks);
+    const [notebookCreated, setNotebookCreated] = useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
+
+    // console.log(notebooks2?.[0]?.id, '<----------NBs')
+
+    // Get all notebooks
+    useEffect(() => {
+        (async function notebooksFetch() {
+        const res = await fetch("/api/notebooks/");
+        if (res.ok) {
+            const notebooks = await res.json();
+            setNotebooks2(notebooks.notebook)
+            }
+        })()
+    }, [notebookCreated, title, notebookId])
 
     // Get all notes
     useEffect(() => {
@@ -40,10 +57,11 @@ async function oneNoteFetch(noteId) {
         // Create note
         async function createNote(e) {
             e.preventDefault();
-
+debugger
             const newNote = {
                 title,
                 content,
+                notebookId,
                 user_id: user.id
             }
             const res = await fetch("/api/notes/new", {
@@ -87,9 +105,21 @@ async function oneNoteFetch(noteId) {
                     onChange={(e) => {setContent(e.target.value)}}
                     value={content}
                 ></textarea>
-                {/* <div>
-                    <Creatable className="notebook-select" options={notebooks.title} />
-                </div> */}
+                <div>
+                    <select
+                    className="notebook-select"
+                    options={notebooks.id}
+                    placeholder="Notebooks"
+                    onChange={(e) => {
+                        const selectNotebook = e.target.value;
+                        setNotebookId(selectNotebook)
+                    }}
+                    value={notebookId}>
+                     {notebooks2?.map((notebook) => (
+                        <option key={notebook.id} value={notebook.id}>{notebook.title}</option>
+                    ))}
+                    </select>
+                </div>
                 <div>
                     <button className="note-btn" type="submit">Save Note</button>
                 </div>

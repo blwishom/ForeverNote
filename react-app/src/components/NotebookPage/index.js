@@ -8,15 +8,30 @@ import './index.css'
 const NotebookPage = () => {
     const [notebooks, setNotebooks] = useState([]);
     const [notebookId, setNotebookId] = useState(-1);
+    const [notebookId2, setNotebookId2] = useState(-1);
     const [title, setTitle] = useState("");
     const [editing, setEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(false);
     const [notebookCreated, setNotebookCreated] = useState(false);
     const [notebookDeleted, setNotebookDeleted] = useState(false);
+    const [notes, setNotes] = useState([]);
+    const [noteCreated, setNoteCreated] = useState(false);
     const user = useSelector((state) => state.session.user);
     const history = useHistory();
 
-    console.log(notebooks)
+    console.log(notebookId2, '<------NBs')
+    console.log(notes, '<--------Notes')
+
+        // Get all notes
+        useEffect(() => {
+            (async function notesFetch() {
+            const res = await fetch("/api/notes/");
+            if (res.ok) {
+                const notes = await res.json();
+                setNotes(notes.notes)
+                }
+            })()
+        }, [noteCreated])
 
     // Get all notebooks
     useEffect(() => {
@@ -78,6 +93,7 @@ function editing_Title(notebookNumber, notebookTitle) {
         <div>
         <h1 className="h1">NOTEBOOKS</h1>
         {notebooks.map((notebook) => {
+            const filteredNotes = notes.filter(note => notebookId == notes.notebookId2);
             return (
             <div>
                 <div className="notebook-page-div">
