@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
 import Creatable from "react-select/creatable";
 import './index.css';
 
@@ -11,8 +9,6 @@ const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent
     const [errors, setErrors] = useState([]);
     const [noteCreated, setNoteCreated] = useState(false);
     const [noteContent, setNoteContent] = useState("");
-    const [newTitle, setNewTitle] = useState("");
-    const [newContent, setNewContent] = useState("");
     const user = useSelector((state) => state.session.user);
     const [notebookId, setNotebookId] = useState(-1);
     const dispatch = useDispatch();
@@ -21,9 +17,8 @@ const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent
         {value: 'notebookId', label: 'Notebook'}
     ]
 
-    console.log(title, '<-----EditForm Title')
-    console.log(noteContent, '<-----EditForm New Content')
-    console.log(content, '<-----EditForm Original Content')
+    // console.log(setNoteContent, '<-----Set Content')
+    console.log(setTitle, '<-----Set Title')
 
     // Get all notes
     useEffect(() => {
@@ -36,25 +31,28 @@ const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent
         })()
     }, [noteCreated])
 
+
     // Get one note
 async function oneNoteFetch(noteId) {
-    const res = await fetch(`/api/notes/${noteId}`);
-    if (res.ok) {
+        const res = await fetch(`/api/notes/${noteId}`);
+        if (res.ok) {
             const notes = await res.json();
             setNotes(notes.notes)
             }
         }
 
+        console.log(title, '<-----TITLE')
+        console.log(content, '<-----CONTENT')
 
     // Edit note
-async function editNote(e, noteId) {
+async function editNote(e) {
     e.preventDefault();
     const newNote = {
         title,
         content,
         user_id: user.id
         }
-        const res = await fetch(`/api/notes/${noteId}/edit/`, {
+        const res = await fetch(`/api/notes/${noteId}/edit`, {
             method: "PUT",
             body: JSON.stringify({...newNote}),
             headers: {"Content-Type": "application/json"}
@@ -72,33 +70,40 @@ async function editNote(e, noteId) {
         }
         return note
     }
-
+    console.log(noteContent, '<-----EditForm Content')
+    console.log(title, '<-----EditForm Content')
 
     return (
         <>
-        <form className="edit-note-form" onSubmit={editNote}>
+        <form id="edit-form" className="edit-note-form" onSubmit={editNote}>
             <div>
                 <input
                     className="title-div"
                     type="text"
                     name="title"
                     placeholder="New Title"
-                    onChange={(e) => {setNewTitle(e.target.value)}}
+                    onChange={(e) => {setTitle(e.target.value)}}
                     value={title}
                 ></input>
             </div>
             <div>
                 <textarea
-                    className="note-text-area"
-                    type="text"
+                    form="edit-form"
+                    className="note-textarea"
+                    type="textarea"
                     name="content"
                     placeholder="New Content"
-                    onChange={(e) => {setNewContent(e.target.value)}}
+                    onChange={(e) => {setContent(e.target.value)}}
                     value={content}
                     ></textarea>
             </div>
+<<<<<<< HEAD
             <Creatable className="notebook-select" options={notebooks} />
             <Link to="/notes" className="note-btn">Edit Note</Link>
+=======
+            {/* <Creatable className="notebook-select" options={notebooks} /> */}
+            <button className="note-btn">Edit Note</button>
+>>>>>>> 349c757871bf19030a5a031befa6d1914e081e89
             <div>
             {errors.map((error, ind) => (<li key={ind}>{error}</li>))}
             </div>

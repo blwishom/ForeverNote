@@ -12,6 +12,7 @@ const NotePage = () => {
     const [noteId, setNoteId] = useState(-1);
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    // const [noteContent, setNoteContent] = useState("");
     const [editing, setEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(false);
     const [editedContent, setEditedContent] = useState(false);
@@ -41,16 +42,14 @@ const NotePage = () => {
             content,
             // userId: user.id,
         }
-        console.log(title, '<======NotePage Title 2')
 
-        const res = await fetch(`/api/notes/${noteId}/`, {
+        const res = await fetch(`/api/notes/${noteId}/edit`, {
         method: "POST",
         body: JSON.stringify({...newNote}),
         headers: {"Content-Type": "application/json"}
     });
     if (res.ok) {
         const note = await res.json();
-        console.log(note, '<=========res.ok Note')
     } else {
         return "No note has been retrieved"
     }
@@ -72,14 +71,14 @@ async function deleteNote(noteId) {
     return res;
 }
 
-function editing_Note(noteNumber, noteTitle, noteContent, editedContent) {
+function editing_Note(noteNumber, noteTitle, noteContent) {
     setEditing(!editing);
     setTitle(noteTitle);
-    setContent(noteContent)
+    setContent(noteContent);
     setNoteId(noteNumber);
-    // setEditedContent(editedContent)
 }
 
+console.log(notes)
 
     return (
         <>
@@ -88,25 +87,23 @@ function editing_Note(noteNumber, noteTitle, noteContent, editedContent) {
         {notes.map((note) => {
             return (
             <div>
-            <div className="note-page-div">
-                <div className="note-page-title-div">
+            {(!editing) && <div className="note-page-div">
+                <span className="note-page-title-div">
                     <div className="note-content-div">
                     {note.title}
                     </div>
                     <br/>
                     {note.content}
-                </div>
+                </span>
                 <div>
                 <div>
-                    {(!editing) && <Link to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</Link>}
-                    {(!editing) && <button className="note-page-delete-btn" onClick={() => deleteNote(note.id)}>Delete</button>}
-                </div>
-                {(editing && noteId===note.id) && <EditForm title={title} setEditing={setEditing} editing={editing} editedTitle={editedTitle} content={content} editedContent={editedContent} setEditedContent={setEditedContent} setTitle={setTitle} setEditedTitle={setEditedTitle} setContent={setContent} noteId={noteId} setNoteId={setNoteId}/>}
-                <div>
+                    <button to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</button>
+                    <button className="note-page-delete-btn" onClick={() => deleteNote(note.id)}>Delete</button>
                 </div>
                 </div>
-            </div>
-            </div>)
+            </div>}
+            {(editing && noteId===note.id) && <EditForm title={title} content={content} setContent={setContent} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId} setNoteId={setNoteId}/>}
+        </div>)
         })}
         </div>
         </>
