@@ -12,6 +12,7 @@ const NotePage = () => {
     const [noteId, setNoteId] = useState(-1);
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    // const [noteContent, setNoteContent] = useState("");
     const [editing, setEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(false);
     const [editedContent, setEditedContent] = useState(false);
@@ -99,7 +100,7 @@ console.log(notes)
                     {(!editing) && <button to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</button>}
                     {(!editing) && <button className="note-page-delete-btn" onClick={() => deleteNote(note.id)}>Delete</button>}
                 </div>
-                {(editing && noteId===note.id) && <EditForm title={title} content={content}  setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId} setNoteId={setNoteId}/>}
+                {(editing && noteId===note.id) && <EditForm title={title} content={content} setContent={setContent} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId} setNoteId={setNoteId}/>}
                 <div>
                 </div>
                 </div>

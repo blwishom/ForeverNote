@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
 import Creatable from "react-select/creatable";
 import './index.css';
 
@@ -11,8 +9,6 @@ const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent
     const [errors, setErrors] = useState([]);
     const [noteCreated, setNoteCreated] = useState(false);
     const [noteContent, setNoteContent] = useState("");
-    const [noteTitle, setNoteTitle] = useState("");
-    const [newContent, setNewContent] = useState("");
     const user = useSelector((state) => state.session.user);
     const [notebookId, setNotebookId] = useState(-1);
     const dispatch = useDispatch();
@@ -21,11 +17,8 @@ const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent
         {value: 'notebookId', label: 'Notebook'}
     ]
 
-    console.log(title, '<-----EditForm Title')
-    console.log(noteTitle, '<-----EditForm New Title')
-    console.log(noteContent, '<-----EditForm New Content')
-    console.log(content, '<-----EditForm Original Content')
-    console.log(errors, '<-----Errors')
+    // console.log(setNoteContent, '<-----Set Content')
+    console.log(setTitle, '<-----Set Title')
 
     // Get all notes
     useEffect(() => {
@@ -38,18 +31,21 @@ const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent
         })()
     }, [noteCreated])
 
+
     // Get one note
 async function oneNoteFetch(noteId) {
-    const res = await fetch(`/api/notes/${noteId}`);
-    if (res.ok) {
+        const res = await fetch(`/api/notes/${noteId}`);
+        if (res.ok) {
             const notes = await res.json();
             setNotes(notes.notes)
             }
         }
 
+        console.log(title, '<-----TITLE')
+        console.log(content, '<-----CONTENT')
 
     // Edit note
-async function editNote(e, noteId) {
+async function editNote(e) {
     e.preventDefault();
     const newNote = {
         title,
@@ -74,36 +70,36 @@ async function editNote(e, noteId) {
         }
         return note
     }
-
-    console.log(setEditing, '<----Editing')
-    console.log(setEditedTitle, '<----Edited Title')
+    console.log(noteContent, '<-----EditForm Content')
+    console.log(title, '<-----EditForm Content')
 
     return (
         <>
-        <form className="edit-note-form" onSubmit={editNote}>
+        <form id="edit-form" className="edit-note-form" onSubmit={editNote}>
             <div>
                 <input
                     className="title-div"
                     type="text"
                     name="title"
                     placeholder="New Title"
-                    onChange={(e) => {setNoteTitle(e.target.value)}}
+                    onChange={(e) => {setTitle(e.target.value)}}
                     value={title}
                 ></input>
             </div>
             <div>
                 <textarea
-                    className="note-text-area"
-                    type="text"
+                    form="edit-form"
+                    className="note-textarea"
+                    type="textarea"
                     name="content"
                     placeholder="New Content"
-                    onChange={(e) => {setNoteContent(e.target.value)}}
+                    onChange={(e) => {setContent(e.target.value)}}
                     value={content}
                     ></textarea>
             </div>
             {/* <Creatable className="notebook-select" options={notebooks} /> */}
+            <button className="note-btn">Edit Note</button>
             <div>
-            <Link to="/notes" type='submit' className="note-btn">Edit Note</Link>
             {errors.map((error, ind) => (<li key={ind}>{error}</li>))}
             </div>
         </form>

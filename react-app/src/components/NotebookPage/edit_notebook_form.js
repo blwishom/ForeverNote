@@ -57,8 +57,6 @@ async function editNotebook(e) {
         }
     }
 
-    console.log(setEditing, '<----Editing')
-
     return (
         <>
         <form className="notebookForm" onSubmit={editNotebook}>
