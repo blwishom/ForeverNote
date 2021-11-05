@@ -87,7 +87,7 @@ console.log(notes)
         {notes.map((note) => {
             return (
             <div>
-            <div className="note-page-div">
+            {(!editing) && <div className="note-page-div">
                 <div className="note-page-title-div">
                     <div className="note-content-div">
                     {note.title}
@@ -97,15 +97,13 @@ console.log(notes)
                 </div>
                 <div>
                 <div>
-                    {(!editing) && <button to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</button>}
-                    {(!editing) && <button className="note-page-delete-btn" onClick={() => deleteNote(note.id)}>Delete</button>}
-                </div>
-                {(editing && noteId===note.id) && <EditForm title={title} content={content} setContent={setContent} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId} setNoteId={setNoteId}/>}
-                <div>
+                    <button to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</button>
+                    <button className="note-page-delete-btn" onClick={() => deleteNote(note.id)}>Delete</button>
                 </div>
                 </div>
-            </div>
-            </div>)
+            </div>}
+            {(editing && noteId===note.id) && <EditForm title={title} content={content} setContent={setContent} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId} setNoteId={setNoteId}/>}
+        </div>)
         })}
         </div>
         </>
