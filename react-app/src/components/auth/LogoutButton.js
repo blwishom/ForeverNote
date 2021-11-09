@@ -13,7 +13,7 @@ const LogoutButton = () => {
   };
 
   if (!user) {
-    return <Redirect to='' />;
+    return <Redirect to='/' />;
   }
 
   return <button className="logout-btn" onClick={onLogout}>Logout</button>;
