@@ -4,16 +4,16 @@ import { useHistory } from "react-router";
 import Creatable from "react-select/creatable";
 import EditForm from "../EditForm";
 import { Link } from "react-router-dom";
+import SearchNotes from "../SearchBar";
 import './index.css';
-import '../images/old-school-maro.jpg';
 
 const NotePage = () => {
     const [notes, setNotes] = useState([]);
     const [noteId, setNoteId] = useState(-1);
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-    // const [noteContent, setNoteContent] = useState("");
     const [editing, setEditing] = useState(false);
+    const [searching, setSearching] = useState(false);
     const [editedTitle, setEditedTitle] = useState(false);
     const [editedContent, setEditedContent] = useState(false);
     const [noteCreated, setNoteCreated] = useState(false);
@@ -34,6 +34,15 @@ const NotePage = () => {
             }
         })()
     }, [noteCreated, noteDeleted, editing, title, content, noteId])
+
+    // Get one note
+    async function oneNoteFetch(noteId) {
+        const res = await fetch(`/api/notes/${noteId}`);
+        if (res.ok) {
+            const notes = await res.json();
+            setNotes(notes.notes)
+            }
+        }
 
     // Edit note
     async function editNote(noteId) {
@@ -83,6 +92,7 @@ console.log(notes)
     return (
         <>
         <div>
+{/* Editing */}
         <h1 className="h1">NOTES</h1>
         {notes.map((note) => {
             return (

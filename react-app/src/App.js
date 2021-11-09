@@ -11,6 +11,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import NotePage from './components/NotePage';
+import SearchNotePage from './components/SearchNotePage';
 import NotebookPage from './components/NotebookPage';
 import EditForm from './components/EditForm';
 import EditNotebookForm from './components/NotebookPage/edit_notebook_form';
@@ -46,6 +47,9 @@ function App() {
         </Route>
         <Route path='/notes' exact={true}>
           <NotePage />
+        </Route>
+        <Route path='/notes/:noteId' exact={true}>
+          <SearchNotePage />
         </Route>
         <Route path='/notebooks/new' exact={true}>
           <NotebookForm />
