@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 import './index.css';
 
 const SearchNotes = (props) => {
-    const [userNotes, setUserNotes] = useState([]);
+    const [userNotes, setUserNotes] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
     const notes = useSelector((state) => state.search?.notes);
     const user = useSelector((state) => state.session.user);
@@ -53,9 +53,10 @@ console.log(result, 'RESULT')
             value={searchTerm}
             />
             <ul className='search-result-dropdown'>
-                {result?.map((note) => <li onClick={() => {setUserNotes('')
+                {result?.map((note) => <li onClick={() => {setSearchTerm('')
                 history.push(`/notes/${note?.id}`)}} key={note.id}>{note?.title}</li>)}
             </ul>
+
         </div>
     )
 }
