@@ -106,9 +106,6 @@ debugger
                     value={content}
                 ></textarea>
                 <div>
-<<<<<<< HEAD
-                    <Creatable className="notebook-select" options={notebooks.title} />
-=======
                     <select
                     className="notebook-select"
                     options={notebooks.id}
@@ -122,7 +119,6 @@ debugger
                         <option key={notebook.id} value={notebook.id}>{notebook.title}</option>
                     ))}
                     </select>
->>>>>>> 5a3b6037bbbf7da5fa61fbd3b044a330b24497ed
                 </div>
                 <div>
                     <button className="note-btn" type="submit">Save Note</button>

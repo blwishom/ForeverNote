@@ -97,13 +97,8 @@ async function editNote(e) {
                     value={content}
                     ></textarea>
             </div>
-<<<<<<< HEAD
-            <Creatable className="notebook-select" options={notebooks} />
-            <Link to="/notes" className="note-btn">Edit Note</Link>
-=======
             {/* <Creatable className="notebook-select" options={notebooks} /> */}
             <button className="note-btn">Edit Note</button>
->>>>>>> 349c757871bf19030a5a031befa6d1914e081e89
             <div>
             {errors.map((error, ind) => (<li key={ind}>{error}</li>))}
             </div>
