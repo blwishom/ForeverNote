@@ -1,0 +1,11 @@
+.search-result-dropdown {
+    background-color: white;
+    font-size: 17px;
+    list-style-type: none;
+}
+
+.searchbar-input {
+    font-size: 15px;
+    height: 20px;
+    width: 153px;
+}
