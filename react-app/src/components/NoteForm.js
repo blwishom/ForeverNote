@@ -57,7 +57,7 @@ async function oneNoteFetch(noteId) {
         // Create note
         async function createNote(e) {
             e.preventDefault();
-debugger
+// debugger
             const newNote = {
                 title,
                 content,
@@ -109,7 +109,6 @@ debugger
                     <select
                     className="notebook-select"
                     options={notebooks.id}
-                    placeholder="Notebooks"
                     onChange={(e) => {
                         const selectNotebook = e.target.value;
                         setNotebookId(selectNotebook)
