@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
-// import Creatable from "react-select/creatable";
+import './index.css';
 
 const SearchNotes = (props) => {
-    const [userNotes, setUserNotes] = useState([]);
+    const [userNotes, setUserNotes] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
     const notes = useSelector((state) => state.search?.notes);
     const user = useSelector((state) => state.session.user);
-    const noteSearch = useSelector(state => state.search?.notes)
+    const noteSearch = useSelector(state => state.userNotes)
     const history = useHistory();
 
-    // console.log(notes, '<=====NOTES')
+    console.log(userNotes, '<=====NOTES')
+    console.log(user, '<=======USER')
     // console.log('TOP OF USE EFFECT')
 
     // Get all notes
@@ -30,31 +31,32 @@ const SearchNotes = (props) => {
     const filteredNotes = (search, notes) => {
         // console.log(notes, 'note search')
         if (!search) {
-            // console.log('no search')
+            console.log('no search')
             return []
         }
-        const searchResult = notes?.notes?.filter((note) => note.title.toLowerCase().includes(search.toLowerCase()))
-        // console.log(notes, 'notes')
-        // console.log(searchResult, '<----search result')
+        const searchResult = userNotes?.filter((notes) => notes.title.toLowerCase().includes(search.toLowerCase()))
+        console.log(searchResult, '<----search result')
         return searchResult
     }
 
 
 const result = filteredNotes(searchTerm, notes)
-// console.log(result, 'RESULT')
+console.log(result, 'RESULT')
 
     return (
         <div>
             <input
+            className='searchbar-input'
             type='text'
             placeholder='Search Notes'
             onChange={(e) => setSearchTerm(e.target.value)}
             value={searchTerm}
             />
-            <ul>
-                {result?.map((note) => <li onClick={() => {setUserNotes('')
-                history.push(`/notes/${notes?.id}`)}} key={note.id}>{note?.title}</li>)}
+            <ul className='search-result-dropdown'>
+                {result?.map((note) => <li onClick={() => {setSearchTerm('')
+                history.push(`/notes/${note?.id}`)}} key={note.id}>{note?.title}</li>)}
             </ul>
+
         </div>
     )
 }

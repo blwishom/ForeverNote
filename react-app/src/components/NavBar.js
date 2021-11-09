@@ -33,9 +33,9 @@ const NavBar = () => {
     return (
       <nav className="navbar">
         <ul className="navbar-ul">
-          {/* <div>
+          <div>
             <SearchNotes />
-          </div> */}
+          </div>
 
           <div>
           <NavLink className="text-decoration" to='/' exact={true} activeClassName='active'>
