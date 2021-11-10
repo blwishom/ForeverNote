@@ -5,6 +5,7 @@ import Creatable from "react-select/creatable";
 import EditForm from "../EditForm";
 import { Link } from "react-router-dom";
 import SearchNotes from "../SearchBar";
+import './index.css';
 
 const SearchNotePage = () => {
     const [userNotes, setUserNotes] = useState('');
@@ -65,19 +66,23 @@ const SearchNotePage = () => {
             setNoteId(noteNumber);
         }
 
-
     const result = filteredNotes(searchTerm, notes)
     console.log(result, 'RESULT')
+    console.log(result?.title, '<========Notes')
+    console.log(noteId, '<======NoteID')
 
         return (
             <div>
                 {/* Searching */}
             <div>
             <h1 className="h1">NOTE</h1>
+            Notes1
             {notes.map((note) => {
                 return (
                 <div>
+                    Notes
                 <div className="note-page-div">
+                    Notes2
                     <span className="note-page-title-div">
                         <div className="note-content-div">
                         {note.title}
@@ -86,7 +91,7 @@ const SearchNotePage = () => {
                         {note.content}
                     </span>
                 </div>
-                {(noteId===note.id) && <EditForm title={title} content={content} setContent={setContent} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId} setNoteId={setNoteId}/>}
+                {/* {(noteId===note.id) && <EditForm title={title} content={content} setContent={setContent} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId} setNoteId={setNoteId}/>} */}
             </div>)
             })}
             </div>

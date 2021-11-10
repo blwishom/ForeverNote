@@ -1,0 +1,45 @@
+.note-page-div {
+    display: block;
+    float: left;
+    margin: 15px;
+    overflow: scroll;
+    min-height: 200px;
+    min-width: 400px;
+    max-width: 100px;
+    max-height: 200px;
+    padding: 10px;
+    overflow: auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgb(223, 216, 216);
+}
+
+.note-page-edit-btn {
+    margin-top: 5px;
+    border: solid;
+    border-radius: 5px;
+    background-color: #00FFD1;
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 2px 33px;
+    color: black;
+    text-decoration: none;
+}
+
+.note-page-delete-btn {
+    margin-top: 5px;
+    border: solid;
+    border-radius: 5px;
+    background-color: red;
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.note-content-div {
+    font-weight: bold;
+    font-size: 30px;
+}
