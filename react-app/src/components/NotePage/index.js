@@ -5,9 +5,13 @@ import Creatable from "react-select/creatable";
 import EditForm from "../EditForm";
 import { Link } from "react-router-dom";
 import SearchNotes from "../SearchBar";
+import { Modal } from "../../Modal/Modal";
+import DeleteModal from "./delete_modal";
 import './index.css';
 
 const NotePage = () => {
+    const [openModal, setOpenModal] = useState(false);
+
     const [notes, setNotes] = useState([]);
     const [noteId, setNoteId] = useState(-1);
     const [title, setTitle] = useState("");
@@ -108,7 +112,12 @@ console.log(notes)
                 <div>
                 <div>
                     <button to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</button>
-                    <button className="note-page-delete-btn" onClick={() => deleteNote(note.id)}>Delete</button>
+                        <button className="note-page-delete-btn" onClick={() => {setOpenModal(true)}}>Delete</button>
+                        {openModal && <DeleteModal closeModal={setOpenModal} />}
+                    {/* <button className="note-page-delete-btn" onClick={() => deleteNote(note.id)}>
+                        <DeleteModal />
+                    </button> */}
+
                 </div>
                 </div>
             </div>}

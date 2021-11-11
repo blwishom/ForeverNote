@@ -71,32 +71,22 @@ const SearchNotePage = () => {
     console.log(result?.title, '<========Notes')
     console.log(noteId, '<======NoteID')
 
-        return (
-            <div>
-                {/* Searching */}
-            <div>
-            <h1 className="h1">NOTE</h1>
-            Notes1
-            {notes.map((note) => {
-                return (
-                <div>
-                    Notes
-                <div className="note-page-div">
-                    Notes2
-                    <span className="note-page-title-div">
-                        <div className="note-content-div">
-                        {note.title}
-                        </div>
-                        <br/>
-                        {note.content}
-                    </span>
-                </div>
-                {/* {(noteId===note.id) && <EditForm title={title} content={content} setContent={setContent} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId} setNoteId={setNoteId}/>} */}
-            </div>)
-            })}
-            </div>
-            </div>
-        )
+    return (
+        <>
+        <div>
+        <h1 className="h1">NOTE {noteId}</h1>
+        Note
+        {notes.map((note) => {
+            return (
+        <div>
+            {noteId}
+            {note.content}
+            {(searching && noteId===note.id) && <EditForm title={title} content={content} setContent={setContent} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId} setNoteId={setNoteId}/>}
+        </div>)
+        })}
+        </div>
+        </>
+    )
 }
 
 export default SearchNotePage
