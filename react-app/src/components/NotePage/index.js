@@ -17,6 +17,7 @@ const NotePage = ({ closeModal }) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [editing, setEditing] = useState(false);
+    const [deleting, setDeleting] = useState(false);
     const [searching, setSearching] = useState(false);
     const [editedTitle, setEditedTitle] = useState(false);
     const [editedContent, setEditedContent] = useState(false);
@@ -91,6 +92,13 @@ function editing_Note(noteNumber, noteTitle, noteContent) {
     setNoteId(noteNumber);
 }
 
+function deleting_Note(noteNumber, noteTitle, noteContent) {
+    setDeleting(!deleting);
+    setTitle(noteTitle);
+    setContent(noteContent);
+    setNoteId(noteNumber);
+}
+
 console.log(notes)
 
     return (
@@ -113,7 +121,7 @@ console.log(notes)
                 <div>
                     <button to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</button>
                     <button className="note-page-delete-btn" onClick={() => {setOpenModal(true)}}>Delete</button>
-                        {openModal && <DeleteModal closeModal={setOpenModal} />}
+                        {(openModal && noteId===note.id) && <DeleteModal closeModal={setOpenModal} />}
                     {/* <button className="note-page-delete-btn" onClick={() => deleteNote(note.id)}>
                         <DeleteModal />
                     </button> */}

@@ -31,6 +31,7 @@
 .note-page-delete-btn {
     margin-top: 5px;
     border: solid;
+    border-color: black;
     border-radius: 5px;
     background-color: red;
     height: 30px;
