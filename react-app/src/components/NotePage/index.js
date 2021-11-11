@@ -9,7 +9,7 @@ import { Modal } from "../../Modal/Modal";
 import DeleteModal from "./delete_modal";
 import './index.css';
 
-const NotePage = () => {
+const NotePage = ({ closeModal }) => {
     const [openModal, setOpenModal] = useState(false);
 
     const [notes, setNotes] = useState([]);
@@ -112,7 +112,7 @@ console.log(notes)
                 <div>
                 <div>
                     <button to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</button>
-                        <button className="note-page-delete-btn" onClick={() => {setOpenModal(true)}}>Delete</button>
+                    <button className="note-page-delete-btn" onClick={() => {setOpenModal(true)}}>Delete</button>
                         {openModal && <DeleteModal closeModal={setOpenModal} />}
                     {/* <button className="note-page-delete-btn" onClick={() => deleteNote(note.id)}>
                         <DeleteModal />

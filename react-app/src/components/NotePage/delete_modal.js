@@ -45,12 +45,9 @@ return (
             </div>
     </div>)
     })}
-    <button className='confirm-delete-btn' onClick={() => closeModal(false)}>Cancel</button>
+    <button className='confirm-cancel-btn' onClick={() => closeModal(false)}>Cancel</button>
     <button className='confirm-delete-btn' onClick={() => deleteNote()}>Continue</button>
                 </div>
-                <button className='delete-btn-modal' onClick={() => setShowModal(true)}>
-                    Modal
-                </button>
                 {/* {showModal && (<Modal onclose={() => setShowModal(false)}>
                     <NotePage />
                 </Modal>)} */}
