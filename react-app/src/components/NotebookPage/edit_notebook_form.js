@@ -71,7 +71,7 @@ async function editNotebook(e) {
                     value={title}
                 ></input>
             </div>
-            <button className="notebook-btn" type="submit">Edit Notebook</button>
+            <button className="edit-notebook-btn" type="submit">Edit Notebook</button>
             <div>
             {errors.map((error, ind) => (<li key={ind}>{error}</li>))}
             </div>

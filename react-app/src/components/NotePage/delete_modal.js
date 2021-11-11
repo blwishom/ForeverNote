@@ -38,13 +38,6 @@ return (
                     </p>
                 </div>
                 <div className='footer'>
-    {notes.map((note) => {
-        return (
-            <div>
-            <div>
-            </div>
-    </div>)
-    })}
     <button className='confirm-cancel-btn' onClick={() => closeModal(false)}>Cancel</button>
     <button className='confirm-delete-btn' onClick={() => deleteNote()}>Continue</button>
                 </div>
