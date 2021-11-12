@@ -76,13 +76,13 @@ const SearchNotePage = () => {
                 {/* Searching */}
             <div>
             <h1 className="h1">NOTE</h1>
-            Notes1
-            {notes.map((note) => {
+            Notes1 <br />
+            {(noteId)}
+
+            {/* {notes.map((note) => {
                 return (
                 <div>
-                    Notes
-                <div className="note-page-div">
-                    Notes2
+                {<div className="note-page-div">
                     <span className="note-page-title-div">
                         <div className="note-content-div">
                         {note.title}
@@ -90,10 +90,10 @@ const SearchNotePage = () => {
                         <br/>
                         {note.content}
                     </span>
-                </div>
-                {/* {(noteId===note.id) && <EditForm title={title} content={content} setContent={setContent} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId} setNoteId={setNoteId}/>} */}
+                </div>}
+                {(noteId===note.id) && <EditForm title={title} content={content} setContent={setContent} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId} setNoteId={setNoteId}/>}
             </div>)
-            })}
+            })} */}
             </div>
             </div>
         )
