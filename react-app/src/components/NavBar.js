@@ -68,7 +68,7 @@ const NavBar = () => {
           </div>
 
 
-            <LogoutButton />
+            <LogoutButton className="logout-btn"/>
 
         </ul>
       </nav>

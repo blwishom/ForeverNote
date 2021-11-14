@@ -33,6 +33,7 @@
     width: 100px;
     font-weight: bold;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .delete-btn {
@@ -45,6 +46,7 @@
     font-weight: bold;
     font-size: 15px;
     margin-left: 5px;
+    cursor: pointer;
 }
 
 .notebook-title {
@@ -58,7 +60,7 @@
     padding: 10px;
 }
 
-.notebook-btn {
+.edit-notebook-btn {
     margin-top: 10px;
     border: solid;
     border-radius: 5px;
@@ -67,4 +69,5 @@
     width: 130px;
     font-weight: bold;
     font-size: 15px;
+    cursor: pointer;
 }
