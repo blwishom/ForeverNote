@@ -3,8 +3,7 @@ import { Modal } from "../../Modal/Modal";
 import NotePage from ".";
 import './index.css';
 
-function DeleteModal({ closeModal }) {
-    const [showModal, setShowModal] = useState(false);
+function DeleteModal({ setOpenDeleteModal, noteId }) {
     const [notes, setNotes] = useState([]);
     const [noteDeleted, setNoteDeleted] = useState(false);
 
@@ -16,6 +15,7 @@ async function deleteNote(noteId) {
     if (res.ok) {
         const note = await res.json();
                 setNoteDeleted(!noteDeleted);
+                setOpenDeleteModal(false);
     } else {
         return "No note has been retrieved"
     }
@@ -26,7 +26,7 @@ return (
     <>
         <div className='modal-background'>
             <div className='modal-container'>
-                <button className='close-btn' onClick={() => closeModal(false)}>X</button>
+                <button className='close-btn' onClick={() => setOpenDeleteModal(false)}>X</button>
                 <div className='title'>
                     <h1>Are You Sure You Want To Delete This Note?</h1>
                 </div>
@@ -38,8 +38,8 @@ return (
                     </p>
                 </div>
                 <div className='footer'>
-    <button className='confirm-cancel-btn' onClick={() => closeModal(false)}>Cancel</button>
-    <button className='confirm-delete-btn' onClick={() => deleteNote()}>Continue</button>
+    <button className='confirm-cancel-btn' onClick={() => setOpenDeleteModal(false)}>Cancel</button>
+    <button className='confirm-delete-btn' onClick={() => deleteNote(noteId)}>Continue</button>
                 </div>
                 {/* {showModal && (<Modal onclose={() => setShowModal(false)}>
                     <NotePage />
