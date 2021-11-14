@@ -18,6 +18,10 @@
     margin-bottom: 10px;
 }
 
+.logout-btn {
+    cursor: pointer;
+}
+
 .navbar {
     background-color: black;
     float: left;

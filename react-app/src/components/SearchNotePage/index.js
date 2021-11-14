@@ -51,8 +51,6 @@ const SearchNotePage = () => {
     console.log(title, '<====TITLE')
     console.log(content, '<====content')
 
-
-
         return (
             <div>
             {(!editing && note) &&

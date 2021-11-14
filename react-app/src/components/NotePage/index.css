@@ -25,11 +25,13 @@
     padding: 2px 33px;
     color: black;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .note-page-delete-btn {
     margin-top: 5px;
     border: solid;
+    border-color: black;
     border-radius: 5px;
     background-color: red;
     height: 30px;
@@ -37,9 +39,99 @@
     font-weight: bold;
     font-size: 15px;
     margin-left: 5px;
+    cursor: pointer;
 }
 
 .note-content-div {
     font-weight: bold;
     font-size: 30px;
+}
+
+.modal-background {
+    /* background-color: aqua;
+    border-color: black;
+    border-style: solid; */
+    border-radius: 10px;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container {
+    margin-top: -100px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    width: 350px;
+    height: 300px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: rgb(218, 212, 212);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.modal-container .title {
+    display: inline-block;
+    text-align: center;
+    font-size: 10px;
+}
+
+.close-btn {
+    font-size: 25px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: transparent;
+    border-color: none;
+    border-style: none;
+    cursor: pointer;
+    width: 30px;
+    margin-left: 320px;
+    margin-top: -10px;
+}
+
+.body {
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    text-align: center;
+    margin-top: -25px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.confirm-delete-btn {
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 20px;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    border-color: black;
+    border-radius: 5px;
+    background-color: rgb(0, 255, 30);
+}
+
+.confirm-cancel-btn {
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    border-color: black;
+    border-radius: 5px;
+    background-color: white;
 }
