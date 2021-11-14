@@ -5,14 +5,20 @@ import Creatable from "react-select/creatable";
 import EditForm from "../EditForm";
 import { Link } from "react-router-dom";
 import SearchNotes from "../SearchBar";
+import { Modal } from "../../Modal/Modal";
+import DeleteModal from "./delete_modal";
 import './index.css';
 
-const NotePage = () => {
+const NotePage = ({ closeModal }) => {
+    const [openModal, setOpenModal] = useState(false);
+    const [openDeleteModal, setOpenDeleteModal] = useState(false);
+    const [deletedNoteId, setDeletedNoteId] = useState(-1);
     const [notes, setNotes] = useState([]);
     const [noteId, setNoteId] = useState(-1);
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [editing, setEditing] = useState(false);
+    const [deleting, setDeleting] = useState(false);
     const [searching, setSearching] = useState(false);
     const [editedTitle, setEditedTitle] = useState(false);
     const [editedContent, setEditedContent] = useState(false);
@@ -33,7 +39,7 @@ const NotePage = () => {
             setNotes(notes.notes)
             }
         })()
-    }, [noteCreated, noteDeleted, editing, title, content, noteId])
+    }, [noteCreated, noteDeleted, editing, title, content, noteId, openDeleteModal])
 
     // Get one note
     async function oneNoteFetch(noteId) {
@@ -80,6 +86,11 @@ async function deleteNote(noteId) {
     return res;
 }
 
+function modalFunction(noteId) {
+    setDeletedNoteId(noteId);
+    setOpenDeleteModal(true);
+}
+
 function editing_Note(noteNumber, noteTitle, noteContent) {
     setEditing(!editing);
     setTitle(noteTitle);
@@ -108,7 +119,9 @@ console.log(notes)
                 <div>
                 <div>
                     <button to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</button>
-                    <button className="note-page-delete-btn" onClick={() => deleteNote(note.id)}>Delete</button>
+                    <button className="note-page-delete-btn" onClick={() => {modalFunction(note.id)}}>Delete</button>
+                        {(openDeleteModal && deletedNoteId===note.id) && <DeleteModal setOpenDeleteModal={setOpenDeleteModal} noteId={note.id} />}
+
                 </div>
                 </div>
             </div>}

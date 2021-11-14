@@ -1,4 +1,4 @@
-.notebook-page-div {
+.note-page-div {
     display: block;
     float: left;
     margin: 15px;
@@ -13,18 +13,7 @@
     box-shadow: 5px 5px 5px 5px rgb(223, 216, 216);
 }
 
-.notebook-form {
-    font-size: 25px;
-    margin-bottom: 30px;
-    padding: 10px;
-}
-
-.notebook-title-div {
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.edit-btn {
+.note-page-edit-btn {
     margin-top: 5px;
     border: solid;
     border-radius: 5px;
@@ -33,10 +22,12 @@
     width: 100px;
     font-weight: bold;
     font-size: 15px;
-    cursor: pointer;
+    padding: 2px 33px;
+    color: black;
+    text-decoration: none;
 }
 
-.delete-btn {
+.note-page-delete-btn {
     margin-top: 5px;
     border: solid;
     border-radius: 5px;
@@ -46,28 +37,9 @@
     font-weight: bold;
     font-size: 15px;
     margin-left: 5px;
-    cursor: pointer;
 }
 
-.notebook-title {
-    width: 50%;
-    font-size: 25px;
-    overflow: hidden;
-    text-decoration: none;
-    resize: none;
-    border: none;
-    outline: none;
-    padding: 10px;
-}
-
-.edit-notebook-btn {
-    margin-top: 10px;
-    border: solid;
-    border-radius: 5px;
-    background-color: #00FFD1;
-    height: 30px;
-    width: 130px;
+.note-content-div {
     font-weight: bold;
-    font-size: 15px;
-    cursor: pointer;
+    font-size: 30px;
 }

@@ -5,6 +5,7 @@ import Creatable from "react-select/creatable";
 import EditForm from "../EditForm";
 import { Link } from "react-router-dom";
 import SearchNotes from "../SearchBar";
+import './index.css';
 
 const SearchNotePage = () => {
     const [userNotes, setUserNotes] = useState('');
@@ -65,33 +66,27 @@ const SearchNotePage = () => {
             setNoteId(noteNumber);
         }
 
-
     const result = filteredNotes(searchTerm, notes)
     console.log(result, 'RESULT')
+    console.log(result?.title, '<========Notes')
+    console.log(noteId, '<======NoteID')
 
-        return (
-            <div>
-                {/* Searching */}
-            <div>
-            <h1 className="h1">NOTE</h1>
-            {notes.map((note) => {
-                return (
-                <div>
-                <div className="note-page-div">
-                    <span className="note-page-title-div">
-                        <div className="note-content-div">
-                        {note.title}
-                        </div>
-                        <br/>
-                        {note.content}
-                    </span>
-                </div>
-                {(noteId===note.id) && <EditForm title={title} content={content} setContent={setContent} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId} setNoteId={setNoteId}/>}
-            </div>)
-            })}
-            </div>
-            </div>
-        )
+    return (
+        <>
+        <div>
+        <h1 className="h1">NOTE {noteId}</h1>
+        Note
+        {notes.map((note) => {
+            return (
+        <div>
+            {noteId}
+            {note.content}
+            {(searching && noteId===note.id) && <EditForm title={title} content={content} setContent={setContent} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId} setNoteId={setNoteId}/>}
+        </div>)
+        })}
+        </div>
+        </>
+    )
 }
 
 export default SearchNotePage
