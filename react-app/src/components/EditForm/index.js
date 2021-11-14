@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
-import Creatable from "react-select/creatable";
 import './index.css';
 
-const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent, setTitle, setContent, noteId, setNoteId }) => {
-    const [notes, setNotes] = useState([]);
+const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent, setTitle, setContent, noteId }) => {
+    const [note, setNote] = useState([]);
     const [errors, setErrors] = useState([]);
     const [noteCreated, setNoteCreated] = useState(false);
     const [noteContent, setNoteContent] = useState("");
@@ -17,32 +16,16 @@ const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent
         {value: 'notebookId', label: 'Notebook'}
     ]
 
-    // console.log(setNoteContent, '<-----Set Content')
-    console.log(setTitle, '<-----Set Title')
-
     // Get all notes
     useEffect(() => {
         (async function notesFetch() {
-        const res = await fetch("/api/notes/");
-        if (res.ok) {
-            const notes = await res.json();
-            setNotes(notes.notes)
-            }
-        })()
-    }, [noteCreated])
-
-
-    // Get one note
-async function oneNoteFetch(noteId) {
         const res = await fetch(`/api/notes/${noteId}`);
         if (res.ok) {
-            const notes = await res.json();
-            setNotes(notes.notes)
+            const noteData = await res.json();
+            setNote(noteData)
             }
-        }
-
-        console.log(title, '<-----TITLE')
-        console.log(content, '<-----CONTENT')
+        })()
+    }, [noteCreated]);
 
     // Edit note
 async function editNote(e) {
@@ -70,8 +53,6 @@ async function editNote(e) {
         }
         return note
     }
-    console.log(noteContent, '<-----EditForm Content')
-    console.log(title, '<-----EditForm Content')
 
     return (
         <>
@@ -97,7 +78,6 @@ async function editNote(e) {
                     value={content}
                     ></textarea>
             </div>
-            {/* <Creatable className="notebook-select" options={notebooks} /> */}
             <button className="note-btn">Edit Note</button>
             <div>
             {errors.map((error, ind) => (<li key={ind}>{error}</li>))}
