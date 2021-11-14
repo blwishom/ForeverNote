@@ -46,6 +46,8 @@ function App() {
           <EditForm />
         </Route>
         <Route path='/notes' exact={true}>
+        <div className="home-img" style={{backgroundImage: `url(${image})`}}>
+        </div>
           <NotePage />
         </Route>
         <Route path='/notes/:noteId' exact={true}>
@@ -55,6 +57,8 @@ function App() {
           <NotebookForm />
         </Route>
         <Route path='/notebooks' exact={true}>
+        <div className="home-img" style={{backgroundImage: `url(${image})`}}>
+        </div>
           <NotebookPage />
         </Route>
         <Route path='/login' className="login" exact={true}>

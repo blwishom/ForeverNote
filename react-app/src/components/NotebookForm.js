@@ -61,7 +61,6 @@ async function createNotebook(e) {
 
     return (
         <form className="notebook-form" onSubmit={createNotebook}>
-            <h1 className="header">CREATE NEW NOTEBOOK</h1>
             <div>
                 <input
                     className="notebook-title"

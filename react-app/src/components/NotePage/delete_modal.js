@@ -5,6 +5,7 @@ import './index.css';
 
 function DeleteModal({ setOpenDeleteModal, noteId }) {
     const [notes, setNotes] = useState([]);
+    const [note, setNote] = useState('');
     const [noteDeleted, setNoteDeleted] = useState(false);
 
     // Delete note

@@ -103,8 +103,6 @@ console.log(notes)
     return (
         <>
         <div>
-{/* Editing */}
-        <h1 className="h1">NOTES</h1>
         {notes.map((note) => {
             return (
             <div>

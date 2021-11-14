@@ -91,7 +91,6 @@ function editing_Title(notebookNumber, notebookTitle) {
     return (
         <>
         <div>
-        <h1 className="h1">NOTEBOOKS</h1>
         {notebooks.map((notebook) => {
             const filteredNotes = notes.filter(note => notebookId == notes.notebookId2);
             return (
