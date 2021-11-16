@@ -24,8 +24,8 @@
     width: 100%;
     display: flex;
     bottom: 0px;
-    /* position: fixed; */
-    height: 60px;
+    position: fixed;
+    height: 40px;
     padding-bottom: 20px;
 }
 
