@@ -105,10 +105,10 @@ console.log(notes)
         <div>
         {notes.map((note) => {
             return (
-            <div>
+            <div className='full-page-div'>
             {(!editing) && <div className="note-page-div">
-                <span className="note-page-title-div">
-                    <div className="note-content-div">
+                <span className="note-page-title-content-span">
+                    <div className="note-title-div">
                     {note.title}
                     </div>
                     <br/>

@@ -26,15 +26,13 @@
     background-color: black;
     float: left;
     width: 200px;
-    height: 200vh;
+    height: 125vh;
     margin-right: 1px;
     text-decoration: none;
-    position: sticky;
+    /* position: sticky; */
     padding-right: 25px;
     margin-bottom: 0px;
-    /* position: absolute;
-    top: 0px;
-    left: 0px; */
+    position: absolute;
 }
 
 .navbar-ul {

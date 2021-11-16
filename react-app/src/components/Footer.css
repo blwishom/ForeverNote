@@ -1,34 +1,32 @@
 .github-div {
-    background-color: black;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    align-content: center;
-    width: 50%;
+    margin-left: 50%;
     text-decoration: none;
     color: white;
+    padding-left: 25px;
     padding-right: 25px;
-    padding-left: 15px;
 }
 
 .linkedin-div {
+    margin-right: 50%;
+    text-decoration: none;
+    color: white;
+    float: right;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.footer-div {
     background-color: black;
     display: flex;
     flex-direction: row;
     align-items: center;
     align-content: center;
-    width: 50%;
-    text-decoration: none;
-    color: white;
-    float: right;
-    padding-left: 25px;
-}
-
-.footer-div {
+    width: 100%;
     display: flex;
     bottom: 0px;
-    position: absolute;
+    /* position: fixed; */
     height: 60px;
+    padding-bottom: 20px;
 }
 
 .text-decoration {

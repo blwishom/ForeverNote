@@ -1,8 +1,15 @@
+.notebook-full-page-div {
+    margin-left: 250px;
+    margin-top: -50px;
+}
+
 .notebook-page-div {
+    background-color: white;
     display: block;
     float: left;
     margin: 15px;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     min-height: 200px;
     min-width: 400px;
     max-width: 100px;
@@ -15,6 +22,7 @@
 
 .notebook-form {
     font-size: 25px;
+    margin-left: 250px;
     margin-bottom: 30px;
     padding: 10px;
 }
@@ -22,6 +30,17 @@
 .notebook-title-div {
     font-weight: bold;
     font-size: 20px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px;
+    background-color: #00FFD1;
+    padding-left: 5px;
+}
+
+.edit-delete-div {
+    background-color: yellow;
+    margin-top: 20px;
+    margin-bottom: -100px;
 }
 
 .edit-btn {

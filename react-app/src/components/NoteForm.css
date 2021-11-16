@@ -36,14 +36,24 @@
 .note-div {
     overflow: auto;
     min-height: 200px;
-    min-width: 200px;
+    min-width: 300px;
     max-width: 100px;
     border-radius: 10px;
     box-shadow: 5px 5px 5px 5px rgb(223, 216, 216);
 }
 
 .create-note-page-div {
-    margin-left: 1px;
+    margin-left: 250px;
+}
+
+.note-form-title-div {
+    width: 100%;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.note-form-content-div {
+    font-size: 20px;
 }
 
 /* NOTE PAGE */

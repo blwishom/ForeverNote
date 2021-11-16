@@ -19,6 +19,7 @@
     font-weight: bold;
     font-size: 20px;
     background-color: white;
+    cursor: pointer;
 }
 
 .login-form {
@@ -61,4 +62,5 @@
     font-weight: bold;
     font-size: 20px;
     background-color: white;
+    cursor: pointer;
 }

@@ -90,7 +90,7 @@ function editing_Title(notebookNumber, notebookTitle) {
 
     return (
         <>
-        <div>
+        <div className="notebook-full-page-div">
         {notebooks.map((notebook) => {
             const filteredNotes = notes.filter(note => notebookId == notes.notebookId2);
             return (
@@ -100,7 +100,7 @@ function editing_Title(notebookNumber, notebookTitle) {
                         {notebook.title}
                     </div>
                     <div>
-                    <div>
+                    <div className='edit-delete-div'>
                         {(!editing) && <button className="edit-btn" onClick={() => editing_Title(notebook.id, notebook.title)}>Edit</button>}
                         {(!editing) && <button className="delete-btn" onClick={() => deleteNotebook(notebook.id)}>Delete</button>}
                     </div>

@@ -6,11 +6,11 @@ import { notebooksFetch } from "./NotebookForm";
 import './NoteForm.css'
 
 const NoteForm = () => {
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
     const [notes, setNotes] = useState([]);
     const [notebooks2, setNotebooks2] = useState([]);
-    const [notebookId, setNotebookId] = useState(notebooks2?.[0]?.id);
+    const [notebookId, setNotebookId] = useState('');
     const [noteCreated, setNoteCreated] = useState(false);
     const [errors, setErrors] = useState([]);
     const user = useSelector((state) => state.session.user);
@@ -20,7 +20,7 @@ const NoteForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    // console.log(notebooks2?.[0]?.id, '<----------NBs')
+    console.log(notebooks2, '<----------NBs2')
 
     // Get all notebooks
     useEffect(() => {
@@ -28,7 +28,8 @@ const NoteForm = () => {
         const res = await fetch("/api/notebooks/");
         if (res.ok) {
             const notebooks = await res.json();
-            setNotebooks2(notebooks.notebook)
+            setNotebooks2(notebooks.notebook);
+            console.log(notebooks.notebook, '<----notebooks')
             }
         })()
     }, [notebookCreated, title, notebookId])
@@ -119,7 +120,7 @@ async function oneNoteFetch(noteId) {
                     </select>
                 </div>
                 <div>
-                    <button className="note-btn" type="submit">Save Note</button>
+                    <button className="note-btn" type="submit" onClick={() => {setNotebooks2(notebooks2)}}>Save Note</button>
                 </div>
             </div>
             </div>
@@ -132,9 +133,9 @@ async function oneNoteFetch(noteId) {
                 return (
                 <div>
                     <div className="note-div">
-                        <div className="note-title-div">{note.title}</div>
+                        <div className="note-form-title-div">{note.title}</div>
                         <br/>
-                        {note.content}
+                        <div className="note-form-content-div">{note.content}</div>
                     </div>
                 </div>
                 )

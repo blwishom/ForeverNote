@@ -1,12 +1,23 @@
+/* Note cards */
+
+.full-page-div {
+    margin-left: 250px;
+    margin-bottom: -75px;
+}
+
 .note-page-div {
+    background-color: white;
     display: block;
     float: left;
     margin: 15px;
-    overflow: scroll;
-    min-height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* min-height: 200px;
     min-width: 400px;
     max-width: 100px;
-    max-height: 200px;
+    max-height: 200px; */
+    border-style: solid;
+    border-color: black;
     padding: 10px;
     overflow: auto;
     border-radius: 10px;
@@ -42,15 +53,19 @@
     cursor: pointer;
 }
 
-.note-content-div {
+.note-title-div {
+    background-color: #00FFD1;
+    padding-left: 5px;
     font-weight: bold;
     font-size: 30px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px;
 }
 
+/* Modal */
+
 .modal-background {
-    /* background-color: aqua;
-    border-color: black;
-    border-style: solid; */
     border-radius: 10px;
     font-size: 15px;
     width: 100%;
@@ -95,13 +110,18 @@
 }
 
 .body {
+    background-color: #00FFD1;
     flex: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 15px;
     text-align: center;
-    margin-top: -25px;
+    margin-top: -5px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: black;
 }
 
 .footer {
