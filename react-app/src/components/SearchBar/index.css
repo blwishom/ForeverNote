@@ -1,13 +1,24 @@
 .search-result-dropdown {
     background-color: white;
     font-size: 17px;
-    list-style-type: none;
+    /* list-style-type: ; */
     margin-bottom: 10px;
+    margin-left: -22px;
+    width: 120px;
     cursor: pointer;
+    border-radius: 0px 0px 5px 5px;
+    position: absolute;
+}
+
+.search-result-dropdown:hover {
+    /* background-color: yellowgreen; */
 }
 
 .searchbar-input {
     font-size: 15px;
-    height: 20px;
-    width: 153px;
+    height: 25px;
+    width: 165px;
+    margin-left: -30px;
+    border-radius: 5px;
+    padding-left: 5px;
 }
