@@ -8,6 +8,7 @@ body {
 
 .home-img {
     /* border-style: solid; */
+    margin-left: 190px;
     height: 405px;
     width: 100%;
     /* margin: 10px; */
@@ -15,7 +16,17 @@ body {
 }
 
 .welcome-div {
-    margin-top: 1px;
+    background-color: white;
+    margin-top: -400px;
+    /* margin-bottom: 400px; */
+    margin-left: 25%;
+    margin-right: 28%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -webkit-text-stroke: 3px #00FFD1;
+    color: #00FFD1;
+    font-size: 50px;
+    border-radius: 30px;
 }
 
 .logged-out-img {
@@ -37,6 +48,8 @@ body {
     flex-direction: column;
     align-items: center;
     font-size: 25px;
+    margin-top: 30px;
+    margin-left: 250px;
 }
 
 .home-text-links1 {

@@ -83,8 +83,8 @@ function App() {
           <div className="home-img" style={{backgroundImage: `url(${image})`}}>
           </div>
           <div className="home-text">
-            <h1 className="welcome-div">WELCOME TO FOREVER NOTE!</h1>
 
+          <h1 className="welcome-div">FOREVER NOTE</h1>
           <NavLink className="home-text-links1" to='/notes/new' exact={true} activeClassName='active'>
             create a new note
           </NavLink>

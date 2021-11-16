@@ -2,7 +2,7 @@
     display: block;
     float: left;
     margin: 15px;
-    overflow: scroll;
+    overflow: auto;
     min-height: 200px;
     min-width: 400px;
     max-width: 100px;
