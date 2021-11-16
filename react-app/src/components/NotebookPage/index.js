@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import Creatable from "react-select/creatable";
 import EditNotebookForm from "./edit_notebook_form";
+import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
 import './index.css'
 
 const NotebookPage = () => {
@@ -17,7 +17,6 @@ const NotebookPage = () => {
     const [notes, setNotes] = useState([]);
     const [noteCreated, setNoteCreated] = useState(false);
     const user = useSelector((state) => state.session.user);
-    const history = useHistory();
 
     console.log(notebookId2, '<------NBs')
     console.log(notes, '<--------Notes')
@@ -103,8 +102,8 @@ function editing_Title(notebookNumber, notebookTitle) {
                     <div>
                     <div>
                         <div className='edit-delete-div'>
-                            {(!editing) && <button className="edit-btn" onClick={() => editing_Title(notebook.id, notebook.title)}>Edit</button>}
-                            {(!editing) && <button className="delete-btn" onClick={() => deleteNotebook(notebook.id)}>Delete</button>}
+                            {(!editing) && <button className="edit-btn" onClick={() => editing_Title(notebook.id, notebook.title)}><FaRegEdit /></button>}
+                            {(!editing) && <button className="delete-btn" onClick={() => deleteNotebook(notebook.id)}><FaTrashAlt /></button>}
                         </div>
                     </div>
                     {(editing && notebookId===notebook.id) && <EditNotebookForm title={title} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} notebookId={notebookId} setNotebookId={setNotebookId} />}

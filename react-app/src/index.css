@@ -8,7 +8,6 @@ body {
 
 .home-img {
     /* border-style: solid; */
-    margin-left: 25px;
     height: 405px;
     width: 100%;
     /* margin: 10px; */
@@ -59,6 +58,7 @@ body {
     border-radius: 10px;
     color: white;
     padding: 10px;
+    font-size: 20px;
 }
 
 .home-text-links2 {
@@ -70,4 +70,5 @@ body {
     border-radius: 10px;
     color: white;
     padding: 10px;
+    font-size: 20px;
 }

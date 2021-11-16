@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
-import Creatable from "react-select/creatable";
 import EditForm from "../EditForm";
-import { Link } from "react-router-dom";
-import SearchNotes from "../SearchBar";
+import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
 import './index.css';
 
 const SearchNotePage = () => {
@@ -65,8 +62,8 @@ const SearchNotePage = () => {
                 <div className='search-content-div'>
                     {note?.content}
                     <div className='search-edit-delete-div'>
-                        <button className="note-page-edit-btn" onClick={() => setEditing(!editing)}>Edit</button>
-                        <button className="note-page-delete-btn" onClick={() => deleteNote(note.id)}>Delete</button>
+                        <button className="note-page-edit-btn" onClick={() => setEditing(!editing)}><FaRegEdit /></button>
+                        <button className="note-page-delete-btn" onClick={() => deleteNote(note.id)}><FaTrashAlt /></button>
                     </div>
                 </div>
             </div>}

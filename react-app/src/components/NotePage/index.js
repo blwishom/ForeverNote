@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import Creatable from "react-select/creatable";
 import EditForm from "../EditForm";
-import { Link } from "react-router-dom";
-import SearchNotes from "../SearchBar";
-import { Modal } from "../../Modal/Modal";
 import DeleteModal from "./delete_modal";
+import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
 import './index.css';
 
 const NotePage = ({ closeModal }) => {
-    const [openModal, setOpenModal] = useState(false);
+    // const [openModal, setOpenModal] = useState(false);
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
     const [deletedNoteId, setDeletedNoteId] = useState(-1);
     const [notes, setNotes] = useState([]);
@@ -18,14 +15,14 @@ const NotePage = ({ closeModal }) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [editing, setEditing] = useState(false);
-    const [deleting, setDeleting] = useState(false);
-    const [searching, setSearching] = useState(false);
+    // const [deleting, setDeleting] = useState(false);
+    // const [searching, setSearching] = useState(false);
     const [editedTitle, setEditedTitle] = useState(false);
     const [editedContent, setEditedContent] = useState(false);
     const [noteCreated, setNoteCreated] = useState(false);
     const [noteDeleted, setNoteDeleted] = useState(false);
-    const user = useSelector((state) => state.session.user);
-    const history = useHistory();
+    // const user = useSelector((state) => state.session.user);
+    // const history = useHistory();
 
     console.log(title, '<======NotePage Title')
     console.log(content, '<======NotePage Content')
@@ -117,8 +114,8 @@ console.log(notes)
                     </div>
                 </span>
                     <div className='note-edit-delete-div'>
-                        <button to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</button>
-                        <button className="note-page-delete-btn" onClick={() => {modalFunction(note.id)}}>Delete</button>
+                        <button to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}><FaRegEdit /></button>
+                        <button className="note-page-delete-btn" onClick={() => {modalFunction(note.id)}}><FaTrashAlt /></button>
                     {(openDeleteModal && deletedNoteId===note.id) && <DeleteModal setOpenDeleteModal={setOpenDeleteModal} noteId={note.id} />}
                     </div>
             </div>}

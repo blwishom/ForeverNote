@@ -1,9 +1,9 @@
 /* Note cards */
 
 .full-page-div {
-    background-color: yellowgreen;
     margin-left: 275px;
     margin-bottom: 75px;
+    margin-bottom: 125px;
 }
 
 .note-card-div {
@@ -116,7 +116,8 @@
 }
 
 .close-btn {
-    font-size: 25px;
+    font-size: 17px;
+    font-weight: bold;
     display: flex;
     justify-content: flex-end;
     background-color: transparent;
@@ -126,6 +127,7 @@
     width: 30px;
     margin-left: 290px;
     margin-top: -20px;
+    margin-bottom: -15px;
 }
 
 .body {
@@ -162,6 +164,7 @@
     height: 30px;
     border-color: black;
     border-radius: 5px;
+    border-style: solid;
     background-color: #00FFD1;
 }
 
@@ -173,5 +176,6 @@
     height: 30px;
     border-color: black;
     border-radius: 5px;
+    border-style: solid;
     background-color: white;
 }
