@@ -5,6 +5,7 @@ import LogoutButton from './auth/LogoutButton';
 import NoteForm from './NoteForm';
 import { useSelector } from 'react-redux';
 import SearchNotes from './SearchBar';
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import './Footer.css'
 
 const Footer = () => {
@@ -17,12 +18,12 @@ const Footer = () => {
         <div className="footer-div">
           <div className="github-div">
             <a className="text-decoration"  href='https://github.com/blwishom' exact={true}>
-            GitHub
+            <FaGithub /> GitHub
             </a>
           </div>
           <div className="linkedin-div">
             <a className="text-decoration" href='https://www.linkedin.com/in/blair-wishom-10a204b3/' exact={true}>
-              LinkedIn
+              <FaLinkedin /> LinkedIn
             </a>
           </div>
         </div>
