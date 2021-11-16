@@ -16,17 +16,16 @@ body {
 }
 
 .welcome-div {
-    background-color: white;
-    margin-top: -400px;
-    /* margin-bottom: 400px; */
+    /* background-color: black; */
+    margin-top: -40px;
+    margin-bottom: 20px;
     margin-left: 25%;
     margin-right: 28%;
     padding-left: 20px;
     padding-right: 20px;
-    -webkit-text-stroke: 3px #00FFD1;
+    -webkit-text-stroke: 3px black;
     color: #00FFD1;
-    font-size: 50px;
-    border-radius: 30px;
+    font-size: 75px;
 }
 
 .logged-out-img {
