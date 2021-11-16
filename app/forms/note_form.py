@@ -6,5 +6,5 @@ class NoteForm(FlaskForm):
     user_id = IntegerField('user id', validators=[DataRequired()])
     notebook_id = IntegerField('notebook id')
     title = StringField('note title', validators=[DataRequired("Please enter a title between 1 and 25 characters."), Length(min=1, max=25, message="Title must be between 5 and 25 characters.")])
-    content = TextAreaField('note content', validators=[DataRequired("Please write a note between 5 and 1000 characters."), Length(min=5, max=1000, message="Content must be between 5 and 255 characters.")])
+    content = TextAreaField('note content', validators=[DataRequired("Please write a note between 5 and 5000 characters."), Length(min=5, max=5000, message="Content must be between 5 and 5000 characters.")])
     submit = SubmitField('submit')
