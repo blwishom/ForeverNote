@@ -45,18 +45,19 @@
 }
 
 .search-result-div {
-    /* background-color: yellow; */
+    margin-left: 250px;
     padding-left: 20px;
     display: flex;
     align-content: center;
     align-items: center;
+    margin-bottom: 150px;
 }
 
 .search-title-div {
     background-color: white;
     font-weight: bold;
     font-size: 30px;
-    max-width: 600px;
+    max-width: 900px;
     min-width: 600px;
     margin-top: 50px;
     margin-bottom: -25px;
@@ -69,13 +70,18 @@
 
 .search-content-div {
     background-color: white;
-    max-width: 600px;
+    max-width: 800px;
     min-width: 600px;
     min-height: 300px;
     margin-bottom: 15px;
+    padding-right: 20px;
     font-size: 30px;
-    overflow: scroll;
+    overflow: auto;
     padding-left: 25px;
     border-radius: 0px 0px 10px 10px;
     box-shadow: 5px 10px 10px 0px rgb(223, 216, 216);
+}
+
+.search-edit-delete-div {
+    padding-bottom: 25px;
 }

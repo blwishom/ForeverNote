@@ -64,9 +64,11 @@ const SearchNotePage = () => {
             <br />
                 <div className='search-content-div'>
                     {note?.content}
+                    <div className='search-edit-delete-div'>
+                        <button className="note-page-edit-btn" onClick={() => setEditing(!editing)}>Edit</button>
+                        <button className="note-page-delete-btn" onClick={() => deleteNote(note.id)}>Delete</button>
+                    </div>
                 </div>
-                <button className="note-page-edit-btn" onClick={() => setEditing(!editing)}>Edit</button>
-                <button className="note-page-delete-btn" onClick={() => deleteNote(note.id)}>Delete</button>
             </div>}
                 {(editing) && <EditForm title={title} content={content} setTitle={setTitle} setContent={setContent} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId}/>}
             </div>

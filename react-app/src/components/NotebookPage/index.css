@@ -8,8 +8,7 @@
     display: block;
     float: left;
     margin: 15px;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: scroll;
     min-height: 200px;
     min-width: 400px;
     max-width: 100px;
@@ -17,6 +16,8 @@
     padding: 10px;
     overflow: auto;
     border-radius: 10px;
+    border-style: solid;
+    border-color: black;
     box-shadow: 5px 5px 5px 5px rgb(223, 216, 216);
 }
 
