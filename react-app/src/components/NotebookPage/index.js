@@ -99,10 +99,13 @@ function editing_Title(notebookNumber, notebookTitle) {
                     <div className="notebook-title-div">
                         {notebook.title}
                     </div>
+                    {/* <p>Hello</p> */}
                     <div>
-                    <div className='edit-delete-div'>
-                        {(!editing) && <button className="edit-btn" onClick={() => editing_Title(notebook.id, notebook.title)}>Edit</button>}
-                        {(!editing) && <button className="delete-btn" onClick={() => deleteNotebook(notebook.id)}>Delete</button>}
+                    <div>
+                        <div className='edit-delete-div'>
+                            {(!editing) && <button className="edit-btn" onClick={() => editing_Title(notebook.id, notebook.title)}>Edit</button>}
+                            {(!editing) && <button className="delete-btn" onClick={() => deleteNotebook(notebook.id)}>Delete</button>}
+                        </div>
                     </div>
                     {(editing && notebookId===notebook.id) && <EditNotebookForm title={title} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} notebookId={notebookId} setNotebookId={setNotebookId} />}
                     <div>

@@ -34,12 +34,17 @@
 
 /* CREATE NOTES PAGE */
 .note-div {
-    overflow: auto;
+    background-color: white;
+    overflow: hidden;
     min-height: 200px;
-    min-width: 300px;
+    min-width: 400px;
     max-width: 100px;
     border-radius: 10px;
     box-shadow: 5px 5px 5px 5px rgb(223, 216, 216);
+}
+
+.note-div:hover {
+    overflow-y: auto;
 }
 
 .create-note-page-div {
@@ -50,10 +55,16 @@
     width: 100%;
     font-weight: bold;
     font-size: 25px;
+    margin-top: -35px;
 }
 
 .note-form-content-div {
     font-size: 20px;
+}
+
+.displayed-notes-div {
+    margin-left: -35px;
+    margin-bottom: 100px;
 }
 
 /* NOTE PAGE */
