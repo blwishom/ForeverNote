@@ -1,5 +1,5 @@
 .notebook-full-page-div {
-    margin-left: 250px;
+    margin-left: 275px;
     margin-top: -50px;
 }
 
@@ -7,10 +7,12 @@
     background-color: white;
     display: block;
     float: left;
-    margin: 15px;
+    margin: 10px;
+    margin-top: -50px;
+    margin-bottom: 105px;
     overflow: auto;
     min-height: 200px;
-    min-width: 400px;
+    min-width: 350px;
     max-width: 100px;
     max-height: 200px;
     padding: 10px;

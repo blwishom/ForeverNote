@@ -39,12 +39,9 @@ return (
                     </p>
                 </div>
                 <div className='footer'>
-    <button className='confirm-cancel-btn' onClick={() => setOpenDeleteModal(false)}>Cancel</button>
-    <button className='confirm-delete-btn' onClick={() => deleteNote(noteId)}>Continue</button>
+                    <button className='confirm-cancel-btn' onClick={() => setOpenDeleteModal(false)}>Cancel</button>
+                    <button className='confirm-delete-btn' onClick={() => deleteNote(noteId)}>Continue</button>
                 </div>
-                {/* {showModal && (<Modal onclose={() => setShowModal(false)}>
-                    <NotePage />
-                </Modal>)} */}
             </div>
         </div>
     </>

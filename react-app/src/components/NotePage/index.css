@@ -1,20 +1,22 @@
 /* Note cards */
 
 .full-page-div {
-    margin-left: 250px;
-    margin-bottom: -75px;
+    background-color: yellowgreen;
+    margin-left: 275px;
+    margin-bottom: 75px;
 }
 
 .note-card-div {
     background-color: white;
     display: block;
     float: left;
-    margin: 15px;
+    margin: 10px;
+    margin-top: -95px;
+    margin-bottom: 125px;
     min-height: 200px;
     min-width: 350px;
     max-width: 100px;
     max-height: 200px;
-    font-size: 25px;
     border-style: solid;
     border-color: black;
     padding: 10px;
@@ -27,8 +29,27 @@
     overflow-y: auto;
 }
 
+.note-title-div {
+    background-color: #00FFD1;
+    margin-left: -5px;
+    margin-right: -5px;
+    padding-left: 5px;
+    margin-bottom: -10px;
+    font-size: 20px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px;
+}
+
+.note-page-content-div {
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
 .note-edit-delete-div {
-    margin-top: 70px;
+    /* position: absolute; */
+    margin-bottom: 5px;
 }
 
 .note-page-edit-btn {
@@ -60,17 +81,6 @@
     cursor: pointer;
 }
 
-.note-title-div {
-    background-color: #00FFD1;
-    margin-left: -5px;
-    margin-right: -5px;
-    padding-left: 5px;
-    margin-bottom: -20px;
-    font-size: 30px;
-    border-style: solid;
-    border-color: black;
-    border-radius: 5px;
-}
 
 /* Modal */
 

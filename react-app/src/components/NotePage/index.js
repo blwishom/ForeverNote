@@ -101,32 +101,32 @@ function editing_Note(noteNumber, noteTitle, noteContent) {
 console.log(notes)
 
     return (
-        <>
-        <div>
+    <>
+    <div className='full-page-div'>
         {notes.map((note) => {
             return (
-            <div className='full-page-div'>
+            <div>
             {(!editing) && <div className="note-card-div">
                 <span className="note-page-title-content-span">
                     <div className="note-title-div">
                         {note.title}
                     </div>
                     <br/>
+                    <div className='note-page-content-div'>
                         {note.content}
+                    </div>
                 </span>
-                <div>
-                <div className='note-edit-delete-div'>
-            <button to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</button>
-            <button className="note-page-delete-btn" onClick={() => {modalFunction(note.id)}}>Delete</button>
-                {(openDeleteModal && deletedNoteId===note.id) && <DeleteModal setOpenDeleteModal={setOpenDeleteModal} noteId={note.id} />}
-                </div>
-                </div>
+                    <div className='note-edit-delete-div'>
+                        <button to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}>Edit</button>
+                        <button className="note-page-delete-btn" onClick={() => {modalFunction(note.id)}}>Delete</button>
+                    {(openDeleteModal && deletedNoteId===note.id) && <DeleteModal setOpenDeleteModal={setOpenDeleteModal} noteId={note.id} />}
+                    </div>
             </div>}
             {(editing && noteId===note.id) && <EditForm title={title} content={content} setContent={setContent} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId} setNoteId={setNoteId}/>}
         </div>)
         })}
-        </div>
-        </>
+    </div>
+    </>
     )
 }
 
