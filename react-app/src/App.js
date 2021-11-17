@@ -61,7 +61,6 @@ function App() {
         </div>
           <NotebookPage />
         </Route>
-        <div className='logged-out-div'>
         <Route path='/login' className="login" exact={true}>
           <h1 className="h1-div">Login Below To Write More Notes!</h1>
           <LoginForm />
@@ -74,7 +73,6 @@ function App() {
           <h3 className="h2-div">- keep information organized!</h3>
           <h3 className="h2-div">- release your thoughts!</h3>
         </Route>
-        </div>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
@@ -92,6 +90,38 @@ function App() {
           <NavLink className="home-text-links2" to='/notebooks/new' exact={true} activeClassName='active'>
             create a new notebook
           </NavLink>
+
+          <div className='home-page-cards2'>
+            <h1 className='card-h1'>About Me</h1>
+            <p className='card-p'>
+              My name is Blair Wishom
+              <br />
+              <br />
+              I am an aspiring software engineer
+              <br />
+              <br />
+              Currently a student at App Academy
+              <br />
+              <br />
+              Received my bachelor degree from Northern Arizona University
+            </p>
+          </div>
+          <div className='home-page-cards'>
+            <h1 className='card-h1'>Welcome to Forevernote</h1>
+            <p className='card-p'>
+              Forevernote is a clone of Evernote.
+              <br />
+              <br />
+              This application allows you, as a user, to write notes.
+              <br />
+              <br />
+              Once you have created a note you can edit, update, or delete the note (please refer to ReadMe for more instruction).
+              <br />
+              <br />
+              Get started by clicking create a note to your right!
+            </p>
+          </div>
+
 
           </div>
         </ProtectedRoute>

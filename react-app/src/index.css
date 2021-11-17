@@ -33,12 +33,49 @@ body {
     bottom: 0px;
 }
 
-.logged-out-div {
+.home-page-cards {
     background-color: black;
-    height: 200vh;
-    margin-top: -200px;
-    padding-top: 200px;
     color: white;
+    display: block;
+    margin-left: -1000px;
+    margin-top: -425px;
+    min-height: 400px;
+    min-width: 350px;
+    max-width: 100px;
+    max-height: 300px;
+    border-style: solid;
+    border-color: black;
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgb(223, 216, 216);
+}
+
+.card-h1 {
+    font-size: 30px;
+}
+
+.card-p {
+    font-size: 20px;
+}
+
+.home-page-cards2 {
+    background-color: black;
+    color: white;
+    display: block;
+    float: right;
+    margin-right: -1000px;
+    margin-top: -125px;
+    min-height: 400px;
+    min-width: 350px;
+    max-width: 100px;
+    max-height: 300px;
+    border-style: solid;
+    border-color: black;
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgb(223, 216, 216);
 }
 
 .h1-div {
