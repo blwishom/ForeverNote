@@ -17,18 +17,20 @@
     margin-top: 30px;
     margin-bottom: 15px;
     margin-left: -20px;
+    padding: 5px;
 }
 
 .logout-btn {
     cursor: pointer;
     margin-left: -25px;
     margin-right: 15px;
+    font-size: 17px;
 }
 
 .navbar {
     background-color: black;
     float: left;
-    width: 175px;
+    width: 125px;
     height: 100%;
     text-decoration: none;
     /* position: sticky; */
