@@ -15,18 +15,18 @@ const Footer = () => {
   if (user) {
     return (
         <>
-        <div className="footer-div">
-          <div className="github-div">
-            <a className="text-decoration"  href='https://github.com/blwishom' exact={true}>
-            <FaGithub /> GitHub
-            </a>
+          <div className="footer-div">
+            <div className="github-div">
+              <a className="text-decoration"  href='https://github.com/blwishom' exact={true}>
+                <FaGithub /> GitHub
+              </a>
+            </div>
+            <div className="linkedin-div">
+              <a className="text-decoration" href='https://www.linkedin.com/in/blair-wishom-10a204b3/' exact={true}>
+                LinkedIn <FaLinkedin />
+              </a>
+            </div>
           </div>
-          <div className="linkedin-div">
-            <a className="text-decoration" href='https://www.linkedin.com/in/blair-wishom-10a204b3/' exact={true}>
-              <FaLinkedin /> LinkedIn
-            </a>
-          </div>
-        </div>
         </>
       )
   }

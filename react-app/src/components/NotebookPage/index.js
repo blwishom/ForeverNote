@@ -18,9 +18,6 @@ const NotebookPage = () => {
     const [noteCreated, setNoteCreated] = useState(false);
     const user = useSelector((state) => state.session.user);
 
-    console.log(notebookId2, '<------NBs')
-    console.log(notes, '<--------Notes')
-
         // Get all notes
         useEffect(() => {
             (async function notesFetch() {
@@ -91,14 +88,14 @@ function editing_Title(notebookNumber, notebookTitle) {
         <>
         <div className="notebook-full-page-div">
         {notebooks.map((notebook) => {
-            const filteredNotes = notes.filter(note => notebookId == notes.notebookId2);
+            const filteredNotes = notes.filter((note) => notebookId == note.notebookId2);
             return (
-            <div>
+                <div>
                 <div className="notebook-page-div">
                     <div className="notebook-title-div">
                         {notebook.title}
                     </div>
-                    {/* <p>Hello</p> */}
+                        <a>{filteredNotes.title}</a>
                     <div>
                     <div>
                         <div className='edit-delete-div'>
