@@ -61,6 +61,7 @@ function App() {
         </div>
           <NotebookPage />
         </Route>
+        <div className='logged-out-div'>
         <Route path='/login' className="login" exact={true}>
           <h1 className="h1-div">Login Below To Write More Notes!</h1>
           <LoginForm />
@@ -73,6 +74,7 @@ function App() {
           <h3 className="h2-div">- keep information organized!</h3>
           <h3 className="h2-div">- release your thoughts!</h3>
         </Route>
+        </div>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>

@@ -14,11 +14,12 @@
     margin-top: 20px;
     border: solid;
     border-radius: 5px;
-    border-color: black;
+    border-color: #00FFD1;
     height: 40px;
+    color: white;
     font-weight: bold;
     font-size: 20px;
-    background-color: white;
+    background-color: black;
     cursor: pointer;
 }
 
@@ -29,12 +30,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #00FFD1;
+    background-color: black;
     font-size: 20px;
     border-style: solid;
     margin-bottom: -1px;
     margin-left: 45%;
     margin-right: 45%;
+    color: white;
+    border-color: #00FFD1;
 }
 
 .signup-form {
@@ -45,9 +48,10 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
-    background-color: #00FFD1;
+    background-color: black;
     font-size: 20px;
     border-style: solid;
+    border-color: #00FFD1;
     margin-bottom: -1px;
     margin-left: 45%;
     margin-right: 45%;
@@ -57,10 +61,11 @@
     margin-top: 20px;
     border: solid;
     border-radius: 5px;
-    border-color: black;
+    border-color: #00FFD1;
     height: 40px;
+    color: white;
     font-weight: bold;
     font-size: 20px;
-    background-color: white;
+    background-color: black;
     cursor: pointer;
 }

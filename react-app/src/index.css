@@ -33,6 +33,14 @@ body {
     bottom: 0px;
 }
 
+.logged-out-div {
+    background-color: black;
+    height: 200vh;
+    margin-top: -200px;
+    padding-top: 200px;
+    color: white;
+}
+
 .h1-div {
     margin-left: 42%;
 }
