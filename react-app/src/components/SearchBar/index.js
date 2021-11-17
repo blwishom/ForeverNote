@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import EditForm from "../EditForm";
+import { Redirect } from "react-router";
 import './index.css';
 
 const SearchNotes = (props) => {
@@ -68,8 +69,11 @@ const SearchNotes = (props) => {
     }
 
 
-const result = filteredNotes(searchTerm, notes)
-console.log(result, 'RESULT')
+const result = filteredNotes(searchTerm, notes);
+
+if (!user) {
+    return <Redirect to='/login' />;
+  }
 
     return (
         <div>

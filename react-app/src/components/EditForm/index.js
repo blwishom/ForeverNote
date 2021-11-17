@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
+import { Redirect } from "react-router";
 import './index.css';
 
 const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent, setTitle, setContent, noteId }) => {
@@ -53,6 +54,10 @@ async function editNote(e) {
         }
         return note
     }
+
+    if (!user) {
+        return <Redirect to='/login' />;
+      }
 
     return (
         <>

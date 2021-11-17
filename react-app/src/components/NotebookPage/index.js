@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import EditNotebookForm from "./edit_notebook_form";
 import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
+import { Redirect } from "react-router";
 import './index.css'
 
 const NotebookPage = () => {
@@ -83,6 +84,9 @@ function editing_Title(notebookNumber, notebookTitle) {
     setNotebookId(notebookNumber)
 }
 
+if (!user) {
+    return <Redirect to='/login' />;
+  }
 
     return (
         <>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import Creatable from "react-select/creatable";
+import { Redirect } from "react-router";
 import './Notebook.css'
 
 const NotebookForm = () => {
@@ -58,6 +58,9 @@ async function createNotebook(e) {
         }
     }
 
+    if (!user) {
+        return <Redirect to='/login' />;
+      }
 
     return (
         <form className="notebook-form" onSubmit={createNotebook}>

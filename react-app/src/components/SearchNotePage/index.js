@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import EditForm from "../EditForm";
 import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
+import { Redirect } from "react-router";
+import { useSelector } from "react-redux";
 import './index.css';
 
 const SearchNotePage = () => {
@@ -13,6 +15,7 @@ const SearchNotePage = () => {
     const [editedTitle, setEditedTitle] = useState(false);
     const [editedContent, setEditedContent] = useState(false);
     const [noteDeleted, setNoteDeleted] = useState(false);
+    const user = useSelector((state) => state.session.user);
     const history = useHistory();
 
         // Get all notes
@@ -45,10 +48,9 @@ const SearchNotePage = () => {
         return res;
     }
 
-    console.log(title, '<====TITLE')
-    console.log(content, '<====content')
-
-
+    if (!user) {
+        return <Redirect to='/login' />;
+      }
 
         return (
             <>

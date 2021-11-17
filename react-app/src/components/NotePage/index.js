@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import EditForm from "../EditForm";
 import DeleteModal from "./delete_modal";
 import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
+import { Redirect } from 'react-router-dom';
 import './index.css';
 
 const NotePage = ({ closeModal }) => {
@@ -21,7 +22,7 @@ const NotePage = ({ closeModal }) => {
     const [editedContent, setEditedContent] = useState(false);
     const [noteCreated, setNoteCreated] = useState(false);
     const [noteDeleted, setNoteDeleted] = useState(false);
-    // const user = useSelector((state) => state.session.user);
+    const user = useSelector((state) => state.session.user);
     // const history = useHistory();
 
     console.log(title, '<======NotePage Title')
@@ -95,7 +96,10 @@ function editing_Note(noteNumber, noteTitle, noteContent) {
     setNoteId(noteNumber);
 }
 
-console.log(notes)
+
+if (!user) {
+    return <Redirect to='/login' />;
+  }
 
     return (
     <>

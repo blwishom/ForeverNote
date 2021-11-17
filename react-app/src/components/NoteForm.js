@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router";
-import Creatable from "react-select/creatable";
-import { notebooksFetch } from "./NotebookForm";
+import { useHistory, Redirect } from "react-router";
 import './NoteForm.css'
 
 const NoteForm = () => {
@@ -80,6 +78,10 @@ async function oneNoteFetch(noteId) {
                 }
 
     }
+
+    if (!user) {
+        return <Redirect to='/login' />;
+      }
 
 
     return (
