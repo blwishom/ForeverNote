@@ -35,7 +35,8 @@ body {
 
 .full-card-div {
     display: flex;
-    margin-top: -250px;
+    /* position: relative; */
+    margin: auto;
 }
 
 .home-page-cards {
@@ -43,6 +44,7 @@ body {
     color: white;
     display: block;
     float: left;
+    margin-top: -300px;
     margin-left: 200px;
     width: 350px;
     border-style: solid;
@@ -65,6 +67,7 @@ body {
     color: white;
     display: block;
     float: right;
+    margin-top: -300px;
     margin-right: 200px;
     width: 350px;
     border-style: solid;

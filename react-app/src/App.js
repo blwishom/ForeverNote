@@ -103,7 +103,7 @@ function App() {
               Once you have created a note you can edit, update, or delete the note (please refer to ReadMe for more instruction).
               <br />
               <br />
-              Get started by clicking create a note to your right!
+              Get started by clicking create a new note to your right!
             </p>
           </div>
           <div className='home-page-cards'>
