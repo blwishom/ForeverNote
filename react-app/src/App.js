@@ -100,7 +100,7 @@ function App() {
               This application allows you, as a user, to write notes.
               <br />
               <br />
-              Once you have created a note you can edit, update, or delete the note (please refer to ReadMe for more instruction).
+              Once you have created a note you can edit, update, or delete the note (please see ReadMe for more instruction).
               <br />
               <br />
               Get started by clicking create a new note to your right!
@@ -115,10 +115,10 @@ function App() {
               I am an aspiring software engineer
               <br />
               <br />
-              Currently a student at App Academy
+              Current student at App Academy
               <br />
               <br />
-              Received my bachelor degree from Northern Arizona University
+              Graduated from Northern Arizona University
             </p>
           </div>
         </div>
