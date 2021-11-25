@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import { Modal } from "../../Modal/Modal";
-import NotePage from ".";
 import { Redirect } from "react-router";
 import { useSelector } from "react-redux";
 import './index.css';
 
 function DeleteModal({ setOpenDeleteModal, noteId }) {
-    const [notes, setNotes] = useState([]);
-    const [note, setNote] = useState('');
     const [noteDeleted, setNoteDeleted] = useState(false);
     const user = useSelector((state) => state.session.user);
 

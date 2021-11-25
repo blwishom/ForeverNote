@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
 import EditForm from "../EditForm";
 import DeleteModal from "./delete_modal";
 import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
@@ -16,17 +15,11 @@ const NotePage = ({ closeModal }) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [editing, setEditing] = useState(false);
-    // const [deleting, setDeleting] = useState(false);
-    // const [searching, setSearching] = useState(false);
     const [editedTitle, setEditedTitle] = useState(false);
     const [editedContent, setEditedContent] = useState(false);
     const [noteCreated, setNoteCreated] = useState(false);
     const [noteDeleted, setNoteDeleted] = useState(false);
     const user = useSelector((state) => state.session.user);
-    // const history = useHistory();
-
-    console.log(title, '<======NotePage Title')
-    console.log(content, '<======NotePage Content')
 
     // Get all notes
     useEffect(() => {
@@ -38,51 +31,6 @@ const NotePage = ({ closeModal }) => {
             }
         })()
     }, [noteCreated, noteDeleted, editing, title, content, noteId, openDeleteModal])
-
-    // Get one note
-    async function oneNoteFetch(noteId) {
-        const res = await fetch(`/api/notes/${noteId}`);
-        if (res.ok) {
-            const notes = await res.json();
-            setNotes(notes.notes)
-            }
-        }
-
-    // Edit note
-    async function editNote(noteId) {
-        const newNote = {
-            title,
-            content,
-            // userId: user.id,
-        }
-
-        const res = await fetch(`/api/notes/${noteId}/edit`, {
-        method: "POST",
-        body: JSON.stringify({...newNote}),
-        headers: {"Content-Type": "application/json"}
-    });
-    if (res.ok) {
-        const note = await res.json();
-    } else {
-        return "No note has been retrieved"
-    }
-    return res;
-}
-
-
-// Delete note
-async function deleteNote(noteId) {
-    const res = await fetch(`/api/notes/${noteId}`, {
-        method: "DELETE",
-    });
-    if (res.ok) {
-        const note = await res.json();
-                setNoteDeleted(!noteDeleted);
-    } else {
-        return "No note has been retrieved"
-    }
-    return res;
-}
 
 function modalFunction(noteId) {
     setDeletedNoteId(noteId);

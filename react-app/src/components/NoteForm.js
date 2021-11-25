@@ -13,12 +13,8 @@ const NoteForm = () => {
     const [errors, setErrors] = useState([]);
     const user = useSelector((state) => state.session.user);
     const notebooks = [{value: 'notebookId', label: 'Notebook'}];
-    // const notebookSelector = useSelector((state) => state.notebooks);
     const [notebookCreated, setNotebookCreated] = useState(false);
-    const dispatch = useDispatch();
     const history = useHistory();
-
-    console.log(notebooks2, '<----------NBs2')
 
     // Get all notebooks
     useEffect(() => {
@@ -27,7 +23,6 @@ const NoteForm = () => {
         if (res.ok) {
             const notebooks = await res.json();
             setNotebooks2(notebooks.notebook);
-            console.log(notebooks.notebook, '<----notebooks')
             }
         })()
     }, [notebookCreated, title, notebookId])
@@ -42,16 +37,6 @@ const NoteForm = () => {
             }
         })()
     }, [noteCreated])
-
-
-    // Get one note
-async function oneNoteFetch(noteId) {
-        const res = await fetch(`/api/notes/${noteId}`);
-        if (res.ok) {
-            const notes = await res.json();
-            setNotes(notes.notes)
-            }
-        }
 
         // Create note
         async function createNote(e) {

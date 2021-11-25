@@ -19,23 +19,17 @@ const createNotebookAction = (notebook) => ({
     payload: notebook
 })
 
-console.log("Hello")
 export const getNotebooksThunk = () => async (dispatch) => {
     const res = await fetch("/api/notebooks/");
-    console.log("Hello 2")
     if (res.ok) {
-        console.log("Hello 3")
         const notebooks = await res.json();
         dispatch(getNotebooksAction(notebooks));
     }
-    console.log("Hello 4")
     return res;
 };
 
 export const getOneNotebookThunk = (id) => async (dispatch) => {
-    console.log("Get one notebook thunk 1")
     const res = await fetch(`/api/notebooks/${id}`);
-    console.log("Get one notebook thunk 2")
     if (res.ok) {
         const notebook = await res.json();
         dispatch(getNotebooksAction(notebook));

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
 import EditNotebookForm from "./edit_notebook_form";
 import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
 import { Redirect } from "react-router";
@@ -9,7 +8,6 @@ import './index.css'
 const NotebookPage = () => {
     const [notebooks, setNotebooks] = useState([]);
     const [notebookId, setNotebookId] = useState(-1);
-    const [notebookId2, setNotebookId2] = useState(-1);
     const [title, setTitle] = useState("");
     const [editing, setEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(false);
@@ -35,34 +33,12 @@ const NotebookPage = () => {
         (async function notebooksFetch() {
         const res = await fetch("/api/notebooks/");
         if (res.ok) {
-            // console.log('RES<=============')
             const notebooks = await res.json();
-            // console.log(notebooks, '<==========Inside res.ok')
             setNotebooks(notebooks.notebook)
             }
         })()
     }, [notebookCreated, notebookDeleted, editing, title, notebookId])
 
-        // Edit notebook
-async function editNotebook(notebookId) {
-    const newNotebook = {
-        title,
-        // userId: user.id,
-        // notebookId: notebookId
-        }
-
-    const res = await fetch(`/api/notebooks/${notebookId}/`, {
-        method: "POST",
-        body: JSON.stringify({...newNotebook}),
-        headers: {"Content-Type": "application/json"}
-    });
-    if (res.ok) {
-        const notebook = await res.json();
-    } else {
-        return "No notebook has been retrieved"
-    }
-    return res;
-}
 
 // Delete notebook
 async function deleteNotebook(notebookId) {
@@ -71,7 +47,7 @@ async function deleteNotebook(notebookId) {
     });
     if (res.ok) {
         const notebook = await res.json();
-                setNotebookDeleted(!notebookDeleted);
+        setNotebookDeleted(!notebookDeleted);
     } else {
         return "No notebook has been retrieved"
     }
@@ -92,14 +68,14 @@ if (!user) {
         <>
         <div className="notebook-full-page-div">
         {notebooks.map((notebook) => {
-            const filteredNotes = notes.filter((note) => notebookId == note.notebookId2);
+            const filteredNotes = notes.filter((note) => notebookId === note.notebookId2);
             return (
                 <div>
                 <div className="notebook-page-div">
                     <div className="notebook-title-div">
                         {notebook.title}
                     </div>
-                        <a>{filteredNotes.title}</a>
+                        <a href={`/api/notebooks/${notebookId}`}>{filteredNotes.title}</a>
                     <div>
                     <div>
                         <div className='edit-delete-div'>

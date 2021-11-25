@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, useParams } from "react-router";
+import { useHistory } from "react-router";
 import { Redirect } from "react-router";
 import './index.css';
 
@@ -8,14 +8,9 @@ const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent
     const [note, setNote] = useState([]);
     const [errors, setErrors] = useState([]);
     const [noteCreated, setNoteCreated] = useState(false);
-    const [noteContent, setNoteContent] = useState("");
     const user = useSelector((state) => state.session.user);
     const [notebookId, setNotebookId] = useState(-1);
     const dispatch = useDispatch();
-    const history = useHistory();
-    const notebooks = [
-        {value: 'notebookId', label: 'Notebook'}
-    ]
 
     // Get all notes
     useEffect(() => {

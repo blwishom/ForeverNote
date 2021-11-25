@@ -2,10 +2,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
-import NoteForm from './NoteForm';
 import { useSelector } from 'react-redux';
 import SearchNotes from './SearchBar';
-import { FaHome } from "react-icons/fa";
 import './NavBar.css'
 
 const NavBar = () => {

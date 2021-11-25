@@ -1,4 +1,4 @@
-import React, { useContent, useRef, useState, useEffect, useContext } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import { ReactDOM } from "react";
 
 const ModalContext = React.createContext();

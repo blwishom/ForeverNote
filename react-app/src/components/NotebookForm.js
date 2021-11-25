@@ -6,13 +6,10 @@ import './Notebook.css'
 
 const NotebookForm = () => {
     const [title, setTitle] = useState("");
-    const [notebookId, setNotebookId] = useState("");
     const [notebooks, setNotebooks] = useState([]);
     const [errors, setErrors] = useState([]);
     const user = useSelector((state) => state.session.user);
     const [notebookCreated, setNotebookCreated] = useState(false);
-    const notes = [{value: 'noteId', label: 'Note'}]
-    const dispatch = useDispatch();
     const history = useHistory();
 
     // Get all notebooks
@@ -26,15 +23,6 @@ const NotebookForm = () => {
         })()
     }, [notebookCreated])
 
-
-    // Get one note
-async function oneNotebookFetch(notebookId) {
-        const res = await fetch(`/api/notebooks/${notebookId}`);
-        if (res.ok) {
-            const notebooks = await res.json();
-            setNotebooks(notebooks.notebooks)
-            }
-        }
 
     // Create notebook
 async function createNotebook(e) {
