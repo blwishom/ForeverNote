@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import EditNotebookForm from "./edit_notebook_form";
+import DeleteModal from "./delete_modal";
 import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
 import { Redirect } from "react-router";
 import './index.css'
 
 const NotebookPage = () => {
+    const [openDeleteModal, setOpenDeleteModal] = useState(false);
+    const [deletedNotebookId, setDeletedNotebookId] = useState(-1);
     const [notebooks, setNotebooks] = useState([]);
     const [notebookId, setNotebookId] = useState(-1);
     const [title, setTitle] = useState("");
@@ -54,6 +57,11 @@ async function deleteNotebook(notebookId) {
     return res;
 }
 
+function modalFunction(notebookId) {
+    setDeletedNotebookId(notebookId);
+    setOpenDeleteModal(true);
+}
+
 function editing_Title(notebookNumber, notebookTitle) {
     setEditing(!editing);
     setTitle(notebookTitle);
@@ -79,8 +87,9 @@ if (!user) {
                     <div>
                     <div>
                         <div className='edit-delete-div'>
-                            {(!editing) && <button className="edit-btn" onClick={() => editing_Title(notebook.id, notebook.title)}><FaRegEdit /></button>}
-                            {(!editing) && <button className="delete-btn" onClick={() => deleteNotebook(notebook.id)}><FaTrashAlt /></button>}
+                        <button to={`notebooks/${notebook.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Title(notebook.id, notebook.title, notebook.content)}><FaRegEdit /></button>
+                        <button className="note-page-delete-btn" onClick={() => {modalFunction(notebook.id)}}><FaTrashAlt /></button>
+                    {(openDeleteModal && deletedNotebookId===notebook.id) && <DeleteModal setOpenDeleteModal={setOpenDeleteModal} notebookId={notebook.id} />}
                         </div>
                     </div>
                     {(editing && notebookId===notebook.id) && <EditNotebookForm title={title} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setTitle={setTitle} setEditedTitle={setEditedTitle} notebookId={notebookId} setNotebookId={setNotebookId} />}

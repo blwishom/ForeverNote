@@ -7,7 +7,6 @@ import { Redirect } from 'react-router-dom';
 import './index.css';
 
 const NotePage = ({ closeModal }) => {
-    // const [openModal, setOpenModal] = useState(false);
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
     const [deletedNoteId, setDeletedNoteId] = useState(-1);
     const [notes, setNotes] = useState([]);
