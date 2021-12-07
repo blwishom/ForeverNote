@@ -39,6 +39,7 @@ const LoginForm = () => {
   }
 
   return (
+    <>
     <form className="login-form" onSubmit={onLogin}>
       <div className='login-form-div'>
         {errors.map((error, ind) => (
@@ -68,6 +69,7 @@ const LoginForm = () => {
         <button className="login-btn" type='submit'>Login</button>
         <button className="login-btn" type="submit" onClick={demoUser}>Demo User</button>
     </form>
+  </>
   );
 };
 

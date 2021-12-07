@@ -6,7 +6,7 @@ import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
 import { Redirect } from "react-router";
 import './index.css'
 
-const NotebookPage = () => {
+const NotebookPage = ({ closeModal }) => {
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
     const [deletedNotebookId, setDeletedNotebookId] = useState(-1);
     const [notebooks, setNotebooks] = useState([]);
@@ -40,22 +40,8 @@ const NotebookPage = () => {
             setNotebooks(notebooks.notebook)
             }
         })()
-    }, [notebookCreated, notebookDeleted, editing, title, notebookId])
+    }, [notebookCreated, notebookDeleted, editing, title, notebookId, openDeleteModal])
 
-
-// Delete notebook
-async function deleteNotebook(notebookId) {
-    const res = await fetch(`/api/notebooks/${notebookId}`, {
-        method: "DELETE",
-    });
-    if (res.ok) {
-        const notebook = await res.json();
-        setNotebookDeleted(!notebookDeleted);
-    } else {
-        return "No notebook has been retrieved"
-    }
-    return res;
-}
 
 function modalFunction(notebookId) {
     setDeletedNotebookId(notebookId);

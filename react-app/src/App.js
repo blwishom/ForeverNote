@@ -17,6 +17,7 @@ import EditForm from './components/EditForm';
 import EditNotebookForm from './components/NotebookPage/edit_notebook_form';
 import './index.css';
 import image from './components/images/coffee-and-notes.jpg';
+import image2 from './components/images/notebook-with-notes.jpg';
 import { NavLink } from 'react-router-dom';
 import Footer from './components/Footer';
 
@@ -61,17 +62,19 @@ function App() {
         </div>
           <NotebookPage />
         </Route>
-        <Route path='/login' className="login" exact={true}>
-          <h1 className="h1-div">Login Below To Write More Notes!</h1>
-          <LoginForm />
-        </Route>
         <Route path='/sign-up' className="sign-up" exact={true}>
+        <div className="home-img-2" style={{backgroundImage: `url(${image2})`}}>
+        </div>
         <h1 className="h1-div">Sign Up Below To Write Notes</h1>
           <SignUpForm />
           <h2 className="h2-div">Forever Note is here to help you:</h2>
           <h3 className="h2-div">- remember important tasks/information!</h3>
           <h3 className="h2-div">- keep information organized!</h3>
           <h3 className="h2-div">- release your thoughts!</h3>
+        </Route>
+        <Route path='/login' className="login" exact={true}>
+          <h1 className="h1-div">Login Below To Write More Notes!</h1>
+          <LoginForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
@@ -112,13 +115,13 @@ function App() {
               My name is Blair Wishom
               <br />
               <br />
-              I am an aspiring software engineer
+              I am a software engineer
               <br />
               <br />
-              Current student at App Academy
+              Graduated of App Academy
               <br />
               <br />
-              Graduated from Northern Arizona University
+              Graduate of Northern Arizona University
             </p>
           </div>
         </div>

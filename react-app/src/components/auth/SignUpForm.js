@@ -55,6 +55,8 @@ const SignUpForm = () => {
   }
 
   return (
+    <>
+      <div>
     <form className="signup-form" onSubmit={onSignUp}>
       <div className='sign-up-form-content-divs'>
 
@@ -102,6 +104,8 @@ const SignUpForm = () => {
         ))}
       </div>
     </form>
+    </div>
+    </>
   );
 };
 

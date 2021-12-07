@@ -14,6 +14,13 @@ body {
     /* opacity: 0.5; */
 }
 
+.home-img-2 {
+    height: 815px;
+    width: 100%;
+    opacity: 0.5;
+    position: sticky;
+}
+
 .welcome-div {
     /* background-color: black; */
     margin-top: -40px;
