@@ -59,7 +59,7 @@ const SignUpForm = () => {
     <>
     <div className='above-form-div'>
       <h1>Organize your life with Forevernote</h1>
-      <h2>Remember your tasks, projects, assignments, and more all in one place!</h2>
+      <h2>Remember tasks, projects, assignments, and more all in one place!</h2>
     </div>
       <div>
     <form className="signup-form" onSubmit={onSignUp}>
