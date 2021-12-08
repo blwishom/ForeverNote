@@ -74,7 +74,7 @@ const LoginForm = () => {
 
     <div className='below-login-div'>
       <NavLink to='/sign-up' exact={true}>
-        <button className="sign-up-btn">If You Are Not A User Click Here Find Out More About Forevernote!</button>
+        <button className="sign-up-btn">If you are not a user yet, click here to learn more about Forevernote!</button>
       </NavLink>
     </div>
   </>
