@@ -17,7 +17,6 @@ import EditForm from './components/EditForm';
 import EditNotebookForm from './components/NotebookPage/edit_notebook_form';
 import './index.css';
 import image from './components/images/coffee-and-notes.jpg';
-import image2 from './components/images/notebook-with-notes.jpg';
 import { NavLink } from 'react-router-dom';
 import Footer from './components/Footer';
 
@@ -63,14 +62,11 @@ function App() {
           <NotebookPage />
         </Route>
         <Route path='/sign-up' className="sign-up" exact={true}>
-        <div className="home-img-2" style={{backgroundImage: `url(${image2})`}}>
-        </div>
-        <h1 className="h1-div">Sign Up Below To Write Notes</h1>
           <SignUpForm />
-          <h2 className="h2-div">Forever Note is here to help you:</h2>
+          {/* <h2 className="h2-div">Forever Note is here to help you:</h2>
           <h3 className="h2-div">- remember important tasks/information!</h3>
           <h3 className="h2-div">- keep information organized!</h3>
-          <h3 className="h2-div">- release your thoughts!</h3>
+          <h3 className="h2-div">- release your thoughts!</h3> */}
         </Route>
         <Route path='/login' className="login" exact={true}>
           <h1 className="h1-div">Login Below To Write More Notes!</h1>
@@ -118,7 +114,7 @@ function App() {
               I am a software engineer
               <br />
               <br />
-              Graduated of App Academy
+              Graduate of App Academy
               <br />
               <br />
               Graduate of Northern Arizona University

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import { login } from '../../store/session';
+import image2 from '../images/notebook-with-notes.jpg'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -56,10 +57,14 @@ const SignUpForm = () => {
 
   return (
     <>
+    <div className='above-form-div'>
+      <h1>Organize your life with Forevernote</h1>
+      <h2>Remember your tasks, projects, assignments, and more all in one place!</h2>
+    </div>
       <div>
     <form className="signup-form" onSubmit={onSignUp}>
       <div className='sign-up-form-content-divs'>
-
+      <h2 className="signup-form-h1">Sign Up To Write Notes</h2>
         <label>User Name </label>
         <input
           type='text'
@@ -97,7 +102,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <button className="signup-btn" type='submit'>Sign Up</button>
-      <button className="signup-btn" type="submit" onClick={demoUser}>Demo User</button>
+      {/* <button className="signup-btn" type="submit" onClick={demoUser}>Demo User</button> */}
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
@@ -105,6 +110,8 @@ const SignUpForm = () => {
       </div>
     </form>
     </div>
+      <div className="sign-up-img" style={{backgroundImage: `url(${image2})`}}>
+      </div>
     </>
   );
 };
