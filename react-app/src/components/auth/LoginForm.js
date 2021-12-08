@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import './auth.css';
@@ -47,6 +48,7 @@ const LoginForm = () => {
         ))}
       </div>
       <div>
+      <h2 className="signup-form-h1">Login To Write Notes</h2>
         <label htmlFor='email'>Email </label>
         <input
           name='email'
@@ -69,6 +71,12 @@ const LoginForm = () => {
         <button className="login-btn" type='submit'>Login</button>
         <button className="login-btn" type="submit" onClick={demoUser}>Demo User</button>
     </form>
+
+    <div className='below-login-div'>
+      <NavLink to='/sign-up' exact={true}>
+        <button className="sign-up-btn">If You Are Not A User Click Here Find Out More About Forevernote!</button>
+      </NavLink>
+    </div>
   </>
   );
 };

@@ -111,6 +111,17 @@ const SignUpForm = () => {
     </form>
     </div>
       <div className="sign-up-img" style={{backgroundImage: `url(${image2})`}}>
+        <div className='over-img-div'>
+          {/* <h1>
+            Forevernote is designed to allow you, as a user, to write notes!
+          </h1> */}
+          <h1>Features include:</h1>
+          <h3>Searching created notes</h3>
+          <h3>Creating, editing, and deleting notes</h3>
+          <h3>Creating, editing, and deleting notebooks</h3>
+          <h3></h3>
+          <h3></h3>
+        </div>
       </div>
     </>
   );
