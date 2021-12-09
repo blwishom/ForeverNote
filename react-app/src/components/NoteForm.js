@@ -93,7 +93,7 @@ const NoteForm = () => {
                     value={content}
                 ></textarea>
                 <div>
-                    <select
+                    {/* <select
                     className="notebook-select"
                     options={notebooks.id}
                     onChange={(e) => {
@@ -104,7 +104,7 @@ const NoteForm = () => {
                      {notebooks2?.map((notebook) => (
                         <option key={notebook.id} value={notebook.id}>{notebook.title}</option>
                     ))}
-                    </select>
+                    </select> */}
                 </div>
                 <div>
                     <button className="note-btn" type="submit" onClick={() => {setNotebooks2(notebooks2)}}>Save Note</button>
