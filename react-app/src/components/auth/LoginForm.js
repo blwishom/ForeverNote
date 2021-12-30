@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import image2 from '../images/notebook-with-notes.jpg'
 import './auth.css';
 
 const LoginForm = () => {
@@ -41,43 +42,44 @@ const LoginForm = () => {
 
   return (
     <>
-    <form className="login-form" onSubmit={onLogin}>
-      <div className='login-form-div'>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+      <div className="sign-up-img" style={{backgroundImage: `url(${image2})`}}>
+        <div className='below-login-div'>
+        </div>
+          <form className="login-form" onSubmit={onLogin}>
+            <div className='login-form-div'>
+              {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
+            <div>
+            <h2 className="signup-form-h1">Login To Write Notes</h2>
+              <label htmlFor='email'>Email </label>
+              <input
+                name='email'
+                type='text'
+                placeholder='Email'
+                value={email}
+                onChange={updateEmail}
+              />
+            </div>
+            <div>
+              <label htmlFor='password'>Password </label>
+              <input
+                name='password'
+                type='password'
+                placeholder='Password'
+                value={password}
+                onChange={updatePassword}
+              />
+            </div>
+              <button className="login-btn" type='submit'>Login</button>
+              <button className="login-btn" type="submit" onClick={demoUser}>Demo User</button>
+          </form>
+          <NavLink to='/sign-up' exact={true}>
+            <button className="sign-up-btn">If you are not a user yet, click here to learn more about Forevernote!</button>
+          </NavLink>
       </div>
-      <div>
-      <h2 className="signup-form-h1">Login To Write Notes</h2>
-        <label htmlFor='email'>Email </label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password </label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-      </div>
-        <button className="login-btn" type='submit'>Login</button>
-        <button className="login-btn" type="submit" onClick={demoUser}>Demo User</button>
-    </form>
-
-    <div className='below-login-div'>
-      <NavLink to='/sign-up' exact={true}>
-        <button className="sign-up-btn">If you are not a user yet, click here to learn more about Forevernote!</button>
-      </NavLink>
-    </div>
-  </>
+    </>
   );
 };
 

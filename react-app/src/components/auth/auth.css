@@ -32,6 +32,7 @@
     background-color: black;
     font-size: 20px;
     border-style: solid;
+    margin-top: 150px;
     margin-bottom: -1px;
     margin-left: 41%;
     margin-right: 43%;
@@ -43,6 +44,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 15px;
 }
 
 .sign-up-btn {
@@ -77,9 +79,8 @@
     color: white;
     border-style: solid;
     border-color: #00FFD1;
+    margin-top: 15px;
     margin-bottom: -1px;
-    margin-left: 40%;
-    margin-right: 43%;
 }
 
 .signup-btn {
@@ -101,6 +102,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: -75px;
+    padding-top: 35px;
 }
 
 .sign-up-img {
@@ -116,7 +118,7 @@
 
 .over-img-div {
     padding: 20px;
-    margin-top: 8%;
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
