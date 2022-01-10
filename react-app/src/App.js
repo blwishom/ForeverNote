@@ -81,9 +81,9 @@ function App() {
             create a new note
           </NavLink>
 
-          <NavLink className="home-text-links2" to='/notebooks/new' exact={true} activeClassName='active'>
+          {/* <NavLink className="home-text-links2" to='/notebooks/new' exact={true} activeClassName='active'>
             create a new notebook
-          </NavLink>
+          </NavLink> */}
         <div className='full-card-div'>
           <div className='home-page-cards2'>
             <h1 className='card-h1'>Welcome to Forevernote</h1>

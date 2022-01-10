@@ -47,11 +47,11 @@ const NavBar = () => {
           </NavLink>
           </div>
 
-          <div>
+          {/* <div>
           <NavLink className="text-decoration" to='/notebooks/new' exact={true} activeClassName='active'>
             + Notebook
           </NavLink>
-          </div>
+          </div> */}
 
             <div>
             <NavLink className="text-decoration" to='/notes' exact={true} activeClassName='active'>
@@ -59,11 +59,11 @@ const NavBar = () => {
             </NavLink>
             </div>
 
-            <div>
+            {/* <div>
             <NavLink className="text-decoration" to='/notebooks' exact={true} activeClassName='active'>
               Notebooks
             </NavLink>
-            </div>
+            </div> */}
           </div>
 
 
