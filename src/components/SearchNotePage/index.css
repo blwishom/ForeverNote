@@ -1,0 +1,87 @@
+.note-page-div {
+    display: block;
+    float: left;
+    margin: 15px;
+    overflow: auto;
+    min-height: 200px;
+    min-width: 400px;
+    max-width: 100px;
+    max-height: 200px;
+    padding: 10px;
+    overflow: auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgb(223, 216, 216);
+}
+
+.note-page-edit-btn {
+    margin-top: 5px;
+    border: solid;
+    border-radius: 5px;
+    background-color: #00FFD1;
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 2px 33px;
+    color: black;
+    text-decoration: none;
+}
+
+.note-page-delete-btn {
+    margin-top: 5px;
+    border: solid;
+    border-radius: 5px;
+    background-color: red;
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.note-content-div {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.search-result-div {
+    margin-left: 250px;
+    padding-left: 20px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 150px;
+}
+
+.search-title-div {
+    background-color: white;
+    font-weight: bold;
+    font-size: 30px;
+    max-width: 900px;
+    min-width: 600px;
+    margin-top: 50px;
+    margin-bottom: -25px;
+    padding-bottom: 30px;
+    padding-top: 25px;
+    padding-left: 25px;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 5px 5px 5px 0px rgb(223, 216, 216);
+}
+
+.search-content-div {
+    background-color: white;
+    max-width: 800px;
+    min-width: 600px;
+    min-height: 300px;
+    margin-bottom: 15px;
+    padding-right: 20px;
+    font-size: 30px;
+    overflow: auto;
+    padding-left: 25px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 5px 10px 10px 0px rgb(223, 216, 216);
+}
+
+.search-edit-delete-div {
+    padding-bottom: 25px;
+}

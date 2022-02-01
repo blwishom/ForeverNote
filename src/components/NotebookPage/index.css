@@ -1,0 +1,108 @@
+.notebook-full-page-div {
+    margin-left: 275px;
+    margin-top: -50px;
+}
+
+.notebook-page-div {
+    background-color: white;
+    display: block;
+    float: left;
+    margin: 10px;
+    margin-top: -50px;
+    margin-bottom: 105px;
+    overflow: auto;
+    min-height: 200px;
+    min-width: 350px;
+    max-width: 100px;
+    max-height: 200px;
+    padding: 10px;
+    overflow: auto;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    box-shadow: 5px 5px 5px 5px rgb(223, 216, 216);
+}
+
+.notebook-form {
+    font-size: 25px;
+    margin-left: 250px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+.notebook-title-div {
+    font-weight: bold;
+    font-size: 20px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px;
+    background-color: #00FFD1;
+    padding-left: 5px;
+}
+
+.edit-delete-div {
+    margin-top: 132px;
+}
+
+.edit-btn {
+    margin-top: 5px;
+    border: solid;
+    border-radius: 5px;
+    background-color: #00FFD1;
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.delete-btn {
+    margin-top: 5px;
+    border: solid;
+    border-radius: 5px;
+    background-color: red;
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.notebook-title {
+    width: 50%;
+    font-size: 25px;
+    overflow: hidden;
+    text-decoration: none;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 10px;
+}
+
+.edit-notebook-btn {
+    margin-top: 10px;
+    border: solid;
+    border-radius: 5px;
+    background-color: #00FFD1;
+    height: 30px;
+    width: 130px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.modal-body {
+    background-color: #00FFD1;
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: -5px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: black;
+}

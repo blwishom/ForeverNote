@@ -1,0 +1,47 @@
+.note-text-area {
+    width: 50%;
+    font-size: 25px;
+    overflow: auto;
+    text-decoration: none;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 10px;
+    min-height: 400px;
+    min-width: 400px;
+    margin-bottom: 15px;
+}
+
+.note-title-div {
+    margin-bottom: 3px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.title-div {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.notebook-select {
+    margin-bottom: 15px;
+}
+
+.note-btn {
+    margin-top: 5px;
+    border: solid;
+    border-radius: 5px;
+    background-color: #00FFD1;
+    height: 40px;
+    width: 150px;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    padding: 3px 10px;
+    cursor: pointer;
+}
+
+.notebook-select {
+    min-width: 300px;
+}

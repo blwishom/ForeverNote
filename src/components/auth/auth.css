@@ -1,0 +1,126 @@
+.logout-btn {
+    margin-top: 50px;
+    border: solid;
+    border-color: white;
+    border-radius: 5px;
+    background-color: #00FFD1;
+    height: 30px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.login-btn {
+    margin-top: 20px;
+    border: solid;
+    border-radius: 5px;
+    border-color: #00FFD1;
+    height: 40px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: black;
+    cursor: pointer;
+}
+
+.login-form {
+    padding-bottom: 35px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    font-size: 20px;
+    border-style: solid;
+    margin-top: 150px;
+    margin-bottom: -1px;
+    margin-left: 41%;
+    margin-right: 43%;
+    color: white;
+    border-color: #00FFD1;
+}
+
+.below-login-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.sign-up-btn {
+    padding: 5px;
+    margin-top: 30px;
+    border: solid;
+    border-radius: 5px;
+    height: 40px;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #00FFD1;
+    cursor: pointer;
+}
+
+.signup-form-h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-form {
+    padding-bottom: 35px;
+    padding-left: 10px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    background-color: black;
+    font-size: 20px;
+    color: white;
+    border-style: solid;
+    border-color: #00FFD1;
+    margin-top: 15px;
+    margin-bottom: -1px;
+}
+
+.signup-btn {
+    margin-top: 20px;
+    border: solid;
+    border-radius: 5px;
+    border-color: #00FFD1;
+    height: 40px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: black;
+    cursor: pointer;
+}
+
+.above-form-div {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -75px;
+    padding-top: 35px;
+}
+
+.sign-up-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 900px;
+    width: 75%;
+}
+
+.over-img-div {
+    padding: 20px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
