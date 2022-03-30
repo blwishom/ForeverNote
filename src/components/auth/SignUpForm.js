@@ -67,10 +67,12 @@ const SignUpForm = () => {
           {/* <h1>
             Forevernote is designed to allow you, as a user, to write notes!
           </h1> */}
-          <h1>Features include:</h1>
-          <h3>Searching created notes</h3>
-          <h3>Creating, editing, and deleting notes</h3>
-          <h3>Creating, editing, and deleting notebooks</h3>
+          <h1>FOREVERNOTE FEATURES</h1>
+          <h2>Full CRUD functionality to allow a user to:</h2>
+          <h3>Create, Edit, and Delete notes</h3>
+          <h2>Users can also search created notes by:</h2>
+          <h3>Typing the title of a note in the search engine</h3>
+          {/* <h3>Creating, editing, and deleting notebooks</h3> */}
         </div>
       <div>
 
