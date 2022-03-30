@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import DeleteModal from "../SearchNotePage/delete_modal";
 import { useHistory } from "react-router";
 import { Redirect } from "react-router";
 import './index.css';
 
 const EditForm = ({ title, content, setEditing, setEditedTitle, setEditedContent, setTitle, setContent, noteId }) => {
-    const [openDeleteModal, setOpenDeleteModal] = useState(false);
-    const [deletedNoteId, setDeletedNoteId] = useState(-1);
     const [note, setNote] = useState([]);
     const [errors, setErrors] = useState([]);
     const [noteCreated, setNoteCreated] = useState(false);

@@ -86,8 +86,8 @@ if (!user) {
             <div className='search-content-div'>
                 {note?.content}
                 <div className='search-edit-delete-div'>
-                <button to={`notes/${note.id}/edit`} className="note-page-edit-btn" onClick={() => editing_Note(note.id, note.title, note.content)}><FaRegEdit /></button>
-                        <button className="note-page-delete-btn" onClick={() => {modalFunction(note.id)}}><FaTrashAlt /></button>
+                    <button className="note-page-edit-btn" onClick={() => setEditing(!editing)}><FaRegEdit /></button>
+                    <button className="note-page-delete-btn" onClick={() => modalFunction(note.id)}><FaTrashAlt /></button>
                     {(openDeleteModal && deletedNoteId===note.id) && <DeleteModal setOpenDeleteModal={setOpenDeleteModal} noteId={note.id} />}
                 </div>
             </div>
