@@ -35,7 +35,7 @@ useEffect(() => {
             setContent(noteData.content);
         }
     })()
-}, [noteId, editing]);
+}, [noteCreated, noteDeleted, editing, title, content, noteId, openDeleteModal]);
 
 
 // Delete note
@@ -53,49 +53,16 @@ useEffect(() => {
 //     return res;
 // }
 
-//     if (!user) {
-//         return <Redirect to='/login' />;
-//         };
+    if (!user) {
+        return <Redirect to='/login' />;
+        };
 
 function modalFunction(noteId) {
     setDeletedNoteId(noteId);
     setOpenDeleteModal(true);
 }
 
-// function editing_Note(noteNumber, noteTitle, noteContent) {
-//     setEditing(!editing);
-//     setTitle(noteTitle);
-//     setContent(noteContent);
-//     setNoteId2(noteNumber);
-// }
 
-
-// if (!user) {
-//     return <Redirect to='/login' />;
-//   }
-
-//     return (
-//         <>
-//         <div className='search-result-div'>
-//         {(!editing && note) &&
-//             <div>
-//             <div className='search-title-div'>
-//                 {note?.title}
-//             </div>
-//         <br />
-//             <div className='search-content-div'>
-//                 {note?.content}
-//                 <div className='search-edit-delete-div'>
-//                     <button className="note-page-edit-btn" onClick={() => setEditing(!editing)}><FaRegEdit /></button>
-//                     <button className="note-page-delete-btn" onClick={() => modalFunction(note.id)}><FaTrashAlt /></button>
-//                     {(openDeleteModal && deletedNoteId===note.id) && <DeleteModal setOpenDeleteModal={setOpenDeleteModal} noteId={note.id} />}
-//                 </div>
-//             </div>
-//         </div>}
-//             {(editing) && <EditForm title={title} content={content} setTitle={setTitle} setContent={setContent} setEditing={setEditing} editing={editing} editedTitle={editedTitle} setEditedTitle={setEditedTitle} setEditedContent={setEditedContent} noteId={noteId}/>}
-//         </div>
-//         </>
-//     )
 function editing_Note(noteNumber, noteTitle, noteContent) {
     setEditing(!editing);
     setTitle(noteTitle);
